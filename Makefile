@@ -2,12 +2,12 @@
 # $FreeBSD$
 
 PORTNAME=	minetest
-DISTVERSION=	g20210402
+DISTVERSION=	g20210405
 CATEGORIES=	games
 MASTER_SITES=	https://github.com/minetest/minetest/archive/refs/heads/
 PKGNAMESUFFIX=	-dev
 DISTNAME=	master
-DIST_SUBDIR=	${PORTNAME}
+DIST_SUBDIR=	${PORTNAME}${PKGNAMESUFFIX}
 
 MAINTAINER=	nope@nothere
 COMMENT=	Near-infinite-world block sandbox game
@@ -17,14 +17,14 @@ LICENSE=	LGPL21+
 LIB_DEPENDS=	libsqlite3.so:databases/sqlite3 \
 		libIrrlichtMt.so:x11-toolkits/irrlicht-minetest
 
-CONFLICTS=	minetest
-
 USES=		zip cmake compiler:c11 iconv:wchar_t
+
+CONFLICTS=	minetest
 
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	88783679cf95803a615b70ed3686daaac65a74a6
+GH_TAGNAME=	85163b531f283c52111c3964fd382e4ed1dafeb8
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -144,11 +144,6 @@ EXTRA_PATCHES+=		${FILESDIR}/extra-patch-irrlichtdepend
 # You still need the Irrlicht headers for this, so first, download the irrlicht source to somewhere.
 #
 # When invoking CMake, use -DBUILD_CLIENT=0 -DIRRLICHT_SOURCE_DIR=/wherever/you/unzipped/the/source.
-
-#post-extract:
-# make sure no bundled gmp is used
-#	@${RM} -rf ${WRKSRC}/lib/gmp ${WRKSRC}/lib/jsoncpp
-# bundled lua is OK, there's no option to use system one
 
 #post-patch:
 #	@${REINPLACE_CMD} -e 's|/usr/local|${LOCALBASE}|' \
