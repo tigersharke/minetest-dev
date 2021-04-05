@@ -334,7 +334,6 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/testnodes/nodeboxes.lua
 %%DATADIR%%/games/devtest/mods/testnodes/param2.lua
 %%DATADIR%%/games/devtest/mods/testnodes/properties.lua
-%%DATADIR%%/games/devtest/mods/testnodes/settingtypes.txt
 %%DATADIR%%/games/devtest/mods/testnodes/textures.lua
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_1.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_1g.png
