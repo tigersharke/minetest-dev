@@ -74,7 +74,7 @@ OPTIONS_SUB=		yes
 
 CLIENT_DESC=		Build client
 CLIENT_CMAKE_BOOL=	BUILD_CLIENT
-CLIENT_LIB_DEPENDS=	libIrrlicht.so:x11-toolkits/irrlicht \
+CLIENT_LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest \
 			libpng.so:graphics/png
 CLIENT_USES=		gl jpeg xorg
 CLIENT_USE=		GL=gl \
