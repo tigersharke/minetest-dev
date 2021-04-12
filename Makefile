@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	minetest
-DISTVERSION=	g20210409
+DISTVERSION=	g20210411
 CATEGORIES=	games
 MASTER_SITES=	https://github.com/minetest/minetest/archive/refs/heads/
 PKGNAMESUFFIX=	-dev
@@ -23,7 +23,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	0abc1e98edb87b2e23eecccfd6b1393ac7fb4f56
+GH_TAGNAME=	4d0fef8ae87aa7b940d43485e7f6466eaa3d111e
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -93,7 +93,7 @@ NCURSES_DESC=		Enable ncurses console
 NCURSES_CMAKE_BOOL=	ENABLE_CURSES
 NCURSES_USES=		ncurses
 
-LUAJIT_DESC=		LuaJIT support
+LUAJIT_DESC=		LuaJIT support (lang/luajit-openresty)
 LUAJIT_CMAKE_BOOL=	ENABLE_LUAJIT REQUIRE_LUAJIT
 LUAJIT_LIB_DEPENDS=	libluajit-5.1.so:lang/luajit-openresty
 
