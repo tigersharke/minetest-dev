@@ -1,7 +1,5 @@
-# $FreeBSD$
-
 PORTNAME=	minetest
-DISTVERSION=	g20210418
+DISTVERSION=	g20210421
 CATEGORIES=	games
 MASTER_SITES=	https://github.com/minetest/minetest/archive/refs/heads/
 PKGNAMESUFFIX=	-dev
@@ -23,7 +21,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	0077982fb78a8ed39a90da03c0898d12583fed64
+GH_TAGNAME=	daf862a38a0df84a7e4cd387e41c55ae4467f4d2
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
