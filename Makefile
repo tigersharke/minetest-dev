@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20210421
+DISTVERSION=	g20210423
 CATEGORIES=	games
 MASTER_SITES=	https://github.com/minetest/minetest/archive/refs/heads/
 PKGNAMESUFFIX=	-dev
@@ -21,7 +21,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	3e2145d662d26443e96ac7191eda093c85c6f2bc
+GH_TAGNAME=	776015c350bc0210a13dd1a077c086cb81314c09
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
