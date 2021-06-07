@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20210605
+DISTVERSION=	g20210606
 CATEGORIES=	games
 MASTER_SITES=	https://github.com/minetest/minetest/archive/refs/heads/
 PKGNAMESUFFIX=	-dev
@@ -18,10 +18,12 @@ USES=		zip cmake compiler:c11 iconv:wchar_t
 
 CONFLICTS=	minetest
 
+USE_XORG+=	sm ice		# here until determined whether any are a conditional need
+USE_GL+=	glu		# here until determined whether this is a conditional need
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	46f42e15c41cf4ab23c5ff4cd8a7d99d94d10d7b
+GH_TAGNAME=	c47313db65f968559711ac1b505ef341a9872017
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \

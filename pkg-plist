@@ -138,6 +138,12 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/client/shaders/object_shader/opengl_vertex.glsl
 %%DATADIR%%/client/shaders/selection_shader/opengl_fragment.glsl
 %%DATADIR%%/client/shaders/selection_shader/opengl_vertex.glsl
+%%DATADIR%%/client/shaders/shadow_shaders/pass1_fragment.glsl
+%%DATADIR%%/client/shaders/shadow_shaders/pass1_trans_fragment.glsl
+%%DATADIR%%/client/shaders/shadow_shaders/pass1_trans_vertex.glsl
+%%DATADIR%%/client/shaders/shadow_shaders/pass1_vertex.glsl
+%%DATADIR%%/client/shaders/shadow_shaders/pass2_fragment.glsl
+%%DATADIR%%/client/shaders/shadow_shaders/pass2_vertex.glsl
 %%DATADIR%%/client/shaders/stars_shader/opengl_fragment.glsl
 %%DATADIR%%/client/shaders/stars_shader/opengl_vertex.glsl
 %%DATADIR%%/fonts/Arimo-Bold.ttf
