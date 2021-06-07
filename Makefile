@@ -11,13 +11,16 @@ COMMENT=	Near-infinite-world block sandbox game
 
 LICENSE=	LGPL21+
 
-LIB_DEPENDS=	libsqlite3.so:databases/sqlite3 \
-		libIrrlichtMt.so:x11-toolkits/irrlicht-minetest
+#LIB_DEPENDS=	libsqlite3.so:databases/sqlite3 \
+#		libIrrlichtMt.so:x11-toolkits/irrlicht-minetest
+LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest
 
-USES=		zip cmake compiler:c11 iconv:wchar_t
+USES=		zip cmake compiler:c11 iconv:wchar_t xorg gl sqlite
 
 CONFLICTS=	minetest
 
+# These two cannot be alone in needs USES 'xorg gl' but still need to verify conditional need
+# in addition, the USES 'sqlite' is not a verified mandatory depend.
 USE_XORG+=	sm ice		# here until determined whether any are a conditional need
 USE_GL+=	glu		# here until determined whether this is a conditional need
 USE_GITHUB=     nodefault
@@ -132,10 +135,7 @@ GROUPS=		minetest
 
 # hacky way to not bring irrlicht and X11 depends for server only
 .if ! ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MSERVER}
-BUILD_DEPENDS+=		${NONEXISTENT}:x11-toolkits/irrlicht:patch
-IRRLICHT_INCLUDE_DIR=	`${MAKE} -C ${PORTSDIR}/x11-toolkits/irrlicht -V WRKSRC`/include
-CMAKE_ARGS+=		-DIRRLICHT_INCLUDE_DIR:STRING="${IRRLICHT_INCLUDE_DIR}"
-EXTRA_PATCHES+=		${FILESDIR}/extra-patch-irrlichtdepend
+BROKEN= server only hack fails for irrlicht fork
 .endif
 # From wiki:
 #  Building without Irrlicht / X dependency
