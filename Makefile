@@ -11,18 +11,12 @@ COMMENT=	Near-infinite-world block sandbox game
 
 LICENSE=	LGPL21+
 
-#LIB_DEPENDS=	libsqlite3.so:databases/sqlite3 \
-#		libIrrlichtMt.so:x11-toolkits/irrlicht-minetest
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest
 
-USES=		zip cmake compiler:c11 iconv:wchar_t xorg gl sqlite
+USES=		zip cmake compiler:c11 iconv:wchar_t sqlite
 
 CONFLICTS=	minetest
 
-# These two cannot be alone in needs USES 'xorg gl' but still need to verify conditional need
-# in addition, the USES 'sqlite' is not a verified mandatory depend.
-USE_XORG+=	sm ice		# here until determined whether any are a conditional need
-USE_GL+=	glu		# here until determined whether this is a conditional need
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
@@ -68,7 +62,8 @@ GLVND_CMAKE_ON=		-DOPENGL_GL_PREFERENCE="GLVND"
 LEGACY_CMAKE_ON=	-DOPENGL_GL_PREFERENCE="LEGACY"
 
 DATABASE_DESC=		Database support
-OPTIONS_GROUP_DATABASE=	LEVELDB PGSQL REDIS SPATIAL
+OPTIONS_GROUP_DATABASE=	LEVELDB REDIS SPATIAL
+#OPTIONS_GROUP_DATABASE=	LEVELDB PGSQL REDIS SPATIAL
 
 OPTIONS_DEFAULT=	CLIENT CURL FREETYPE GLVND LUAJIT NCURSES SERVER SOUND \
 			SYSTEM_GMP SYSTEM_JSONCPP
@@ -79,15 +74,15 @@ CLIENT_CMAKE_BOOL=	BUILD_CLIENT
 CLIENT_LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest \
 			libpng.so:graphics/png
 CLIENT_USES=		gl jpeg xorg
-CLIENT_USE=		GL=gl \
-			XORG=x11,xext,xxf86vm
+CLIENT_USE=		GL=gl,glu \
+			XORG=ice,sm,x11,xext,xxf86vm
 SERVER_DESC=		Build server
 SERVER_CMAKE_BOOL=	BUILD_SERVER
 
 CURL_DESC=		Enable cURL support for fetching media
 CURL_CMAKE_BOOL=	ENABLE_CURL
 CURL_LIB_DEPENDS=	libcurl.so:ftp/curl
-SOUND_DESC=		Enable sound
+SOUND_DESC=		Enable sound via openal-soft
 SOUND_CMAKE_BOOL=	ENABLE_SOUND
 FREETYPE_DESC=		Support for TrueType fonts with unicode
 FREETYPE_CMAKE_BOOL=	ENABLE_FREETYPE
@@ -102,6 +97,7 @@ LUAJIT_LIB_DEPENDS=	libluajit-5.1.so:lang/luajit-openresty
 
 PGSQL_USES=		pgsql
 PGSQL_CMAKE_BOOL=	ENABLE_POSTGRESQL
+#PGSQL_LIB_DEPENDS=	libsqlite3.so:databases/sqlite3  # probable depend - check when this pgsql builds 
 LEVELDB_DESC=		Enable LevelDB backend
 LEVELDB_CMAKE_BOOL=	ENABLE_LEVELDB
 LEVELDB_LIB_DEPENDS=	libleveldb.so:databases/leveldb
@@ -121,7 +117,8 @@ NLS_LDFLAGS=	-L${LOCALBASE}/lib
 .if ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MSOUND}
 USES+=		openal
 LIB_DEPENDS+=	libogg.so:audio/libogg \
-		libvorbis.so:audio/libvorbis
+		libvorbis.so:audio/libvorbis \
+		libvorbisfile.so:audio/libvorbis
 .endif
 
 .if ${PORT_OPTIONS:MSERVER}
