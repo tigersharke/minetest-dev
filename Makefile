@@ -33,8 +33,8 @@ LDFLAGS_i386=	-Wl,-znotext
 #PORTDATA=	*
 #PORTDOCS=	*
 
-OPTIONS_DEFINE=	CURL DOCS EXAMPLES FREETYPE LUAJIT NCURSES NLS SOUND SYSTEM_GMP \
-		SYSTEM_JSONCPP
+OPTIONS_DEFINE=	CURL DOCS EXAMPLES FREETYPE GLES LUAJIT NCURSES NLS SOUND SYSTEM_GMP \
+		SYSTEM_JSONCPP PROMETHEUS
 OPTIONS_MULTI=	COMP
 OPTIONS_RADIO=	GRAPHICS
 OPTIONS_GROUP=	DATABASE
@@ -44,73 +44,80 @@ OPTIONS_MULTI_COMP=	CLIENT SERVER
 
 OPTIONS_RADIO_GRAPHICS=	GLVND LEGACY
 
-SYSTEM_GMP_DESC=	Use gmp from ports (ENABLE_SYSTEM_GMP)
-SYSTEM_GMP_CMAKE_BOOL=	ENABLE_SYSTEM_GMP
-SYSTEM_GMP_CMAKE_ON=	-DGMP_INCLUDE_DIR="${PREFIX}/include"
-SYSTEM_GMP_LIB_DEPENDS=	libgmp.so:math/gmp
+SYSTEM_GMP_DESC=		Use gmp from ports (ENABLE_SYSTEM_GMP)
+SYSTEM_GMP_CMAKE_BOOL=		ENABLE_SYSTEM_GMP
+SYSTEM_GMP_CMAKE_ON=		-DGMP_INCLUDE_DIR="${PREFIX}/include"
+SYSTEM_GMP_LIB_DEPENDS=		libgmp.so:math/gmp
 
 SYSTEM_JSONCPP_DESC=		Use jsoncpp from ports (ENABLE_SYSTEM_JSONCPP)
 SYSTEM_JSONCPP_CMAKE_BOOL=	ENABLE_SYSTEM_JSONCPP
 SYSTEM_JSONCPP_CMAKE_ON=	-DJSON_INCLUDE_DIR="${PREFIX}/include/jsoncpp"
 SYSTEM_JSONCPP_LIB_DEPENDS=	libjsoncpp.so:devel/jsoncpp
 
-GRAPHICS_DESC=	Graphics support
-GLVND_DESC=	Use libOpenGL or libGLX
-LEGACY_DESC=	Use libGL - where GLVND may be broken on nvidia
+GRAPHICS_DESC=			Graphics support
+GLVND_DESC=			Use libOpenGL or libGLX
+LEGACY_DESC=			Use libGL - where GLVND may be broken on nvidia
+GLES_DESC=			Use libOpenGLES instead of libOpenGL
 
-GLVND_CMAKE_ON=		-DOPENGL_GL_PREFERENCE="GLVND"
-LEGACY_CMAKE_ON=	-DOPENGL_GL_PREFERENCE="LEGACY"
+GLVND_CMAKE_ON=			-DOPENGL_GL_PREFERENCE="GLVND"
+LEGACY_CMAKE_ON=		-DOPENGL_GL_PREFERENCE="LEGACY"
+GLES_CMAKE_BOOL=		ENABLE_GLES
 
-DATABASE_DESC=		Database support
-OPTIONS_GROUP_DATABASE=	LEVELDB REDIS SPATIAL
+DATABASE_DESC=			Database support
+OPTIONS_GROUP_DATABASE=		LEVELDB REDIS SPATIAL
 #OPTIONS_GROUP_DATABASE=	LEVELDB PGSQL REDIS SPATIAL
 
-OPTIONS_DEFAULT=	CLIENT CURL FREETYPE GLVND LUAJIT NCURSES SERVER SOUND \
-			SYSTEM_GMP SYSTEM_JSONCPP
-OPTIONS_SUB=		yes
+OPTIONS_DEFAULT=		CLIENT CURL DOCS FREETYPE GLVND LUAJIT NCURSES SOUND \
+				SYSTEM_GMP SYSTEM_JSONCPP
+OPTIONS_SUB=			yes
 
-CLIENT_DESC=		Build client
-CLIENT_CMAKE_BOOL=	BUILD_CLIENT
-CLIENT_LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest \
-			libpng.so:graphics/png
-CLIENT_USES=		gl jpeg xorg
-CLIENT_USE=		GL=gl,glu \
-			XORG=ice,sm,x11,xext,xxf86vm
-SERVER_DESC=		Build server
-SERVER_CMAKE_BOOL=	BUILD_SERVER
+CLIENT_DESC=			Build client
+CLIENT_CMAKE_BOOL=		BUILD_CLIENT
+CLIENT_LIB_DEPENDS=		libIrrlichtMt.so:x11-toolkits/irrlicht-minetest \
+				libpng.so:graphics/png
+CLIENT_USES=			gl jpeg xorg
+CLIENT_USE=			GL=gl,glu \
+				XORG=ice,sm,x11,xext,xxf86vm
+SERVER_DESC=			Build server
+SERVER_CMAKE_BOOL=		BUILD_SERVER
+	
+CURL_DESC=			Enable cURL support for fetching media
+CURL_CMAKE_BOOL=		ENABLE_CURL
+CURL_LIB_DEPENDS=		libcurl.so:ftp/curl
+SOUND_DESC=			Enable sound via openal-soft
+SOUND_CMAKE_BOOL=		ENABLE_SOUND
+FREETYPE_DESC=			Support for TrueType fonts with unicode
+FREETYPE_CMAKE_BOOL=		ENABLE_FREETYPE
+FREETYPE_LIB_DEPENDS=		libfreetype.so:print/freetype2
+NCURSES_DESC=			Enable ncurses console
+NCURSES_CMAKE_BOOL=		ENABLE_CURSES
+NCURSES_USES=			ncurses
 
-CURL_DESC=		Enable cURL support for fetching media
-CURL_CMAKE_BOOL=	ENABLE_CURL
-CURL_LIB_DEPENDS=	libcurl.so:ftp/curl
-SOUND_DESC=		Enable sound via openal-soft
-SOUND_CMAKE_BOOL=	ENABLE_SOUND
-FREETYPE_DESC=		Support for TrueType fonts with unicode
-FREETYPE_CMAKE_BOOL=	ENABLE_FREETYPE
-FREETYPE_LIB_DEPENDS=	libfreetype.so:print/freetype2
-NCURSES_DESC=		Enable ncurses console
-NCURSES_CMAKE_BOOL=	ENABLE_CURSES
-NCURSES_USES=		ncurses
+LUAJIT_DESC=			LuaJIT support (lang/luajit-openresty)
+LUAJIT_CMAKE_BOOL=		ENABLE_LUAJIT REQUIRE_LUAJIT
+LUAJIT_LIB_DEPENDS=		libluajit-5.1.so:lang/luajit-openresty
+	
+PGSQL_USES=			pgsql
+PGSQL_CMAKE_BOOL=		ENABLE_POSTGRESQL
+#PGSQL_LIB_DEPENDS=		libsqlite3.so:databases/sqlite3  # probable depend - check when this pgsql builds 
+LEVELDB_DESC=			Enable LevelDB backend
+LEVELDB_CMAKE_BOOL=		ENABLE_LEVELDB
+LEVELDB_LIB_DEPENDS=		libleveldb.so:databases/leveldb
+REDIS_DESC=			Enable Redis backend
+REDIS_CMAKE_BOOL=		ENABLE_REDIS
+REDIS_LIB_DEPENDS=		libhiredis.so:databases/hiredis
+SPATIAL_DESC=			Enable SpatialIndex AreaStore backend
+SPATIAL_LIB_DEPENDS=		libspatialindex.so:devel/spatialindex
+SPATIAL_CMAKE_BOOL=		ENABLE_SPATIAL
 
-LUAJIT_DESC=		LuaJIT support (lang/luajit-openresty)
-LUAJIT_CMAKE_BOOL=	ENABLE_LUAJIT REQUIRE_LUAJIT
-LUAJIT_LIB_DEPENDS=	libluajit-5.1.so:lang/luajit-openresty
+NLS_DESC=			Native Language Support (ENABLE_GETTEXT)
+NLS_CMAKE_BOOL=			ENABLE_GETTEXT
+NLS_USES=			gettext
+NLS_LDFLAGS=			-L${LOCALBASE}/lib
 
-PGSQL_USES=		pgsql
-PGSQL_CMAKE_BOOL=	ENABLE_POSTGRESQL
-#PGSQL_LIB_DEPENDS=	libsqlite3.so:databases/sqlite3  # probable depend - check when this pgsql builds 
-LEVELDB_DESC=		Enable LevelDB backend
-LEVELDB_CMAKE_BOOL=	ENABLE_LEVELDB
-LEVELDB_LIB_DEPENDS=	libleveldb.so:databases/leveldb
-REDIS_DESC=		Enable Redis backend
-REDIS_CMAKE_BOOL=	ENABLE_REDIS
-REDIS_LIB_DEPENDS=	libhiredis.so:databases/hiredis
-SPATIAL_DESC=		Enable SpatialIndex AreaStore backend
-SPATIAL_LIB_DEPENDS=	libspatialindex.so:devel/spatialindex
-SPATIAL_CMAKE_BOOL=	ENABLE_SPATIAL
-
-NLS_CMAKE_BOOL=	ENABLE_GETTEXT
-NLS_USES=	gettext
-NLS_LDFLAGS=	-L${LOCALBASE}/lib
+PROMETHEUS_DESC=		Build with Prometheus metrics exporter
+PROMETHEUS_CMAKE_BOOL=		ENABLE_PROMETHEUS
+#PROMETHEUS_USES=		gettext
 
 .include <bsd.port.options.mk>
 
