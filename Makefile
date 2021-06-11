@@ -1,7 +1,6 @@
 PORTNAME=	minetest
 DISTVERSION=	g20210606
 CATEGORIES=	games
-MASTER_SITES=	https://github.com/minetest/minetest/archive/refs/heads/
 PKGNAMESUFFIX=	-dev
 DISTNAME=	master
 DIST_SUBDIR=	${PORTNAME}${PKGNAMESUFFIX}
