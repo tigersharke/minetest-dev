@@ -12,7 +12,7 @@ LICENSE=	LGPL21+
 
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest
 
-USES=		zip cmake compiler:c11 iconv:wchar_t sqlite
+USES=		cmake compiler:c11 iconv:wchar_t sqlite
 
 CONFLICTS=	minetest
 
@@ -25,7 +25,7 @@ CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
 		-DCUSTOM_MANDIR="${PREFIX}/man"
-WRKSRC=	${WRKDIR}/minetest-master
+WRKSRC=	${WRKDIR}/minetest-${GH_TAGNAME}
 
 LDFLAGS_i386=	-Wl,-znotext
 
