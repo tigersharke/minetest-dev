@@ -1,0 +1,8 @@
+# exclude everything but the standard ports tree leaf files
+/*
+!Makefile
+!distinfo
+!pkg-descr
+!pkg-plist
+!/files
+!/files/*
