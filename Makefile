@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20210629
+DISTVERSION=	g20210630
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -19,12 +19,14 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	fa4dee0e62dcf2bbfb68b17cf97e438eab58be93
+GH_TAGNAME=	8cc04e0cb4fb186092732c7687543f67b4628c96
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
-		-DCUSTOM_MANDIR="${PREFIX}/man"
+		-DCUSTOM_MANDIR="${PREFIX}/man" \
+		-DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
+
 WRKSRC=	${WRKDIR}/minetest-${GH_TAGNAME}
 
 LDFLAGS_i386=	-Wl,-znotext
@@ -58,7 +60,9 @@ GLVND_DESC=			Use libOpenGL or libGLX
 LEGACY_DESC=			Use libGL - where GLVND may be broken on nvidia
 GLES_DESC=			Use libOpenGLES instead of libOpenGL
 
+GLVND_CMAKE_BOOL=		ENABLE_GLVND
 GLVND_CMAKE_ON=			-DOPENGL_GL_PREFERENCE="GLVND"
+LEGACY_CMAKE_BOOL=		ENABLE_LEGACY
 LEGACY_CMAKE_ON=		-DOPENGL_GL_PREFERENCE="LEGACY"
 GLES_CMAKE_BOOL=		ENABLE_GLES
 
@@ -79,7 +83,7 @@ CLIENT_USE=			GL=gl,glu \
 				XORG=ice,sm,x11,xext,xxf86vm
 SERVER_DESC=			Build server
 SERVER_CMAKE_BOOL=		BUILD_SERVER
-	
+
 CURL_DESC=			Enable cURL support for fetching media
 CURL_CMAKE_BOOL=		ENABLE_CURL
 CURL_LIB_DEPENDS=		libcurl.so:ftp/curl
@@ -95,10 +99,10 @@ NCURSES_USES=			ncurses
 LUAJIT_DESC=			LuaJIT support (lang/luajit-openresty)
 LUAJIT_CMAKE_BOOL=		ENABLE_LUAJIT REQUIRE_LUAJIT
 LUAJIT_LIB_DEPENDS=		libluajit-5.1.so:lang/luajit-openresty
-	
+
 PGSQL_USES=			pgsql
 PGSQL_CMAKE_BOOL=		ENABLE_POSTGRESQL
-#PGSQL_LIB_DEPENDS=		libsqlite3.so:databases/sqlite3  # probable depend - check when this pgsql builds 
+#PGSQL_LIB_DEPENDS=		libsqlite3.so:databases/sqlite3  # probable depend - check when this pgsql builds
 LEVELDB_DESC=			Enable LevelDB backend
 LEVELDB_CMAKE_BOOL=		ENABLE_LEVELDB
 LEVELDB_LIB_DEPENDS=		libleveldb.so:databases/leveldb
