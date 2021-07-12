@@ -1,5 +1,6 @@
 PORTNAME=	minetest
-DISTVERSION=	g20210630
+DISTVERSION=	g20210712
+#DISTVERSION=	g20210630
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -12,14 +13,17 @@ LICENSE=	LGPL21+
 
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest
 
-USES=		cmake compiler:c11 iconv:wchar_t sqlite
+USES=		cmake compiler:gcc-c++11-lib iconv:wchar_t sqlite
+#c++11-lib c++11-lang c++14-lang c++17-lang c11 features openmp env nestedfct c++0x gcc-c++11-lib
 
 CONFLICTS=	minetest
 
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	8cc04e0cb4fb186092732c7687543f67b4628c96
+GH_TAGNAME=	5c89a0e12a1e679180b14bf92bdcdb1614e3982e
+# prior working version tag
+#GH_TAGNAME=	8cc04e0cb4fb186092732c7687543f67b4628c96
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
