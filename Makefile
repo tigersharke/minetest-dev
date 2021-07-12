@@ -13,8 +13,7 @@ LICENSE=	LGPL21+
 
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest
 
-USES=		cmake compiler:gcc-c++11-lib iconv:wchar_t sqlite
-#c++11-lib c++11-lang c++14-lang c++17-lang c11 features openmp env nestedfct c++0x gcc-c++11-lib
+USES=		cmake compiler:c11 iconv:wchar_t sqlite
 
 CONFLICTS=	minetest
 
