@@ -468,11 +468,14 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_rooted_base_side_degrotate.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_rooted_base_side_leveled.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_rooted_base_side_meshoptions.png
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_rooted_base_side_wallmounted.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_rooted_base_side_waving.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_rooted_degrotate.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_rooted_leveled.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_rooted_meshoptions.png
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_rooted_wallmounted.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_rooted_waving.png
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_wallmounted.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_waving.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_rail2_crossing.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_rail2_curved.png
