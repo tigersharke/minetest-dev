@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20210914
+DISTVERSION=	g20210915
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -10,16 +10,18 @@ COMMENT=	Near-infinite-world block sandbox game
 
 LICENSE=	LGPL21+
 
-LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest
+LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
 
-USES=		cmake compiler:c11 iconv:wchar_t sqlite
+#USES=		cmake compiler:c11 iconv:wchar_t pgsql		# complains missing sqlite
+#USES=		cmake compiler:c11 iconv:wchar_t sqlite		# complains missing pgsql
+USES=		cmake compiler:c11 iconv:wchar_t pgsql sqlite
 
 CONFLICTS=	minetest
 
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	719a12ecac1c5363612e0c230eae411bdb3fe058
+GH_TAGNAME=	6fedee16f098549ffaee188b02b777239513abc3
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -100,9 +102,6 @@ LUAJIT_DESC=			LuaJIT support (lang/luajit-openresty)
 LUAJIT_CMAKE_BOOL=		ENABLE_LUAJIT REQUIRE_LUAJIT
 LUAJIT_LIB_DEPENDS=		libluajit-5.1.so:lang/luajit-openresty
 
-PGSQL_USES=			pgsql
-PGSQL_CMAKE_BOOL=		ENABLE_POSTGRESQL
-#PGSQL_LIB_DEPENDS=		libsqlite3.so:databases/sqlite3  # probable depend - check when this pgsql builds
 LEVELDB_DESC=			Enable LevelDB backend
 LEVELDB_CMAKE_BOOL=		ENABLE_LEVELDB
 LEVELDB_LIB_DEPENDS=		libleveldb.so:databases/leveldb

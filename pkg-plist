@@ -3,6 +3,7 @@
 %%EXAMPLES%%@sample etc/minetest.conf.example etc/minetest.conf
 %%DOCS%%man/man6/minetest.6.gz
 %%DOCS%%man/man6/minetestserver.6.gz
+%%SERVER%%etc/rc.d/minetest
 share/applications/net.minetest.minetest.desktop
 %%PORTDOCS%%%%DOCSDIR%%/README.md
 %%PORTDOCS%%%%DOCSDIR%%/client_lua_api.txt
