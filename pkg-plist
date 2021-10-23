@@ -230,6 +230,8 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_woodshears.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_woodshovel.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_woodsword.png
+%%DATADIR%%/games/devtest/mods/broken/init.lua
+%%DATADIR%%/games/devtest/mods/broken/mod.conf
 %%DATADIR%%/games/devtest/mods/bucket/init.lua
 %%DATADIR%%/games/devtest/mods/bucket/mod.conf
 %%DATADIR%%/games/devtest/mods/bucket/textures/bucket.png
@@ -595,6 +597,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%CLIENT%%%%DATADIR%%/textures/base/pack/minimap_overlay_square.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/next_icon.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/no_screenshot.png
+%%CLIENT%%%%DATADIR%%/textures/base/pack/no_texture.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/no_texture_airlike.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/noclip_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/object_marker_red.png
