@@ -208,7 +208,6 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/basenodes/textures/info.txt
 %%DATADIR%%/games/devtest/mods/basetools/init.lua
 %%DATADIR%%/games/devtest/mods/basetools/mod.conf
-%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_dirtpick.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_firesword.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_icesword.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_mesepick.png
