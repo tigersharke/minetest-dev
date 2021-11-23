@@ -113,6 +113,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/mainmenu/dlg_delete_world.lua
 %%DATADIR%%/builtin/mainmenu/dlg_rename_modpack.lua
 %%DATADIR%%/builtin/mainmenu/dlg_settings_advanced.lua
+%%DATADIR%%/builtin/mainmenu/game_theme.lua
 %%DATADIR%%/builtin/mainmenu/generate_from_settingtypes.lua
 %%DATADIR%%/builtin/mainmenu/init.lua
 %%DATADIR%%/builtin/mainmenu/pkgmgr.lua
@@ -124,7 +125,6 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/mainmenu/tab_settings.lua
 %%DATADIR%%/builtin/mainmenu/tests/favorites_wellformed.txt
 %%DATADIR%%/builtin/mainmenu/tests/serverlistmgr_spec.lua
-%%DATADIR%%/builtin/mainmenu/textures.lua
 %%DATADIR%%/builtin/profiler/init.lua
 %%DATADIR%%/builtin/profiler/instrumentation.lua
 %%DATADIR%%/builtin/profiler/reporter.lua
