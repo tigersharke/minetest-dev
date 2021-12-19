@@ -534,9 +534,9 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/unittests/crafting_prepare.lua
 %%DATADIR%%/games/devtest/mods/unittests/init.lua
 %%DATADIR%%/games/devtest/mods/unittests/itemdescription.lua
+%%DATADIR%%/games/devtest/mods/unittests/misc.lua
 %%DATADIR%%/games/devtest/mods/unittests/mod.conf
 %%DATADIR%%/games/devtest/mods/unittests/player.lua
-%%DATADIR%%/games/devtest/mods/unittests/random.lua
 %%DATADIR%%/games/devtest/mods/unittests/textures/default_dirt.png
 %%DATADIR%%/games/devtest/mods/unittests/textures/unittests_coal_lump.png
 %%DATADIR%%/games/devtest/mods/unittests/textures/unittests_iron_lump.png
