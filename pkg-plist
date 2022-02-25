@@ -501,6 +501,16 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_street_straight.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_street_t_junction.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_sunlight_filter.png
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type10_32bpp_bt.tga
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type10_32bpp_tb.tga
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type1_24bpp_bt.tga
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type1_24bpp_tb.tga
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type2_16bpp_bt.tga
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type2_16bpp_tb.tga
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type2_32bpp_bt.tga
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type2_32bpp_tb.tga
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type3_16bpp_bt.tga
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type3_16bpp_tb.tga
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_torchlike_ceiling.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_torchlike_floor.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_torchlike_wall.png
