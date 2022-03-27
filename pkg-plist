@@ -258,6 +258,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/experimental/detached.lua
 %%DATADIR%%/games/devtest/mods/experimental/init.lua
 %%DATADIR%%/games/devtest/mods/experimental/items.lua
+%%DATADIR%%/games/devtest/mods/experimental/lighting.lua
 %%DATADIR%%/games/devtest/mods/experimental/mod.conf
 %%DATADIR%%/games/devtest/mods/experimental/textures/experimental_callback_node.png
 %%DATADIR%%/games/devtest/mods/experimental/textures/experimental_particle_sheet.png
