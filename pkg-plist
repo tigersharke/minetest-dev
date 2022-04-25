@@ -210,9 +210,14 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/basenodes/textures/info.txt
 %%DATADIR%%/games/devtest/mods/basetools/init.lua
 %%DATADIR%%/games/devtest/mods/basetools/mod.conf
+%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_bloodsword.png
+%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_elementalsword.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_firesword.png
+%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_healdagger.png
+%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_healsword.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_icesword.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_mesepick.png
+%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_mesesword.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_steelaxe.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_steeldagger.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_steelpick.png
@@ -226,7 +231,12 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_stoneshears.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_stoneshovel.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_stonesword.png
+%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_superhealsword.png
+%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_titaniumsword.png
+%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_usespick.png
+%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_usessword.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_woodaxe.png
+%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_wooddagger.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_woodpick.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_woodshears.png
 %%DATADIR%%/games/devtest/mods/basetools/textures/basetools_woodshovel.png
@@ -550,6 +560,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/unittests/player.lua
 %%DATADIR%%/games/devtest/mods/unittests/textures/default_dirt.png
 %%DATADIR%%/games/devtest/mods/unittests/textures/unittests_coal_lump.png
+%%DATADIR%%/games/devtest/mods/unittests/textures/unittests_description_test.png
 %%DATADIR%%/games/devtest/mods/unittests/textures/unittests_iron_lump.png
 %%DATADIR%%/games/devtest/mods/unittests/textures/unittests_repairable_tool.png
 %%DATADIR%%/games/devtest/mods/unittests/textures/unittests_steel_ingot.png
