@@ -164,6 +164,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%CLIENT%%%%FREETYPE%%%%DATADIR%%/fonts/Cousine-Regular.ttf
 %%CLIENT%%%%FREETYPE%%%%DATADIR%%/fonts/DroidSansFallbackFull-LICENSE.txt
 %%CLIENT%%%%FREETYPE%%%%DATADIR%%/fonts/DroidSansFallbackFull.ttf
+%%DATADIR%%/games/devtest/.luacheckrc
 %%DATADIR%%/games/devtest/LICENSE.txt
 %%DATADIR%%/games/devtest/README.md
 %%DATADIR%%/games/devtest/game.conf
