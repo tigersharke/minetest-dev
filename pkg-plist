@@ -64,7 +64,8 @@ share/icons/hicolor/scalable/apps/minetest.svg
 %%CLIENT%%%%NLS%%share/locale/zh_CN/LC_MESSAGES/minetest.mo
 %%CLIENT%%%%NLS%%share/locale/zh_TW/LC_MESSAGES/minetest.mo
 share/metainfo/net.minetest.minetest.appdata.xml
-%%DATADIR%%/builtin/async/init.lua
+%%DATADIR%%/builtin/async/game.lua
+%%DATADIR%%/builtin/async/mainmenu.lua
 %%DATADIR%%/builtin/client/chatcommands.lua
 %%DATADIR%%/builtin/client/death_formspec.lua
 %%DATADIR%%/builtin/client/init.lua
@@ -84,6 +85,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/fstk/dialog.lua
 %%DATADIR%%/builtin/fstk/tabview.lua
 %%DATADIR%%/builtin/fstk/ui.lua
+%%DATADIR%%/builtin/game/async.lua
 %%DATADIR%%/builtin/game/auth.lua
 %%DATADIR%%/builtin/game/chat.lua
 %%DATADIR%%/builtin/game/constants.lua
@@ -95,8 +97,10 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/game/init.lua
 %%DATADIR%%/builtin/game/item.lua
 %%DATADIR%%/builtin/game/item_entity.lua
+%%DATADIR%%/builtin/game/item_s.lua
 %%DATADIR%%/builtin/game/knockback.lua
 %%DATADIR%%/builtin/game/misc.lua
+%%DATADIR%%/builtin/game/misc_s.lua
 %%DATADIR%%/builtin/game/privileges.lua
 %%DATADIR%%/builtin/game/register.lua
 %%DATADIR%%/builtin/game/statbars.lua
@@ -552,9 +556,11 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/tiled/init.lua
 %%DATADIR%%/games/devtest/mods/tiled/mod.conf
 %%DATADIR%%/games/devtest/mods/tiled/textures/tiled_tiled.png
+%%DATADIR%%/games/devtest/mods/unittests/async_env.lua
 %%DATADIR%%/games/devtest/mods/unittests/crafting.lua
 %%DATADIR%%/games/devtest/mods/unittests/crafting_prepare.lua
 %%DATADIR%%/games/devtest/mods/unittests/init.lua
+%%DATADIR%%/games/devtest/mods/unittests/inside_async_env.lua
 %%DATADIR%%/games/devtest/mods/unittests/itemdescription.lua
 %%DATADIR%%/games/devtest/mods/unittests/misc.lua
 %%DATADIR%%/games/devtest/mods/unittests/mod.conf
