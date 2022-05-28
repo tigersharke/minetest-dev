@@ -354,6 +354,10 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_pressed.png
 %%DATADIR%%/games/devtest/mods/testhud/init.lua
 %%DATADIR%%/games/devtest/mods/testhud/mod.conf
+%%DATADIR%%/games/devtest/mods/testitems/init.lua
+%%DATADIR%%/games/devtest/mods/testitems/mod.conf
+%%DATADIR%%/games/devtest/mods/testitems/textures/testitems_overlay_base.png
+%%DATADIR%%/games/devtest/mods/testitems/textures/testitems_overlay_overlay.png
 %%DATADIR%%/games/devtest/mods/testnodes/README.md
 %%DATADIR%%/games/devtest/mods/testnodes/drawtypes.lua
 %%DATADIR%%/games/devtest/mods/testnodes/init.lua
@@ -364,6 +368,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/testnodes/models/testnodes_ocorner.obj
 %%DATADIR%%/games/devtest/mods/testnodes/models/testnodes_pyramid.obj
 %%DATADIR%%/games/devtest/mods/testnodes/nodeboxes.lua
+%%DATADIR%%/games/devtest/mods/testnodes/overlays.lua
 %%DATADIR%%/games/devtest/mods/testnodes/param2.lua
 %%DATADIR%%/games/devtest/mods/testnodes/properties.lua
 %%DATADIR%%/games/devtest/mods/testnodes/textures.lua
@@ -480,6 +485,8 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_normal4.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_normal5.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_normal6.png
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_overlay.png
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_overlayable.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_palette_facedir.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_palette_full.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_palette_wallmounted.png
