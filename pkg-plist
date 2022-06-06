@@ -117,6 +117,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/mainmenu/dlg_create_world.lua
 %%DATADIR%%/builtin/mainmenu/dlg_delete_content.lua
 %%DATADIR%%/builtin/mainmenu/dlg_delete_world.lua
+%%DATADIR%%/builtin/mainmenu/dlg_register.lua
 %%DATADIR%%/builtin/mainmenu/dlg_rename_modpack.lua
 %%DATADIR%%/builtin/mainmenu/dlg_settings_advanced.lua
 %%DATADIR%%/builtin/mainmenu/game_theme.lua
@@ -649,6 +650,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%CLIENT%%%%DATADIR%%/textures/base/pack/refresh.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/search.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/server_favorite.png
+%%CLIENT%%%%DATADIR%%/textures/base/pack/server_favorite_delete.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/server_flags_creative.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/server_flags_damage.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/server_flags_pvp.png
