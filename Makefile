@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20220610
+DISTVERSION=	g20220611
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -14,14 +14,14 @@ LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archiver
 
 #USES=		cmake compiler:c11 iconv:wchar_t pgsql		# complains missing sqlite
 #USES=		cmake compiler:c11 iconv:wchar_t sqlite		# complains missing pgsql
-USES=		cmake compiler:c++14-lang iconv:wchar_t pgsql sqlite # overdue update (Feb 26) to c++14 from c11
+USES=		cmake compiler:c++14-lang iconv:wchar_t pgsql sqlite
 
 CONFLICTS=	minetest
 
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	ba65e0ace76dc39dab15b70725cafc629d165e7f
+GH_TAGNAME=	7ffc0268dfd78647187554d6248015329e9f5d2d
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -37,7 +37,8 @@ LDFLAGS_i386=	-Wl,-znotext
 #PORTDOCS=	*
 
 OPTIONS_DEFINE=	CURL DOCS EXAMPLES FREETYPE GLES LUAJIT NCURSES NLS SOUND SYSTEM_GMP \
-		SYSTEM_JSONCPP PROMETHEUS
+		SYSTEM_JSONCPP TOUCH PROMETHEUS
+OPTIONS_DEFAULT=CURL FREETYPE LUAJIT SOUND SYSTEM_GMP SYSTEM_JSONCPP CLIENT GLVND
 OPTIONS_MULTI=	COMP
 OPTIONS_RADIO=	GRAPHICS
 OPTIONS_GROUP=	DATABASE
@@ -72,8 +73,6 @@ DATABASE_DESC=			Database support
 OPTIONS_GROUP_DATABASE=		LEVELDB REDIS SPATIAL
 #OPTIONS_GROUP_DATABASE=	LEVELDB PGSQL REDIS SPATIAL
 
-OPTIONS_DEFAULT=		CLIENT CURL DOCS FREETYPE GLVND LUAJIT NCURSES SOUND \
-				SYSTEM_GMP SYSTEM_JSONCPP
 OPTIONS_SUB=			yes
 
 CLIENT_DESC=			Build client
@@ -116,6 +115,9 @@ NLS_DESC=			Native Language Support (ENABLE_GETTEXT)
 NLS_CMAKE_BOOL=			ENABLE_GETTEXT
 NLS_USES=			gettext
 NLS_LDFLAGS=			-L${LOCALBASE}/lib
+
+TOUCH_DESC=			Build with touch interface support
+TOUCH_CMAKE_BOOL=		ENABLE_TOUCH
 
 PROMETHEUS_DESC=		Build with Prometheus metrics exporter
 PROMETHEUS_CMAKE_BOOL=		ENABLE_PROMETHEUS
