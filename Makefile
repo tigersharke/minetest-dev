@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20220613
+DISTVERSION=	g20220614
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -12,8 +12,6 @@ LICENSE=	LGPL21+
 
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
 
-#USES=		cmake compiler:c11 iconv:wchar_t pgsql		# complains missing sqlite
-#USES=		cmake compiler:c11 iconv:wchar_t sqlite		# complains missing pgsql
 USES=		cmake compiler:c++14-lang iconv:wchar_t pgsql sqlite
 
 CONFLICTS=	minetest
@@ -21,7 +19,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	0f3f1a001c0dcaa91169bbc90900a47120bb2763
+GH_TAGNAME=	992f501159b2fc6c5878d86cc477413250b4efa2
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
