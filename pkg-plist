@@ -339,6 +339,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/testformspec/textures/default_chest_inside.png
 %%DATADIR%%/games/devtest/mods/testformspec/textures/default_chest_side.png
 %%DATADIR%%/games/devtest/mods/testformspec/textures/default_chest_top.png
+%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_9slice.png
 %%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_animation.jpg
 %%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_animation.png
 %%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_bg.png
@@ -553,6 +554,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/testtools/textures/testtools_entity_scaler.png
 %%DATADIR%%/games/devtest/mods/testtools/textures/testtools_entity_spawner.png
 %%DATADIR%%/games/devtest/mods/testtools/textures/testtools_falling_node_tool.png
+%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_item_meta_editor.png
 %%DATADIR%%/games/devtest/mods/testtools/textures/testtools_lighttool.png
 %%DATADIR%%/games/devtest/mods/testtools/textures/testtools_node_meta_editor.png
 %%DATADIR%%/games/devtest/mods/testtools/textures/testtools_node_setter.png
