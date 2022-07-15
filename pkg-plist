@@ -605,6 +605,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%CLIENT%%%%DATADIR%%/textures/base/pack/chat_hide_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/chat_show_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/checkbox_16.png
+%%CLIENT%%%%DATADIR%%/textures/base/pack/checkbox_16_white.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/checkbox_32.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/checkbox_64.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/clear.png
@@ -613,6 +614,8 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%CLIENT%%%%DATADIR%%/textures/base/pack/down.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/drop_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/end_icon.png
+%%CLIENT%%%%DATADIR%%/textures/base/pack/error_icon_orange.png
+%%CLIENT%%%%DATADIR%%/textures/base/pack/error_icon_red.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/error_screenshot.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/fast_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/fly_btn.png
