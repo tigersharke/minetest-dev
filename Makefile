@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20220730
+DISTVERSION=	g20220731
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -19,7 +19,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	a8711158896d993e23d823f41ab086c3915c7d4e
+GH_TAGNAME=	839600ed703ccffbdb71bd2f04fb379d0920da95
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -154,7 +154,9 @@ BROKEN= server only hack fails for irrlicht fork
 #	@${REINPLACE_CMD} -e 's|/usr/local|${LOCALBASE}|' \
 #		${WRKSRC}/cmake/Modules/*.cmake
 
-# Unused:
+#CMake Warning:
+#  Manually-specified variables were not used by the project:
+#
 #    CMAKE_MODULE_LINKER_FLAGS
 #    CMAKE_SHARED_LINKER_FLAGS
 #    CMAKE_VERBOSE_MAKEFILE
