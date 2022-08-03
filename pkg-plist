@@ -70,6 +70,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/client/chatcommands.lua
 %%DATADIR%%/builtin/client/death_formspec.lua
 %%DATADIR%%/builtin/client/init.lua
+%%DATADIR%%/builtin/client/misc.lua
 %%DATADIR%%/builtin/client/register.lua
 %%DATADIR%%/builtin/common/after.lua
 %%DATADIR%%/builtin/common/chatcommands.lua
@@ -122,6 +123,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/mainmenu/dlg_register.lua
 %%DATADIR%%/builtin/mainmenu/dlg_rename_modpack.lua
 %%DATADIR%%/builtin/mainmenu/dlg_settings_advanced.lua
+%%DATADIR%%/builtin/mainmenu/dlg_version_info.lua
 %%DATADIR%%/builtin/mainmenu/game_theme.lua
 %%DATADIR%%/builtin/mainmenu/generate_from_settingtypes.lua
 %%DATADIR%%/builtin/mainmenu/init.lua
