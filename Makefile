@@ -8,11 +8,14 @@ DIST_SUBDIR=	${PORTNAME}${PKGNAMESUFFIX}
 MAINTAINER=	nope@nothere
 COMMENT=	Near-infinite-world block sandbox game
 
-LICENSE=	LGPL21+
-
+#LICENSE=	LGPL21+
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
 
-USES=		cmake compiler:c++14-lang iconv:wchar_t pgsql sqlite
+USES=		cmake compiler:c++14-lang iconv:wchar_t sqlite
+# Upstream requires Clang 3.5+ which for our criteria matches c++14-lang
+# since https://en.cppreference.com/w/cpp/compiler_support
+# lists "C++14 library support status (complete as of 3.5)"
+# All other dependency version numbers are more direct and obvious, and surpass requirement.
 
 CONFLICTS=	minetest
 
@@ -36,7 +39,7 @@ LDFLAGS_i386=	-Wl,-znotext
 
 OPTIONS_DEFINE=	CURL DOCS EXAMPLES FREETYPE GLES LUAJIT NCURSES NLS SOUND SYSTEM_GMP \
 		SYSTEM_JSONCPP TOUCH PROMETHEUS
-OPTIONS_DEFAULT=CURL FREETYPE LUAJIT SOUND SYSTEM_GMP SYSTEM_JSONCPP CLIENT GLVND
+OPTIONS_DEFAULT=CURL FREETYPE LUAJIT SOUND SYSTEM_GMP SYSTEM_JSONCPP CLIENT GLVND SPATIAL
 OPTIONS_MULTI=	COMP
 OPTIONS_RADIO=	GRAPHICS
 OPTIONS_GROUP=	DATABASE
@@ -68,8 +71,8 @@ LEGACY_CMAKE_ON=		-DOPENGL_GL_PREFERENCE="LEGACY"
 GLES_CMAKE_BOOL=		ENABLE_GLES
 
 DATABASE_DESC=			Database support
-OPTIONS_GROUP_DATABASE=		LEVELDB REDIS SPATIAL
-#OPTIONS_GROUP_DATABASE=	LEVELDB PGSQL REDIS SPATIAL
+#OPTIONS_GROUP_DATABASE=	LEVELDB REDIS SPATIAL
+OPTIONS_GROUP_DATABASE=		LEVELDB PGSQL REDIS SPATIAL
 
 OPTIONS_SUB=			yes
 
@@ -102,10 +105,13 @@ LUAJIT_LIB_DEPENDS=		libluajit-5.1.so:lang/luajit-openresty
 LEVELDB_DESC=			Enable LevelDB backend
 LEVELDB_CMAKE_BOOL=		ENABLE_LEVELDB
 LEVELDB_LIB_DEPENDS=		libleveldb.so:databases/leveldb
+PGSQL_DESC=			Enable PostgreSQL map backend
+PGSQL_USES=			pgsql
+PGSQL_CMAKE_BOOL=		ENABLE_POSTGRESQL
 REDIS_DESC=			Enable Redis backend
 REDIS_CMAKE_BOOL=		ENABLE_REDIS
 REDIS_LIB_DEPENDS=		libhiredis.so:databases/hiredis
-SPATIAL_DESC=			Enable SpatialIndex AreaStore backend
+SPATIAL_DESC=			Enable SpatialIndex (Speeds up AreaStores)
 SPATIAL_LIB_DEPENDS=		libspatialindex.so:devel/spatialindex
 SPATIAL_CMAKE_BOOL=		ENABLE_SPATIAL
 
@@ -140,9 +146,9 @@ GROUPS=		minetest
 .endif
 
 # hacky way to not bring irrlicht and X11 depends for server only
-.if ! ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MSERVER}
-BROKEN= server only hack fails for irrlicht fork
-.endif
+#.if ! ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MSERVER}
+#BROKEN= server only hack fails for irrlicht fork
+#.endif
 # From wiki:
 #  Building without Irrlicht / X dependency
 # You can build the Minetest server without library dependencies to Irrlicht or any graphical stuff.
