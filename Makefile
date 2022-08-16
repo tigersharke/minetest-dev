@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20220814
+DISTVERSION=	g20220815
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -8,7 +8,7 @@ DIST_SUBDIR=	${PORTNAME}${PKGNAMESUFFIX}
 MAINTAINER=	nope@nothere
 COMMENT=	Near-infinite-world block sandbox game
 
-#LICENSE=	LGPL21+
+LICENSE=	LGPL21+
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
 
 USES=		cmake compiler:c++14-lang iconv:wchar_t sqlite
@@ -22,7 +22,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	aa2fdc6ef6300f6b6683f96305bb1d9e63ba8ebb
+GH_TAGNAME=	7c5e3cac6a36a41baea5e308cad7e74bbc6e1cbe
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \

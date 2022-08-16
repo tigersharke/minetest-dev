@@ -135,6 +135,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/mainmenu/tab_online.lua
 %%DATADIR%%/builtin/mainmenu/tab_settings.lua
 %%DATADIR%%/builtin/mainmenu/tests/favorites_wellformed.txt
+%%DATADIR%%/builtin/mainmenu/tests/pkgmgr_spec.lua
 %%DATADIR%%/builtin/mainmenu/tests/serverlistmgr_spec.lua
 %%DATADIR%%/builtin/profiler/init.lua
 %%DATADIR%%/builtin/profiler/instrumentation.lua
