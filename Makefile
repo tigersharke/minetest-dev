@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20220904
+DISTVERSION=	g20220906
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -9,6 +9,7 @@ MAINTAINER=	nope@nothere
 COMMENT=	Near-infinite-world block sandbox game
 
 LICENSE=	LGPL21+
+
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
 
 USES=		cmake compiler:c++14-lang iconv:wchar_t sqlite
@@ -22,7 +23,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	464043b8abdbd936640757604ecb21662592043b
+GH_TAGNAME=	643971c948c1aef424f2a55e81414e30958c40ee
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -145,6 +146,14 @@ USERS=		minetest
 GROUPS=		minetest
 .endif
 
+post-install:
+	@${ECHO_MSG} " "
+	@${ECHO_MSG} "-->  /usr/local/etc/minetest.conf.example explains options and gives their default values. "
+	@${ECHO_MSG} " "
+
+# --> Need to figure out about fonts, deny installing bundled ones, link to system ones instead.
+#  	These are mentioned in the generate pkg-plist file.
+#
 # hacky way to not bring irrlicht and X11 depends for server only
 #.if ! ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MSERVER}
 #BROKEN= server only hack fails for irrlicht fork
