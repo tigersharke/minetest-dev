@@ -496,6 +496,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_normal6.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_overlay.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_overlayable.png
+%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_palette_4dir.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_palette_facedir.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_palette_full.png
 %%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_palette_wallmounted.png

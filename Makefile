@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20220913
+DISTVERSION=	g20220916
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -23,7 +23,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	f3f3b752f2b13e1edb6d495a161fe49e960453c9
+GH_TAGNAME=	a428a0cf37581a35f9c4f81c2e71633e6cc3dbb9
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -36,7 +36,7 @@ WRKSRC=	${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 LDFLAGS_i386=	-Wl,-znotext
 
 OPTIONS_DEFINE=	CURL DOCS EXAMPLES FREETYPE GLES LUAJIT NCURSES NLS SOUND SYSTEM_GMP \
-		SYSTEM_JSONCPP TOUCH PROMETHEUS
+		SYSTEM_JSONCPP TOUCH PROMETHEUS # SYSTEM_FONTS
 OPTIONS_DEFAULT=CURL FREETYPE LUAJIT SOUND SYSTEM_GMP SYSTEM_JSONCPP CLIENT GLVND SPATIAL
 OPTIONS_MULTI=	COMP
 OPTIONS_RADIO=	GRAPHICS
@@ -56,6 +56,10 @@ SYSTEM_JSONCPP_DESC=		Use jsoncpp from ports (ENABLE_SYSTEM_JSONCPP)
 SYSTEM_JSONCPP_CMAKE_BOOL=	ENABLE_SYSTEM_JSONCPP
 SYSTEM_JSONCPP_CMAKE_ON=	-DJSON_INCLUDE_DIR="${PREFIX}/include/jsoncpp"
 SYSTEM_JSONCPP_LIB_DEPENDS=	libjsoncpp.so:devel/jsoncpp
+
+#SYSTEM_FONTS_DESC=		Use same local system truetype fonts instead of bundled
+#SYSTEM_FONTS_RUN_DEPENDS=	croscorefonts-fonts-ttf:x11-fonts/croscorefonts-fonts-ttf \
+#				droid-fonts-ttf:x11-fonts/droid-fonts-ttf
 
 GRAPHICS_DESC=			Graphics support
 GLVND_DESC=			Use libOpenGL or libGLX
@@ -182,4 +186,8 @@ post-install:
 #    OPENGL_xmesa_INCLUDE_DIR
 #    THREADS_HAVE_PTHREAD_ARG
 #
+# ----------------------------
+#  The fonts that minetest uses and installs can be satisfied by x11-fonts/croscorefonts-fonts-ttf and
+#  x11-fonts/droid-fonts-ttf or x11-fonts/nerd-fonts so now the challenge is to substitute those in lieu
+#  of the bundled ones which should reduce overall install size if those fonts are present already.
 .include <bsd.port.mk>
