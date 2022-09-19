@@ -76,6 +76,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/common/chatcommands.lua
 %%DATADIR%%/builtin/common/filterlist.lua
 %%DATADIR%%/builtin/common/information_formspecs.lua
+%%DATADIR%%/builtin/common/item_s.lua
 %%DATADIR%%/builtin/common/misc_helpers.lua
 %%DATADIR%%/builtin/common/mod_storage.lua
 %%DATADIR%%/builtin/common/serialize.lua
@@ -100,7 +101,6 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/game/init.lua
 %%DATADIR%%/builtin/game/item.lua
 %%DATADIR%%/builtin/game/item_entity.lua
-%%DATADIR%%/builtin/game/item_s.lua
 %%DATADIR%%/builtin/game/knockback.lua
 %%DATADIR%%/builtin/game/misc.lua
 %%DATADIR%%/builtin/game/misc_s.lua
@@ -575,6 +575,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/tiled/mod.conf
 %%DATADIR%%/games/devtest/mods/tiled/textures/tiled_tiled.png
 %%DATADIR%%/games/devtest/mods/unittests/async_env.lua
+%%DATADIR%%/games/devtest/mods/unittests/content_ids.lua
 %%DATADIR%%/games/devtest/mods/unittests/crafting.lua
 %%DATADIR%%/games/devtest/mods/unittests/crafting_prepare.lua
 %%DATADIR%%/games/devtest/mods/unittests/entity.lua

@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20220916
+DISTVERSION=	g20220918
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -23,7 +23,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	a428a0cf37581a35f9c4f81c2e71633e6cc3dbb9
+GH_TAGNAME=	9acf2d3db7fe006dc47e3323003c5ef97e8f2f3e
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -57,6 +57,7 @@ SYSTEM_JSONCPP_CMAKE_BOOL=	ENABLE_SYSTEM_JSONCPP
 SYSTEM_JSONCPP_CMAKE_ON=	-DJSON_INCLUDE_DIR="${PREFIX}/include/jsoncpp"
 SYSTEM_JSONCPP_LIB_DEPENDS=	libjsoncpp.so:devel/jsoncpp
 
+# Need to figure out how to handle this but doing so will reduce overall install.
 #SYSTEM_FONTS_DESC=		Use same local system truetype fonts instead of bundled
 #SYSTEM_FONTS_RUN_DEPENDS=	croscorefonts-fonts-ttf:x11-fonts/croscorefonts-fonts-ttf \
 #				droid-fonts-ttf:x11-fonts/droid-fonts-ttf
