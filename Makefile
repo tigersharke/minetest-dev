@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20220918
+DISTVERSION=	g20220920
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -23,17 +23,17 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	9acf2d3db7fe006dc47e3323003c5ef97e8f2f3e
+GH_TAGNAME=	1317cd12d74dba4ff765d6e18b0b30cdf42002a3
 
-CMAKE_ARGS=	-DBUILD_UNITTESTS="FALSE" \
+CMAKE_ARGS=	-DBUILD_UNITTESTS="TRUE" \
+		-DCMAKE_VERBOSE_MAKEFILE="TRUE" \
 		-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
 		-DCUSTOM_MANDIR="${PREFIX}/man" \
-		-DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
+		-DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/unspecified" \
+		-DEGL_INCLUDE_DIR="${PREFIX}/unspecified"
 
 WRKSRC=		${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
-
-LDFLAGS_i386=	-Wl,-znotext
 
 OPTIONS_DEFINE=			CURL DOCS EXAMPLES FREETYPE LUAJIT NCURSES NLS SOUND SYSTEM_GMP \
 				SYSTEM_JSONCPP TOUCH PROMETHEUS # SYSTEM_FONTS
@@ -68,19 +68,20 @@ GRAPHICS_DESC=                  Graphics support
 
 GLVND_DESC=                     Use libOpenGL or libGLX
 GLVND_CMAKE_BOOL=               ENABLE_GLVND
-GLVND_CMAKE_ON=                 -DOPENGL_GL_PREFERENCE="GLVND"
+GLVND_CMAKE_ON=                 -DOPENGL_GL_PREFERENCE="GLVND" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
 GLVND_USE=                      GL+=opengl
 GLVND_PREVENTS=                 GLES
 
 LEGACY_DESC=                    Use libGL - where GLVND may be broken on nvidia
 LEGACY_CMAKE_BOOL=              ENABLE_LEGACY
-LEGACY_CMAKE_ON=                -DOPENGL_GL_PREFERENCE="LEGACY"
+LEGACY_CMAKE_ON=                -DOPENGL_GL_PREFERENCE="LEGACY" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
 LEGACY_USE=                     GL+=opengl
 LEGACY_PREVENTS=                GLES
 
-GLES_DESC=                      Use libOpenGLES instead of libOpenGL
+GLES_DESC=                      Enable GLES (requires support by IrrlichtMt) *TESTING*
 GLES_CMAKE_BOOL=                ENABLE_GLES
-GLES_USE=                       GL+=glesv2
+GLVND_CMAKE_ON=                 -DEGL_INCLUDE_DIR="${PREFIX}/include/GLES"
+GLES_USE=                       GL+=egl,glesv2
 GLES_PREVENTS=                  GLVND LEGACY
 
 DATABASE_DESC=			Database support
@@ -92,9 +93,12 @@ CLIENT_DESC=			Build client
 CLIENT_CMAKE_BOOL=		BUILD_CLIENT
 CLIENT_LIB_DEPENDS=		libIrrlichtMt.so:x11-toolkits/irrlicht-minetest \
 				libpng.so:graphics/png
-CLIENT_USES=			gl jpeg xorg
-CLIENT_USE=			GL=gl,glu \
-				XORG=ice,sm,x11,xext,xxf86vm
+#CLIENT_USES=			gl jpeg xorg
+CLIENT_USE=			jpeg GL=gl,glu \
+				XORG=ice sm x11 xcb xres xshmfence xau xaw xcomposite \
+				xcursor xdamage xdmcp xext xfixes xft xi xinerama \
+				xkbfile xmu xpm xrandr xrender xt xv xxf86vm
+#				XORG=ice,sm,x11,xext,xxf86vm
 SERVER_DESC=			Build server
 SERVER_CMAKE_BOOL=		BUILD_SERVER
 
@@ -166,7 +170,7 @@ GROUPS=			minetest
 
 post-install:
 	@${ECHO_MSG} " "
-	@${ECHO_MSG} "-->  /usr/local/etc/minetest.conf.example explains options and gives their default values. "
+	@${ECHO_MSG} "-->  "${PREFIX}"/etc/minetest.conf.example explains options and gives their default values. "
 	@${ECHO_MSG} " "
 
 # --> Need to figure out about fonts, deny installing bundled ones, link to system ones instead.
@@ -186,24 +190,6 @@ post-install:
 #post-patch:
 #	@${REINPLACE_CMD} -e 's|/usr/local|${LOCALBASE}|' \
 #		${WRKSRC}/cmake/Modules/*.cmake
-
-#CMake Warning:
-#  Manually-specified variables were not used by the project:
-#
-#    CMAKE_MODULE_LINKER_FLAGS
-#    CMAKE_SHARED_LINKER_FLAGS
-#    CMAKE_VERBOSE_MAKEFILE
-#    ENABLE_FREETYPE
-#    ENABLE_GLVND
-#    ENABLE_LEGACY
-#    ICONV_INCLUDE_DIR
-#    ICONV_LIBRARIES
-#    LIBICONV_INCLUDE_DIR
-#    LIBICONV_LIBRARIES
-#    LIBICONV_LIBRARY
-#    OPENGL_GL_PREFERENCE
-#    OPENGL_xmesa_INCLUDE_DIR
-#    THREADS_HAVE_PTHREAD_ARG
 #
 # ----------------------------
 #  The fonts that minetest uses and installs can be satisfied by x11-fonts/croscorefonts-fonts-ttf and
