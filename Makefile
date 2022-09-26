@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20220920
+DISTVERSION=	g20220925
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -23,7 +23,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	1317cd12d74dba4ff765d6e18b0b30cdf42002a3
+GH_TAGNAME=	8dec3a5ecbc6f74e2ca5d59f7bd905b8b136a591
 
 CMAKE_ARGS=	-DBUILD_UNITTESTS="TRUE" \
 		-DCMAKE_VERBOSE_MAKEFILE="TRUE" \
@@ -78,7 +78,7 @@ LEGACY_CMAKE_ON=                -DOPENGL_GL_PREFERENCE="LEGACY" -DOPENGL_xmesa_I
 LEGACY_USE=                     GL+=opengl
 LEGACY_PREVENTS=                GLES
 
-GLES_DESC=                      Enable GLES (requires support by IrrlichtMt) *TESTING*
+GLES_DESC=                      Enable GLES (requires support by IrrlichtMt)*TESTING*
 GLES_CMAKE_BOOL=                ENABLE_GLES
 GLVND_CMAKE_ON=                 -DEGL_INCLUDE_DIR="${PREFIX}/include/GLES"
 GLES_USE=                       GL+=egl,glesv2
@@ -196,53 +196,8 @@ post-install:
 #  x11-fonts/droid-fonts-ttf or x11-fonts/nerd-fonts so now the challenge is to substitute those in lieu
 #  of the bundled ones which should reduce overall install size if those fonts are present already.
 # ----------------------------
-#  Options/config below permits singleplayer.
-# --------
-#  Options        :
-#        CLIENT         : on
-#        CURL           : on
-#        DOCS           : on
-#        EXAMPLES       : on
-#        FREETYPE       : on
-#        GLES           : off
-#        GLVND          : on
-#        LEGACY         : off
-#        LEVELDB        : on
-#        LUAJIT         : on
-#        NCURSES        : on
-#        NLS            : off
-#        PGSQL          : on
-#        PROMETHEUS     : off
-#        REDIS          : on
-#        SERVER         : on
-#        SOUND          : on
-#        SPATIAL        : on
-#        SYSTEM_GMP     : on
-#        SYSTEM_JSONCPP : on
-#        TOUCH          : off
-# Shared Libs required:
-#	libzstd.so.1
-#        libvorbisfile.so.3
-#        libvorbis.so.0
-#        libtinfo.so.6
-#        libsqlite3.so.0
-#        libspatialindex.so.4
-#        libpq.so.5
-#        libopenal.so.1
-#        libogg.so.0
-#        libncurses.so.6
-#        libluajit-5.1.so.2
-#        libleveldb.so.1
-#        libjsoncpp.so.25
-#        libiconv.so.2
-#        libhiredis.so.1.0.0
-#        libgmp.so.10
-#        libfreetype.so.6
-#        libform.so.6
-#        libcurl.so.4
-#        libXext.so.6
-#        libX11.so.6
-#        libSM.so.6
-#        libIrrlichtMt.so.1.9.0.8
-#        libICE.so.6
+#
+# I had local issues with networking which caused singleplayer to fail for me. I believe I have figured
+# out the cause but I have not yet perfected the solution. The options config that permitted singleplayer
+# was my own note to try to track the issue, it was a red herring afterall.
 .include <bsd.port.mk>
