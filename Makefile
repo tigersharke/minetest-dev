@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20220925
+DISTVERSION=	g20220926
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -7,6 +7,7 @@ DIST_SUBDIR=	${PORTNAME}${PKGNAMESUFFIX}
 
 MAINTAINER=	nope@nothere
 COMMENT=	Near-infinite-world block sandbox game
+WWW=		https://www.minetest.net/
 
 LICENSE=	LGPL21+
 
@@ -23,24 +24,20 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	8dec3a5ecbc6f74e2ca5d59f7bd905b8b136a591
+GH_TAGNAME=	3f801bc096077a91094087fab4a4557198429851
 
-CMAKE_ARGS=	-DBUILD_UNITTESTS="TRUE" \
-		-DCMAKE_VERBOSE_MAKEFILE="TRUE" \
-		-DCMAKE_BUILD_TYPE="MinSizeRel" \
+CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
-		-DCUSTOM_MANDIR="${PREFIX}/man" \
-		-DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/unspecified" \
-		-DEGL_INCLUDE_DIR="${PREFIX}/unspecified"
+		-DCUSTOM_MANDIR="${PREFIX}/man"
 
 WRKSRC=		${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
-OPTIONS_DEFINE=			CURL DOCS EXAMPLES FREETYPE LUAJIT NCURSES NLS SOUND SYSTEM_GMP \
+OPTIONS_DEFINE=			CURL DOCS FREETYPE LUAJIT NCURSES NLS SOUND SPATIAL SYSTEM_GMP \
 				SYSTEM_JSONCPP TOUCH PROMETHEUS # SYSTEM_FONTS
 OPTIONS_DEFAULT=		CURL FREETYPE LUAJIT SOUND SYSTEM_GMP SYSTEM_JSONCPP CLIENT GLVND SPATIAL
 OPTIONS_MULTI=			COMP
+OPTIONS_GROUP=			BUILD DATABASE
 OPTIONS_RADIO=			GRAPHICS
-OPTIONS_GROUP=			DATABASE
 
 COMP_DESC=			Software components
 OPTIONS_MULTI_COMP=		CLIENT SERVER
@@ -56,6 +53,18 @@ SYSTEM_JSONCPP_DESC=		Use jsoncpp from ports (ENABLE_SYSTEM_JSONCPP)
 SYSTEM_JSONCPP_CMAKE_BOOL=	ENABLE_SYSTEM_JSONCPP
 SYSTEM_JSONCPP_CMAKE_ON=	-DJSON_INCLUDE_DIR="${PREFIX}/include/jsoncpp"
 SYSTEM_JSONCPP_LIB_DEPENDS=	libjsoncpp.so:devel/jsoncpp
+
+BUILD_DESC=			Dev Build options
+OPTIONS_GROUP_BUILD=		BENCHMARKS EXAMPLES UNITTESTS VERBOSE
+
+BENCHMARKS_DESC=		BUILD_BENCHMARKS
+BENCHMARKS_CMAKE_BOOL=		BUILD_BENCHMARKS
+EXAMPLES_DESC=			BUILD_EXAMPLES
+EXAMPLES_CMAKE_BOOL=		BUILD_EXAMPLES
+UNITTESTS_DESC=			BUILD_UNITTESTS
+UNITTESTS_CMAKE_BOOL=		BUILD_UNITTESTS
+VERBOSE_DESC=			VERBOSE_MAKEFILE
+VERBOSE_CMAKE_BOOL=		CMAKE_VERBOSE_MAKEFILE
 
 # Need to figure out how to handle this but doing so will reduce overall install.
 #
@@ -78,14 +87,14 @@ LEGACY_CMAKE_ON=                -DOPENGL_GL_PREFERENCE="LEGACY" -DOPENGL_xmesa_I
 LEGACY_USE=                     GL+=opengl
 LEGACY_PREVENTS=                GLES
 
-GLES_DESC=                      Enable GLES (requires support by IrrlichtMt)*TESTING*
+GLES_DESC=                      Enable GLES (requires support by IrrlichtMt)*TEST*
 GLES_CMAKE_BOOL=                ENABLE_GLES
 GLVND_CMAKE_ON=                 -DEGL_INCLUDE_DIR="${PREFIX}/include/GLES"
 GLES_USE=                       GL+=egl,glesv2
 GLES_PREVENTS=                  GLVND LEGACY
 
 DATABASE_DESC=			Database support
-OPTIONS_GROUP_DATABASE=		LEVELDB PGSQL REDIS SPATIAL
+OPTIONS_GROUP_DATABASE=		LEVELDB PGSQL REDIS
 
 OPTIONS_SUB=			yes
 
@@ -93,12 +102,10 @@ CLIENT_DESC=			Build client
 CLIENT_CMAKE_BOOL=		BUILD_CLIENT
 CLIENT_LIB_DEPENDS=		libIrrlichtMt.so:x11-toolkits/irrlicht-minetest \
 				libpng.so:graphics/png
-#CLIENT_USES=			gl jpeg xorg
-CLIENT_USE=			jpeg GL=gl,glu \
-				XORG=ice sm x11 xcb xres xshmfence xau xaw xcomposite \
-				xcursor xdamage xdmcp xext xfixes xft xi xinerama \
-				xkbfile xmu xpm xrandr xrender xt xv xxf86vm
-#				XORG=ice,sm,x11,xext,xxf86vm
+CLIENT_USES=			gl xorg
+CLIENT_USE=			jpeg GL=gl,glu xorg=ice,sm,x11,xcb,xres,xshmfence,xau,xaw,xcomposite,\
+				xcursor,xdamage,xdmcp,xext,xfixes,xft,xi,xinerama,\
+				xkbfile,xmu,xpm,xrandr,xrender,xt,xv,xxf86vm
 SERVER_DESC=			Build server
 SERVER_CMAKE_BOOL=		BUILD_SERVER
 
@@ -163,6 +170,7 @@ LIB_DEPENDS+=		libogg.so:audio/libogg \
 #USE_RC_SUBR=	${PORTNAME}
 #USERS=		${PORTNAME}
 #GROUPS=	${PORTNAME}
+#USE_RC_SUBR=		minetest/ERX
 USE_RC_SUBR=		minetest
 USERS=			minetest
 GROUPS=			minetest
@@ -170,7 +178,7 @@ GROUPS=			minetest
 
 post-install:
 	@${ECHO_MSG} " "
-	@${ECHO_MSG} "-->  "${PREFIX}"/etc/minetest.conf.example explains options and gives their default values. "
+	@${ECHO_MSG} "-->  "${PREFIX}/etc/"minetest.conf.example explains options and gives their default values. "
 	@${ECHO_MSG} " "
 
 # --> Need to figure out about fonts, deny installing bundled ones, link to system ones instead.
