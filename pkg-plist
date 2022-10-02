@@ -371,6 +371,8 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/testhud/mod.conf
 %%DATADIR%%/games/devtest/mods/testitems/init.lua
 %%DATADIR%%/games/devtest/mods/testitems/mod.conf
+%%DATADIR%%/games/devtest/mods/testitems/textures/testitems_callback_1.png
+%%DATADIR%%/games/devtest/mods/testitems/textures/testitems_callback_2.png
 %%DATADIR%%/games/devtest/mods/testitems/textures/testitems_overlay_base.png
 %%DATADIR%%/games/devtest/mods/testitems/textures/testitems_overlay_overlay.png
 %%DATADIR%%/games/devtest/mods/testnodes/README.md
