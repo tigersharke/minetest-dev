@@ -582,6 +582,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/tiled/init.lua
 %%DATADIR%%/games/devtest/mods/tiled/mod.conf
 %%DATADIR%%/games/devtest/mods/tiled/textures/tiled_tiled.png
+%%DATADIR%%/games/devtest/mods/tiled/textures/tiled_tiled_node.png
 %%DATADIR%%/games/devtest/mods/unittests/async_env.lua
 %%DATADIR%%/games/devtest/mods/unittests/content_ids.lua
 %%DATADIR%%/games/devtest/mods/unittests/crafting.lua

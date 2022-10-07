@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20221004
+DISTVERSION=	g20221006
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -24,7 +24,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	1e9640395468beb53f70303ef6b7aa72e395b7b4
+GH_TAGNAME=	804a31818907e737a1ec727580d5822532ff3e6b
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
@@ -103,9 +103,9 @@ CLIENT_CMAKE_BOOL=		BUILD_CLIENT
 CLIENT_LIB_DEPENDS=		libIrrlichtMt.so:x11-toolkits/irrlicht-minetest \
 				libpng.so:graphics/png
 CLIENT_USES=			gl xorg
-CLIENT_USE=			jpeg GL=gl,glu XORG=ice,sm,x11,xext,xcb,xres,xshmfence,xau,xaw,xcomposite,\
-				xcursor,xdamage,xdmcp,xfixes,xft,xi,xinerama,\
-				xkbfile,xmu,xpm,xrandr,xrender,xt,xv,xxf86vm
+CLIENT_USE=			jpeg GL=gl,glu \
+				XORG=ice,sm,x11,xext,xcb,xres,xshmfence,xau,xaw,xcomposite,xcursor,xdamage,xdmcp,\
+				xfixes,xft,xi,xinerama,xkbfile,xmu,xpm,xrandr,xrender,xscreensaver,xt,xtst,xv,xxf86vm
 SERVER_DESC=			Build server
 SERVER_CMAKE_BOOL=		BUILD_SERVER
 
