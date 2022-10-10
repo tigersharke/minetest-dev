@@ -591,6 +591,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/unittests/init.lua
 %%DATADIR%%/games/devtest/mods/unittests/inside_async_env.lua
 %%DATADIR%%/games/devtest/mods/unittests/itemdescription.lua
+%%DATADIR%%/games/devtest/mods/unittests/itemstack_equals.lua
 %%DATADIR%%/games/devtest/mods/unittests/metadata.lua
 %%DATADIR%%/games/devtest/mods/unittests/misc.lua
 %%DATADIR%%/games/devtest/mods/unittests/mod.conf
