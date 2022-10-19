@@ -1,3 +1,3 @@
-TIMESTAMP = 1666093800
-SHA256 (minetest-dev/minetest-23e9f5db4330a6efee5270160a3959422926ce77.tar.gz) = 104d773389b098cdff27b26c8e6f8b8aba08b9d8374a09de2f1ccc5a254bd6b9
-SIZE (minetest-dev/minetest-23e9f5db4330a6efee5270160a3959422926ce77.tar.gz) = 9956843
+TIMESTAMP = 1666165820
+SHA256 (minetest-dev/minetest-dafdb3edb4b65db144d72cd2274a657af671bdd1.tar.gz) = 7fad65f13fdbfb50ac3dc513f48194561d705f9e6ce5278de175b6ec20a6f4df
+SIZE (minetest-dev/minetest-dafdb3edb4b65db144d72cd2274a657af671bdd1.tar.gz) = 9956751
