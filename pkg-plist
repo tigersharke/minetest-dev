@@ -326,6 +326,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/testentities/armor.lua
 %%DATADIR%%/games/devtest/mods/testentities/init.lua
 %%DATADIR%%/games/devtest/mods/testentities/mod.conf
+%%DATADIR%%/games/devtest/mods/testentities/selectionbox.lua
 %%DATADIR%%/games/devtest/mods/testentities/textures/testentities_armorball.png
 %%DATADIR%%/games/devtest/mods/testentities/textures/testentities_cube1.png
 %%DATADIR%%/games/devtest/mods/testentities/textures/testentities_cube2.png
