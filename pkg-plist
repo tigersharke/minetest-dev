@@ -144,6 +144,10 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/settingtypes.txt
 %%CLIENT%%%%DATADIR%%/client/shaders/3d_interlaced_merge/opengl_fragment.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/3d_interlaced_merge/opengl_vertex.glsl
+%%CLIENT%%%%DATADIR%%/client/shaders/bloom_downsample/opengl_fragment.glsl
+%%CLIENT%%%%DATADIR%%/client/shaders/bloom_downsample/opengl_vertex.glsl
+%%CLIENT%%%%DATADIR%%/client/shaders/bloom_upsample/opengl_fragment.glsl
+%%CLIENT%%%%DATADIR%%/client/shaders/bloom_upsample/opengl_vertex.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/blur_h/opengl_fragment.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/blur_h/opengl_vertex.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/blur_v/opengl_fragment.glsl

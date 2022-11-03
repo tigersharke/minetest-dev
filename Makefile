@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20221031
+DISTVERSION=	g20221102
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -13,7 +13,7 @@ LICENSE=	LGPL21+
 
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
 
-USES=		cmake compiler:c++14-lang iconv:wchar_t sqlite
+USES=		cmake compiler:c++14-lang iconv:wchar_t sqlite luajit
 # Upstream requires Clang 3.5+ which for our criteria matches c++14-lang
 # since https://en.cppreference.com/w/cpp/compiler_support
 # lists "C++14 library support status (complete as of 3.5)"
@@ -24,7 +24,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	fb3085a2c593e0671e3322fe0e7d0914a052acef
+GH_TAGNAME=	9b24041394ecf8210514845372d965f8d65302c9
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
@@ -124,10 +124,10 @@ NCURSES_DESC=			Enable ncurses console
 NCURSES_CMAKE_BOOL=		ENABLE_CURSES
 NCURSES_USES=			ncurses
 
-LUAJIT_DESC=			Require LuaJIT (lang/luajit-openresty)
+# This option is becoming uncertain, though it does something, is it useful?
+LUAJIT_DESC=			Require LuaJIT instead of simply enable
 LUAJIT_CMAKE_BOOL_on=		REQUIRE_LUAJIT
 LUAJIT_CMAKE_BOOL_off=		ENABLE_LUAJIT
-LUAJIT_LIB_DEPENDS=		libluajit-5.1.so:lang/luajit-openresty
 
 LEVELDB_DESC=			Enable LevelDB backend
 LEVELDB_CMAKE_BOOL=		ENABLE_LEVELDB
