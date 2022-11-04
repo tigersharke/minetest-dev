@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20221102
+DISTVERSION=	g20221103
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -24,7 +24,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	9b24041394ecf8210514845372d965f8d65302c9
+GH_TAGNAME=	322c8cf270a6fe2cd6ac152af0f3f5d2963fa0b3
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
@@ -150,7 +150,7 @@ NLS_CMAKE_BOOL=			ENABLE_GETTEXT
 NLS_USES=			gettext
 NLS_LDFLAGS=			-L${LOCALBASE}/lib
 
-TOUCH_DESC=			Build with touch interface support
+TOUCH_DESC=			Build with touch interface support (cores)
 TOUCH_CMAKE_BOOL=		ENABLE_TOUCH
 # dependency?
 
