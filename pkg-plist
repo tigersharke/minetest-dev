@@ -40,6 +40,7 @@ share/icons/hicolor/scalable/apps/minetest.svg
 %%CLIENT%%%%NLS%%share/locale/lt/LC_MESSAGES/minetest.mo
 %%CLIENT%%%%NLS%%share/locale/lv/LC_MESSAGES/minetest.mo
 %%CLIENT%%%%NLS%%share/locale/lzh/LC_MESSAGES/minetest.mo
+%%CLIENT%%%%NLS%%share/locale/mn/LC_MESSAGES/minetest.mo
 %%CLIENT%%%%NLS%%share/locale/mr/LC_MESSAGES/minetest.mo
 %%CLIENT%%%%NLS%%share/locale/ms/LC_MESSAGES/minetest.mo
 %%CLIENT%%%%NLS%%share/locale/nb/LC_MESSAGES/minetest.mo
