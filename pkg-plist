@@ -175,6 +175,8 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%CLIENT%%%%DATADIR%%/client/shaders/shadow_shaders/pass2_vertex.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/stars_shader/opengl_fragment.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/stars_shader/opengl_vertex.glsl
+%%CLIENT%%%%DATADIR%%/client/shaders/update_exposure/opengl_fragment.glsl
+%%CLIENT%%%%DATADIR%%/client/shaders/update_exposure/opengl_vertex.glsl
 %%CLIENT%%%%DATADIR%%/fonts/Arimo-Bold.ttf
 %%CLIENT%%%%DATADIR%%/fonts/Arimo-BoldItalic.ttf
 %%CLIENT%%%%DATADIR%%/fonts/Arimo-Italic.ttf
@@ -307,6 +309,8 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/give_initial_stuff/mod.conf
 %%DATADIR%%/games/devtest/mods/initial_message/init.lua
 %%DATADIR%%/games/devtest/mods/initial_message/mod.conf
+%%DATADIR%%/games/devtest/mods/lighting/init.lua
+%%DATADIR%%/games/devtest/mods/lighting/mod.conf
 %%DATADIR%%/games/devtest/mods/log/init.lua
 %%DATADIR%%/games/devtest/mods/log/mod.conf
 %%DATADIR%%/games/devtest/mods/mapgen/init.lua
@@ -314,9 +318,13 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/modchannels/init.lua
 %%DATADIR%%/games/devtest/mods/modchannels/mod.conf
 %%DATADIR%%/games/devtest/mods/soundstuff/init.lua
+%%DATADIR%%/games/devtest/mods/soundstuff/jukebox.lua
 %%DATADIR%%/games/devtest/mods/soundstuff/mod.conf
+%%DATADIR%%/games/devtest/mods/soundstuff/sound_event_items.lua
+%%DATADIR%%/games/devtest/mods/soundstuff/sounds/gitignored_sounds/custom_sounds_here.txt
 %%DATADIR%%/games/devtest/mods/soundstuff/sounds/soundstuff_mono.ogg
 %%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_eat.png
+%%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_jukebox.png
 %%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_node_blank.png
 %%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_node_climbable.png
 %%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_node_dig.png
@@ -608,6 +616,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/games/devtest/mods/testtools/mod.conf
 %%DATADIR%%/games/devtest/mods/testtools/particles.lua
 %%DATADIR%%/games/devtest/mods/testtools/privatizer.lua
+%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_branding_iron.png
 %%DATADIR%%/games/devtest/mods/testtools/textures/testtools_children_getter.png
 %%DATADIR%%/games/devtest/mods/testtools/textures/testtools_entity_rotator.png
 %%DATADIR%%/games/devtest/mods/testtools/textures/testtools_entity_scaler.png
