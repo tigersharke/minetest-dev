@@ -387,6 +387,8 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_item.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_node.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_pressed.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testfullscreenfs/init.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testfullscreenfs/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testhud/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testhud/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testhud/textures/testhud_waypoint.png
@@ -663,6 +665,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/textures/unittests_stick.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/textures/unittests_torch.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/textures/unittests_unrepairable_tool.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_torchlike_ceiling.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/util_commands/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/util_commands/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/screenshot.png
