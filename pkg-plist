@@ -603,7 +603,6 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type2_32bpp_tb.tga
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type3_16bpp_bt.tga
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type3_16bpp_tb.tga
-%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_torchlike_ceiling.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_torchlike_floor.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_torchlike_wall.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testpathfinder/README.md
