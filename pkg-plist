@@ -112,7 +112,9 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/game/voxelarea.lua
 %%DATADIR%%/builtin/init.lua
 %%DATADIR%%/builtin/locale/__builtin.de.tr
+%%DATADIR%%/builtin/locale/__builtin.id.tr
 %%DATADIR%%/builtin/locale/__builtin.it.tr
+%%DATADIR%%/builtin/locale/__builtin.ms.tr
 %%DATADIR%%/builtin/locale/template.txt
 %%DATADIR%%/builtin/mainmenu/async_event.lua
 %%DATADIR%%/builtin/mainmenu/common.lua
