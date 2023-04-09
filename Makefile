@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20230403
+DISTVERSION=	g20230407
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -24,7 +24,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	7048fc25dd963490552214e15d5e9a4c612d6b18
+GH_TAGNAME=	9c9309cdbb053598aaf08506928a4824e78b4622
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
@@ -41,8 +41,6 @@ OPTIONS_RADIO=			GRAPHICS
 
 COMP_DESC=			Software components
 OPTIONS_MULTI_COMP=		CLIENT SERVER
-
-OPTIONS_RADIO_GRAPHICS=		GLVND LEGACY
 
 SYSTEM_GMP_DESC=		Use gmp from ports (ENABLE_SYSTEM_GMP)
 SYSTEM_GMP_CMAKE_BOOL=		ENABLE_SYSTEM_GMP
@@ -72,26 +70,21 @@ UNITTESTS_CMAKE_BOOL=		BUILD_UNITTESTS
 #SYSTEM_FONTS_RUN_DEPENDS=	croscorefonts-fonts-ttf:x11-fonts/croscorefonts-fonts-ttf \
 #				droid-fonts-ttf:x11-fonts/droid-fonts-ttf
 
-OPTIONS_RADIO_GRAPHICS=         GLVND LEGACY GLES
+OPTIONS_RADIO_GRAPHICS=         GLVND LEGACY
 GRAPHICS_DESC=                  Graphics support
 
 GLVND_DESC=                     Use libOpenGL or libGLX
 GLVND_CMAKE_BOOL=               ENABLE_GLVND
 GLVND_CMAKE_ON=                 -DOPENGL_GL_PREFERENCE="GLVND" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
 GLVND_USE=                      GL+=opengl
-GLVND_PREVENTS=                 GLES
 
 LEGACY_DESC=                    Use libGL - where GLVND may be broken on nvidia
 LEGACY_CMAKE_BOOL=              ENABLE_LEGACY
 LEGACY_CMAKE_ON=                -DOPENGL_GL_PREFERENCE="LEGACY" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
 LEGACY_USE=                     GL+=opengl
-LEGACY_PREVENTS=                GLES
 
-GLES_DESC=                      Enable GLES (requires support by IrrlichtMt)*TEST*
-GLES_CMAKE_BOOL=                ENABLE_GLES
-GLVND_CMAKE_ON=                 -DEGL_INCLUDE_DIR="${PREFIX}/include/GLES"
-GLES_USE=                       GL+=egl,glesv2
-GLES_PREVENTS=                  GLVND LEGACY
+# Option removed in future (next) upstream commit.
+#GLES_DESC=                      Enable GLES (requires support by IrrlichtMt)*TEST*
 
 DATABASE_DESC=			Database support
 OPTIONS_GROUP_DATABASE=		LEVELDB PGSQL REDIS
@@ -181,6 +174,9 @@ post-install:
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} "-->  "${PREFIX}/etc/"minetest.conf.example explains options and gives their default values. "
 	@${ECHO_MSG} " "
+	@${ECHO_MSG} "-->  Local network issues could cause singleplayer to fail. "
+	@${ECHO_MSG} " "
+	@${ECHO_MSG} "-->  Alternate graphics driver may be set in client configi, must be to get used."
 
 # --> Need to figure out about fonts, deny installing bundled ones, link to system ones instead.
 #  	These are mentioned in the generate pkg-plist file.
@@ -206,7 +202,50 @@ post-install:
 #  of the bundled ones which should reduce overall install size if those fonts are present already.
 # ----------------------------
 #
-# I had local issues with networking which caused singleplayer to fail for me. I believe I have figured
-# out the cause but I have not yet perfected the solution. The options config that permitted singleplayer
-# was my own note to try to track the issue, it was a red herring afterall.
-.include <bsd.port.mk>
+#APPLY_LOCALE_BLACKLIST:BOOL=ON
+#BUILD_BENCHMARKS:BOOL=FALSE
+#BUILD_CLIENT:BOOL=TRUE
+#BUILD_SERVER:BOOL=FALSE
+#BUILD_UNITTESTS:BOOL=TRUE
+#CMAKE_BUILD_TYPE:STRING=Release
+#CMAKE_INSTALL_PREFIX:PATH=/usr/local
+#CUSTOM_BINDIR:STRING=
+#CUSTOM_DOCDIR:STRING=
+#CUSTOM_EXAMPLE_CONF_DIR:STRING=
+#CUSTOM_ICONDIR:STRING=
+#CUSTOM_LOCALEDIR:STRING=
+#CUSTOM_MANDIR:STRING=
+#CUSTOM_SHAREDIR:STRING=
+#CUSTOM_XDG_APPS_DIR:STRING=
+#ENABLE_CURL:BOOL=ON
+#ENABLE_CURSES:BOOL=ON
+#ENABLE_GETTEXT:BOOL=ON
+#ENABLE_LEVELDB:BOOL=ON
+#ENABLE_LUAJIT:BOOL=ON
+#ENABLE_POSTGRESQL:BOOL=ON
+#ENABLE_PROMETHEUS:BOOL=OFF
+##ENABLE_REDIS:BOOL=ON
+#ENABLE_SOUND:BOOL=ON
+#ENABLE_SPATIAL:BOOL=ON
+#ENABLE_SYSTEM_GMP:BOOL=ON
+#ENABLE_SYSTEM_JSONCPP:BOOL=ON
+#ENABLE_TOUCH:BOOL=OFF
+#ENABLE_UPDATE_CHECKER:BOOL=(;NOT;TRUE;)
+#GETTEXT_MSGFMT:FILEPATH=/usr/local/bin/msgfmt
+#INSTALL_DEVTEST:BOOL=FALSE
+#IRRLICHTMT_BUILD_DIR:PATH=
+#IrrlichtMt_DIR:PATH=/usr/local/lib/cmake/IrrlichtMt
+#LEVELDB_INCLUDE_DIR:PATH=/usr/local/include/leveldb
+#LEVELDB_LIBRARY:FILEPATH=/usr/local/lib/libleveldb.so
+#REDIS_INCLUDE_DIR:PATH=/usr/local/include/hiredis
+#REDIS_LIBRARY:FILEPATH=/usr/local/lib/libhiredis.so
+#REQUIRE_LUAJIT:BOOL=OFF
+#RUN_IN_PLACE:BOOL=FALSE
+#SPATIAL_INCLUDE_DIR:PATH=/usr/local/include
+#SPATIAL_LIBRARY:FILEPATH=/usr/local/lib/libspatialindex.so
+#USE_GPROF:BOOL=FALSE
+#VERSION_EXTRA:STRING=
+#WARN_ALL:BOOL=TRUE
+#
+# Strangely network issues can prevent singleplayer from functioning.
+ainclude <bsd.port.mk>
