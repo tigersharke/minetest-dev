@@ -248,4 +248,4 @@ post-install:
 #WARN_ALL:BOOL=TRUE
 #
 # Strangely network issues can prevent singleplayer from functioning.
-ainclude <bsd.port.mk>
+.include <bsd.port.mk>
