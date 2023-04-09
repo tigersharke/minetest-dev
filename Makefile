@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20230407
+DISTVERSION=	g20230408
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -24,7 +24,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	9c9309cdbb053598aaf08506928a4824e78b4622
+GH_TAGNAME=	9d736e8b8baeeacad9cfa94edd18adfcaf000029
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
@@ -82,9 +82,6 @@ LEGACY_DESC=                    Use libGL - where GLVND may be broken on nvidia
 LEGACY_CMAKE_BOOL=              ENABLE_LEGACY
 LEGACY_CMAKE_ON=                -DOPENGL_GL_PREFERENCE="LEGACY" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
 LEGACY_USE=                     GL+=opengl
-
-# Option removed in future (next) upstream commit.
-#GLES_DESC=                      Enable GLES (requires support by IrrlichtMt)*TEST*
 
 DATABASE_DESC=			Database support
 OPTIONS_GROUP_DATABASE=		LEVELDB PGSQL REDIS
