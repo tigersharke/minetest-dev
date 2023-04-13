@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20230408
+DISTVERSION=	g20230409
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -24,7 +24,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	9d736e8b8baeeacad9cfa94edd18adfcaf000029
+GH_TAGNAME=	4a742be73ef63a8771af1248b2940f10553d40a8
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
@@ -174,6 +174,15 @@ post-install:
 	@${ECHO_MSG} "-->  Local network issues could cause singleplayer to fail. "
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} "-->  Alternate graphics driver may be set in client configi, must be to get used."
+	@${ECHO_MSG} " "
+	@${ECHO_MSG} " "
+	@${ECHO_MSG} "-->>  As of 5.7.0 release:"
+	@${ECHO_MSG} "-->>    If your minetest client mysteriously crashes on a server, check to see whether that server needs an update."
+	@${ECHO_MSG} "-->>    This client should work but an older one may now crash due to this issue."
+
+#----------
+# FYI] The crash issue:  https://github.com/minetest/minetest/commit/ba2fee07518d9c6154799b61ba1b14a2cb43ace7#comments
+#----------
 
 # --> Need to figure out about fonts, deny installing bundled ones, link to system ones instead.
 #  	These are mentioned in the generate pkg-plist file.
