@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20230410
+DISTVERSION=	g20230411
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -24,7 +24,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	d39a07efea5b80f0f2ce31f05751f7c19dd12163
+GH_TAGNAME=	2fc7eb3ea26af60feadc182a9d469d630314665b
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
@@ -173,12 +173,13 @@ post-install:
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} "-->  Local network issues could cause singleplayer to fail. "
 	@${ECHO_MSG} " "
-	@${ECHO_MSG} "-->  Alternate graphics driver may be set in client configi, must be to get used."
+	@${ECHO_MSG} "-->  Alternate graphics driver may be set in client config, must be to get used."
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} "-->>  As of 5.7.0 release:"
 	@${ECHO_MSG} "-->>    If your minetest client mysteriously crashes on a server, check to see whether that server needs an update."
 	@${ECHO_MSG} "-->>    This client should work but an older one may now crash due to this issue."
+	@${ECHO_MSG} " "
 
 #----------
 # FYI] The crash issue:  https://github.com/minetest/minetest/commit/ba2fee07518d9c6154799b61ba1b14a2cb43ace7#comments
