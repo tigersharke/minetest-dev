@@ -321,12 +321,14 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/mapgen/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/modchannels/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/modchannels/mod.conf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/bigfoot.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/jukebox.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/sound_event_items.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/sounds/gitignored_sounds/custom_sounds_here.txt
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/sounds/soundstuff_mono.ogg
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_bigfoot.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_eat.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_jukebox.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_node_blank.png
@@ -380,8 +382,10 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_animation.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_bg.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_bg_9slice.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_bg_9slice_focused.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_bg_9slice_hovered.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_bg_9slice_pressed.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_bg_focused.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_bg_hovered.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_bg_pressed.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testformspec/textures/testformspec_button_image.png
@@ -606,6 +610,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type2_32bpp_tb.tga
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type3_16bpp_bt.tga
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_tga_type3_16bpp_tb.tga
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_torchlike_ceiling.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_torchlike_floor.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_torchlike_wall.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testpathfinder/README.md
@@ -667,7 +672,6 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/textures/unittests_stick.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/textures/unittests_torch.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/textures/unittests_unrepairable_tool.png
-%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_torchlike_ceiling.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/util_commands/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/util_commands/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/screenshot.png
