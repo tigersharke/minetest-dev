@@ -6,10 +6,10 @@ man/man6/minetest.6.gz
 %%SERVER%%man/man6/minetestserver.6.gz
 share/applications/net.minetest.minetest.desktop
 %%PORTDOCS%%%%DOCSDIR%%/README.md
-%%PORTDOCS%%%%DOCSDIR%%/client_lua_api.txt
-%%PORTDOCS%%%%DOCSDIR%%/lua_api.txt
-%%PORTDOCS%%%%DOCSDIR%%/menu_lua_api.txt
-%%PORTDOCS%%%%DOCSDIR%%/texture_packs.txt
+%%PORTDOCS%%%%DOCSDIR%%/client_lua_api.md
+%%PORTDOCS%%%%DOCSDIR%%/lua_api.md
+%%PORTDOCS%%%%DOCSDIR%%/menu_lua_api.md
+%%PORTDOCS%%%%DOCSDIR%%/texture_packs.md
 %%PORTDOCS%%%%DOCSDIR%%/world_format.txt
 share/icons/hicolor/128x128/apps/minetest.png
 share/icons/hicolor/scalable/apps/minetest.svg

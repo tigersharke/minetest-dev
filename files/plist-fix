@@ -1,0 +1,21 @@
+#!/bin/sh
+rm /var/tmp/minetest-dev_pkg-plist 2>/dev/null
+rm /var/tmp/minetest-dev_pkg-plist-fixed 2>/dev/null
+cp ../pkg-plist /var/tmp/minetest-dev_pkg-plist
+
+echo "adding conditional list tags"
+
+cat /var/tmp/minetest-dev_pkg-plist | \
+sed \
+-e 's#^\%\%ETCDIR\%\%.conf.example#@sample\ etc/minetest.conf.example\ etc/minetest.conf#' \
+-e 's#^share\/locale#\%\%CLIENT\%\%\%\%NLS\%\%share\/locale#g' \
+-e 's#^bin/minetestserver#\%\%SERVER\%\%bin/minetestserver#1' \
+-e 's#^bin/minetest#\%\%CLIENT\%\%bin/minetest#1' \
+-e 's#^etc/rc.d/minetest#\%\%SERVER\%\%etc/rc.d/minetest#1' \
+-e 's#^man/man6/minetestserver.6.gz#\%\%SERVER\%\%man/man6/minetestserver.6.gz#1' \
+-e 's#^\%\%DATADIR\%\%/client#\%\%CLIENT\%\%\%\%DATADIR\%\%/client#g' \
+-e 's#^\%\%DATADIR\%\%/fonts#\%\%CLIENT\%\%\%\%DATADIR\%\%/fonts#g' \
+-e 's#^\%\%DATADIR\%\%/textures#\%\%CLIENT\%\%\%\%DATADIR\%\%/textures#g' \
+-e 's#^\%\%DATADIR\%\%/games/devtest#\%\%DEVTEST\%\%\%\%DATADIR\%\%/games/devtest#g' \
+> /var/tmp/minetest-dev_pkg-plist-fixed
+cp /var/tmp/minetest-dev_pkg-plist-fixed ../pkg-plist
