@@ -659,6 +659,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/crafting.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/crafting_prepare.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/entity.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/get_version.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/inside_async_env.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/itemdescription.lua
