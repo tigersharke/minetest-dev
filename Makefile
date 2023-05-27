@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20230518
+DISTVERSION=	g20230526
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -24,7 +24,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	180ec92ef982d9fb5c6bdc789f381335f77823c1
+GH_TAGNAME=	8cccd75e81c7150b5bb6cf43313eab9f5ac25f63
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
@@ -176,14 +176,6 @@ post-install:
 	@${ECHO_MSG} "-->  Alternate graphics driver may be set in client config, must be to get used."
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} " "
-	@${ECHO_MSG} "-->>  As of 5.7.0 release:"
-	@${ECHO_MSG} "-->>    If your minetest client mysteriously crashes on a server, check to see whether that server needs an update."
-	@${ECHO_MSG} "-->>    This client should work but an older one may now crash due to this issue."
-	@${ECHO_MSG} " "
-
-#----------
-# FYI] The crash issue:  https://github.com/minetest/minetest/commit/ba2fee07518d9c6154799b61ba1b14a2cb43ace7#comments
-#----------
 
 # --> Need to figure out about fonts, deny installing bundled ones, link to system ones instead.
 #  	These are mentioned in the generate pkg-plist file.
