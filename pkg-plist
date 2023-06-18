@@ -129,6 +129,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/mainmenu/dlg_version_info.lua
 %%DATADIR%%/builtin/mainmenu/game_theme.lua
 %%DATADIR%%/builtin/mainmenu/init.lua
+%%DATADIR%%/builtin/mainmenu/misc.lua
 %%DATADIR%%/builtin/mainmenu/pkgmgr.lua
 %%DATADIR%%/builtin/mainmenu/serverlistmgr.lua
 %%DATADIR%%/builtin/mainmenu/settings/components.lua
@@ -329,9 +330,11 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/jukebox.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/mod.conf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/racecar.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/sound_event_items.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/sounds/gitignored_sounds/custom_sounds_here.txt
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/sounds/soundstuff_mono.ogg
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/sounds/soundstuff_sinus.ogg
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_bigfoot.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_eat.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_jukebox.png
@@ -344,6 +347,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_node_place.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_node_place_failed.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_node_sound.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_racecar.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/stairs/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/stairs/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/armor.lua
@@ -481,9 +485,15 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_attachedw_top.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_bouncy.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_buildable_to.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_climbable_noclimb_side.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_climbable_noclimb_top.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_climbable_nodescend_side.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_climbable_nodescend_top.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_climbable_nojump_side.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_climbable_nojump_top.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_climbable_resistance_side.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_climbable_side.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_climbable_top.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_damage.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_damage_neg.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_drowning.png
