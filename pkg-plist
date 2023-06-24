@@ -81,6 +81,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/common/item_s.lua
 %%DATADIR%%/builtin/common/misc_helpers.lua
 %%DATADIR%%/builtin/common/mod_storage.lua
+%%DATADIR%%/builtin/common/register.lua
 %%DATADIR%%/builtin/common/serialize.lua
 %%DATADIR%%/builtin/common/strict.lua
 %%DATADIR%%/builtin/common/tests/misc_helpers_spec.lua
@@ -720,6 +721,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%CLIENT%%%%DATADIR%%/textures/base/pack/error_icon_orange.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/error_icon_red.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/error_screenshot.png
+%%CLIENT%%%%DATADIR%%/textures/base/pack/exit_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/fast_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/fly_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/gear_icon.png
