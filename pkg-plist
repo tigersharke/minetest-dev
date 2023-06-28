@@ -166,6 +166,8 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%CLIENT%%%%DATADIR%%/client/shaders/default_shader/opengl_vertex.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/extract_bloom/opengl_fragment.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/extract_bloom/opengl_vertex.glsl
+%%CLIENT%%%%DATADIR%%/client/shaders/fxaa/opengl_fragment.glsl
+%%CLIENT%%%%DATADIR%%/client/shaders/fxaa/opengl_vertex.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/minimap_shader/opengl_fragment.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/minimap_shader/opengl_vertex.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/nodes_shader/opengl_fragment.glsl
