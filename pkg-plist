@@ -423,11 +423,14 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/liquids.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/meshes.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/mod.conf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/models/testnodes_marble_glass.obj
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/models/testnodes_marble_metal.obj
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/models/testnodes_ocorner.obj
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/models/testnodes_pyramid.obj
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/nodeboxes.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/overlays.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/param2.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/performance_test_nodes.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/properties.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_1.png
@@ -550,6 +553,9 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_liquidsource_r6.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_liquidsource_r7.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_liquidsource_r8.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_marble_glass.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_marble_metal.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_marble_metal_overlay.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_mesh_stripes.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_mesh_stripes10.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_mesh_stripes2.png
@@ -584,6 +590,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_palette_4dir.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_palette_facedir.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_palette_full.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_palette_metal.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_palette_wallmounted.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_degrotate.png
