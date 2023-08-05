@@ -139,7 +139,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/mainmenu/settings/generate_from_settingtypes.lua
 %%DATADIR%%/builtin/mainmenu/settings/init.lua
 %%DATADIR%%/builtin/mainmenu/settings/settingtypes.lua
-%%DATADIR%%/builtin/mainmenu/settings/shader_component.lua
+%%DATADIR%%/builtin/mainmenu/settings/shadows_component.lua
 %%DATADIR%%/builtin/mainmenu/tab_about.lua
 %%DATADIR%%/builtin/mainmenu/tab_content.lua
 %%DATADIR%%/builtin/mainmenu/tab_local.lua
