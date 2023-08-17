@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20230813
+DISTVERSION=	g20230814
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -24,7 +24,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	137e4ce8667af7eb1edefd9754f758e430551a40
+GH_TAGNAME=	7b3ed3200325ce913a6a2d884ae1ba1ccb08aad5
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
@@ -173,7 +173,7 @@ post-install:
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} "-->  Local network issues could cause singleplayer to fail. "
 	@${ECHO_MSG} " "
-	@${ECHO_MSG} "-->  Alternate graphics driver may be set in client config, must be to get used."
+	@${ECHO_MSG} "-->  Alternate graphics driver may be set in client config, must be set to get used."
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} " "
 
