@@ -93,10 +93,12 @@ CLIENT_DESC=			Build client
 CLIENT_CMAKE_BOOL=		BUILD_CLIENT
 CLIENT_LIB_DEPENDS=		libIrrlichtMt.so:x11-toolkits/irrlicht-minetest \
 				libpng.so:graphics/png
+
 CLIENT_USES=			gl xorg
 CLIENT_USE=			jpeg GL=gl,glu \
 				XORG=ice,sm,x11,xext,xcb,xres,xshmfence,xau,xaw,xcomposite,xcursor,xdamage,xdmcp,\
 				xfixes,xft,xi,xinerama,xkbfile,xmu,xpm,xrandr,xrender,xscreensaver,xt,xtst,xv,xxf86vm
+
 SERVER_DESC=			Build server
 SERVER_CMAKE_BOOL=		BUILD_SERVER
 
@@ -201,9 +203,6 @@ post-install:
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} " "
 
-# --> Need to figure out about fonts, deny installing bundled ones, link to system ones instead.
-#  	These are mentioned in the generate pkg-plist file.
-#
 # hacky way to not bring irrlicht and X11 depends for server only
 #.if ! ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MSERVER}
 #BROKEN= server only hack fails for irrlicht fork
@@ -215,63 +214,7 @@ post-install:
 #
 # When invoking CMake, use -DBUILD_CLIENT=0 -DIRRLICHT_SOURCE_DIR=/wherever/you/unzipped/the/source.
 
-#post-patch:
-#	@${REINPLACE_CMD} -e 's|/usr/local|${LOCALBASE}|' \
-#		${WRKSRC}/cmake/Modules/*.cmake
-#
-# ----------------------------
-#  The fonts that minetest uses and installs can be satisfied by x11-fonts/croscorefonts-fonts-ttf and
-#  x11-fonts/droid-fonts-ttf or x11-fonts/nerd-fonts so now the challenge is to substitute those in lieu
-#  of the bundled ones which should reduce overall install size if those fonts are present already.
-# ----------------------------
-#
-#
-#--
-# APPLY_LOCALE_BLACKLIST:BOOL=ON
-# BUILD_BENCHMARKS:BOOL=FALSE
-# BUILD_CLIENT:BOOL=TRUE
-# BUILD_SERVER:BOOL=FALSE
-# BUILD_UNITTESTS:BOOL=TRUE
-# CMAKE_BUILD_TYPE:STRING=Release
-# CMAKE_INSTALL_PREFIX:PATH=/usr/local
-# CUSTOM_BINDIR:STRING=
-# CUSTOM_DOCDIR:STRING=
-# CUSTOM_EXAMPLE_CONF_DIR:STRING=
-# CUSTOM_ICONDIR:STRING=
-# CUSTOM_LOCALEDIR:STRING=
-# CUSTOM_MANDIR:STRING=
-# CUSTOM_SHAREDIR:STRING=
-# CUSTOM_XDG_APPS_DIR:STRING=
-# ENABLE_CURL:BOOL=ON
-# ENABLE_CURSES:BOOL=ON
-# ENABLE_GETTEXT:BOOL=ON
-# ENABLE_LEVELDB:BOOL=ON
-# ENABLE_LUAJIT:BOOL=ON
-# ENABLE_POSTGRESQL:BOOL=ON
-# ENABLE_PROMETHEUS:BOOL=OFF
-# ENABLE_REDIS:BOOL=ON
-# ENABLE_SOUND:BOOL=ON
-# ENABLE_SPATIAL:BOOL=ON
-# ENABLE_SYSTEM_GMP:BOOL=ON
-# ENABLE_SYSTEM_JSONCPP:BOOL=ON
-# ENABLE_TOUCH:BOOL=OFF
-# ENABLE_UPDATE_CHECKER:BOOL=(;NOT;TRUE;)
-# GETTEXT_MSGFMT:FILEPATH=/usr/local/bin/msgfmt
-# INSTALL_DEVTEST:BOOL=FALSE
-# IRRLICHTMT_BUILD_DIR:PATH=
-# IrrlichtMt_DIR:PATH=/usr/local/lib/cmake/IrrlichtMt
-# LEVELDB_INCLUDE_DIR:PATH=/usr/local/include/leveldb
-# LEVELDB_LIBRARY:FILEPATH=/usr/local/lib/libleveldb.so
-# REDIS_INCLUDE_DIR:PATH=/usr/local/include/hiredis
-# REDIS_LIBRARY:FILEPATH=/usr/local/lib/libhiredis.so
-# REQUIRE_LUAJIT:BOOL=OFF
-# RUN_IN_PLACE:BOOL=FALSE
-# SPATIAL_INCLUDE_DIR:PATH=/usr/local/include
-# SPATIAL_LIBRARY:FILEPATH=/usr/local/lib/libspatialindex.so
-# USE_GPROF:BOOL=FALSE
-# VERSION_EXTRA:STRING=
-# WARN_ALL:BOOL=TRUE
-#--
+#----------------------------------------------------------------------
 #
 # Strangely network issues can prevent singleplayer from functioning.
 # GCC 		7.5+ 	or Clang 6.0+
@@ -285,4 +228,5 @@ post-install:
 # JsonCPP 	1.0.0+ 	Bundled JsonCPP is used if not present
 # Curl 		7.56.0+ Optional
 # gettext 	- 	Optional
+#----------------------------------------------------------------------
 .include <bsd.port.mk>
