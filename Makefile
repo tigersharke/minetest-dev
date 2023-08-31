@@ -33,7 +33,7 @@ CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 WRKSRC=		${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
 OPTIONS_DEFINE=			CURL DOCS FREETYPE LUAJIT NCURSES NLS SOUND SPATIAL SYSTEM_GMP \
-				SYSTEM_JSONCPP TOUCH PROMETHEUS # SYSTEM_FONTS INSTALL_DEVTEST
+				SYSTEM_JSONCPP TOUCH PROMETHEUS SYSTEM_FONTS
 OPTIONS_DEFAULT=		CURL DOCS FREETYPE LUAJIT SOUND SPATIAL SYSTEM_GMP SYSTEM_JSONCPP CLIENT GLVND
 OPTIONS_MULTI=			COMP
 OPTIONS_GROUP=			BUILD DATABASE
@@ -66,9 +66,23 @@ UNITTESTS_CMAKE_BOOL=		BUILD_UNITTESTS
 
 # Need to figure out how to handle this but doing so will reduce overall install.
 #
-#SYSTEM_FONTS_DESC=		Use same local system truetype fonts instead of bundled
-#SYSTEM_FONTS_RUN_DEPENDS=	croscorefonts-fonts-ttf:x11-fonts/croscorefonts-fonts-ttf \
-#				droid-fonts-ttf:x11-fonts/droid-fonts-ttf
+# Provided by x11-fonts/croscorefonts-fonts-ttf
+# fonts/Arimo-Bold.ttf
+# fonts/Arimo-BoldItalic.ttf
+# fonts/Arimo-Italic.ttf
+# fonts/Arimo-LICENSE.txt
+# fonts/Arimo-Regular.ttf
+# fonts/Cousine-Bold.ttf
+# fonts/Cousine-BoldItalic.ttf
+# fonts/Cousine-Italic.ttf
+# fonts/Cousine-LICENSE.txt
+# fonts/Cousine-Regular.ttf
+# Provided by x11-fonts/droid-fonts-ttf
+# fonts/DroidSansFallbackFull-LICENSE.txt
+# fonts/DroidSansFallbackFull.ttf
+SYSTEM_FONTS_DESC=		Install or use system fonts
+SYSTEM_FONTS_RUN_DEPENDS=	${LOCALBASE}/share/fonts/ChromeOS/Arimo-Bold.ttf:x11-fonts/croscorefonts-fonts-ttf \
+				${LOCALBASE}/share/fonts/Droid/DroidSans.ttf:x11-fonts/droid-fonts-ttf
 
 OPTIONS_SINGLE_GRAPHICS=	GLVND LEGACY
 GRAPHICS_DESC=                  Graphics support
@@ -167,6 +181,24 @@ USERS=			minetest
 GROUPS=			minetest
 .endif
 
+# Exactly why this must be done this way eludes me but this works and satisfies the install needs.
+.if ${PORT_OPTIONS:MSYSTEM_FONTS}
+pre-install:
+	${MKDIR} ${LOCALBASE}/share/minetest/fonts
+	${RM} ${LOCALBASE}/share/minetest/fonts/Arimo-Bold.ttf
+	${RM} ${LOCALBASE}/share/minetest/fonts/Arimo-BoldItalic.ttf
+	${RM} ${LOCALBASE}/share/minetest/fonts/Arimo-Italic.ttf
+	${MKDIR} ${LOCALBASE}/share/minetest/fonts
+	${LN} -s ${LOCALBASE}/share/fonts/ChromeOS/Arimo-Bold.ttf ${LOCALBASE}/share/minetest/fonts/Arimo-Bold.ttf
+	${LN} -s ${LOCALBASE}/share/fonts/ChromeOS/Arimo-BoldItalic.ttf ${LOCALBASE}/share/minetest/fonts/Arimo-BoldItalic.ttf
+	${LN} -s ${LOCALBASE}/share/fonts/ChromeOS/Arimo-Italic.ttf ${LOCALBASE}/share/minetest/fonts/Arimo-Italic.ttf
+	${LN} -s ${LOCALBASE}/share/fonts/ChromeOS/Cousine-Bold.ttf ${LOCALBASE}/share/minetest/fonts/Cousine-Bold.ttf
+	${LN} -s ${LOCALBASE}/share/fonts/ChromeOS/Cousine-BoldItalic.ttf ${LOCALBASE}/share/minetest/fonts/Cousine-BoldItalic.ttf
+	${LN} -s ${LOCALBASE}/share/fonts/ChromeOS/Cousine-Italic.ttf ${LOCALBASE}/share/minetest/fonts/Cousine-Italic.ttf
+	${LN} -s ${LOCALBASE}/share/fonts/ChromeOS/Cousine-Regular.ttf ${LOCALBASE}/share/minetest/fonts/Cousine-Regular.ttf
+	${LN} -s ${LOCALBASE}/share/fonts/Droid/DroidSansFallbackFull.ttf ${LOCALBASE}/share/minetest/fonts/DroidSansFallbackFull.ttf
+.endif
+
 post-install:
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} "-->  "${PREFIX}/etc/"minetest.conf.example explains options and gives their default values. "
@@ -251,12 +283,12 @@ post-install:
 #
 # Strangely network issues can prevent singleplayer from functioning.
 # GCC 		7.5+ 	or Clang 6.0+
-# CMake 		3.5+ 	
+# CMake 	3.5+
 # IrrlichtMt 	- 	Custom version of Irrlicht, see https://github.com/minetest/irrlicht
-# Freetype 	2.0+ 	
-# SQLite3 	3+ 	
-# Zstd 		1.0+ 	
-# LuaJIT 		2.0+ 	Bundled Lua 5.1 is used if not present
+# Freetype 	2.0+
+# SQLite3 	3+
+# Zstd 		1.0+
+# LuaJIT 	2.0+ 	Bundled Lua 5.1 is used if not present
 # GMP 		5.0.0+ 	Bundled mini-GMP is used if not present
 # JsonCPP 	1.0.0+ 	Bundled JsonCPP is used if not present
 # Curl 		7.56.0+ Optional
