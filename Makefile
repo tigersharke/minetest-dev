@@ -188,6 +188,11 @@ pre-install:
 	${RM} ${LOCALBASE}/share/minetest/fonts/Arimo-Bold.ttf
 	${RM} ${LOCALBASE}/share/minetest/fonts/Arimo-BoldItalic.ttf
 	${RM} ${LOCALBASE}/share/minetest/fonts/Arimo-Italic.ttf
+	${RM} ${LOCALBASE}/share/minetest/fonts/Cousine-Bold.ttf
+	${RM} ${LOCALBASE}/share/minetest/fonts/Cousine-BoldItalic.ttf
+	${RM} ${LOCALBASE}/share/minetest/fonts/Cousine-Italic.ttf
+	${RM} ${LOCALBASE}/share/minetest/fonts/Cousine-Regular.ttf
+	${RM} ${LOCALBASE}/share/minetest/fonts/DroidSansFallbackFull.ttf
 	${MKDIR} ${LOCALBASE}/share/minetest/fonts
 	${LN} -s ${LOCALBASE}/share/fonts/ChromeOS/Arimo-Bold.ttf ${LOCALBASE}/share/minetest/fonts/Arimo-Bold.ttf
 	${LN} -s ${LOCALBASE}/share/fonts/ChromeOS/Arimo-BoldItalic.ttf ${LOCALBASE}/share/minetest/fonts/Arimo-BoldItalic.ttf
