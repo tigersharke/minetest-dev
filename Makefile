@@ -32,15 +32,18 @@ CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 
 WRKSRC=		${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
-OPTIONS_DEFINE=			CURL DOCS FREETYPE LUAJIT NCURSES NLS SOUND SPATIAL SYSTEM_GMP \
-				SYSTEM_JSONCPP TOUCH PROMETHEUS SYSTEM_FONTS
-OPTIONS_DEFAULT=		CURL DOCS FREETYPE LUAJIT SOUND SPATIAL SYSTEM_GMP SYSTEM_JSONCPP CLIENT GLVND
+OPTIONS_DEFINE=			CURL DOCS FREETYPE LUAJIT NCURSES NLS SOUND SPATIAL \
+				TOUCH PROMETHEUS
+OPTIONS_DEFAULT=		CURL DOCS FREETYPE LUAJIT SOUND SPATIAL SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP CLIENT GLVND
 OPTIONS_MULTI=			COMP
 OPTIONS_GROUP=			BUILD DATABASE
 OPTIONS_SINGLE=			GRAPHICS
 
 COMP_DESC=			Software components
 OPTIONS_MULTI_COMP=		CLIENT SERVER
+
+SYSTEM_DESC=			Software components
+OPTIONS_MULTI_COMP=		SYSTEM_GMP SYSTEM_JSONCPP SYSTEM_FONTS 
 
 SYSTEM_GMP_DESC=		Use gmp from ports (ENABLE_SYSTEM_GMP)
 SYSTEM_GMP_CMAKE_BOOL=		ENABLE_SYSTEM_GMP
@@ -51,6 +54,10 @@ SYSTEM_JSONCPP_DESC=		Use jsoncpp from ports (ENABLE_SYSTEM_JSONCPP)
 SYSTEM_JSONCPP_CMAKE_BOOL=	ENABLE_SYSTEM_JSONCPP
 SYSTEM_JSONCPP_CMAKE_ON=	-DJSON_INCLUDE_DIR="${PREFIX}/include/jsoncpp"
 SYSTEM_JSONCPP_LIB_DEPENDS=	libjsoncpp.so:devel/jsoncpp
+
+SYSTEM_FONTS_DESC=		Use or install default fonts from ports
+SYSTEM_FONTS_RUN_DEPENDS=	${LOCALBASE}/share/fonts/ChromeOS/Arimo-Bold.ttf:x11-fonts/croscorefonts-fonts-ttf \
+				${LOCALBASE}/share/fonts/Droid/DroidSans.ttf:x11-fonts/droid-fonts-ttf
 
 BUILD_DESC=			Dev Build options
 OPTIONS_GROUP_BUILD=		BENCHMARKS EXAMPLES UNITTESTS DEVTEST
@@ -63,26 +70,6 @@ DEVTEST_DESC=			Install Development Test game also (INSTALL_DEVTEST)
 DEVTEST_CMAKE_BOOL=		INSTALL_DEVTEST
 UNITTESTS_DESC=			Build unittest sources (BUILD_UNITTESTS)
 UNITTESTS_CMAKE_BOOL=		BUILD_UNITTESTS
-
-# Need to figure out how to handle this but doing so will reduce overall install.
-#
-# Provided by x11-fonts/croscorefonts-fonts-ttf
-# fonts/Arimo-Bold.ttf
-# fonts/Arimo-BoldItalic.ttf
-# fonts/Arimo-Italic.ttf
-# fonts/Arimo-LICENSE.txt
-# fonts/Arimo-Regular.ttf
-# fonts/Cousine-Bold.ttf
-# fonts/Cousine-BoldItalic.ttf
-# fonts/Cousine-Italic.ttf
-# fonts/Cousine-LICENSE.txt
-# fonts/Cousine-Regular.ttf
-# Provided by x11-fonts/droid-fonts-ttf
-# fonts/DroidSansFallbackFull-LICENSE.txt
-# fonts/DroidSansFallbackFull.ttf
-SYSTEM_FONTS_DESC=		Install or use system fonts
-SYSTEM_FONTS_RUN_DEPENDS=	${LOCALBASE}/share/fonts/ChromeOS/Arimo-Bold.ttf:x11-fonts/croscorefonts-fonts-ttf \
-				${LOCALBASE}/share/fonts/Droid/DroidSans.ttf:x11-fonts/droid-fonts-ttf
 
 OPTIONS_SINGLE_GRAPHICS=	GLVND LEGACY
 GRAPHICS_DESC=                  Graphics support
@@ -129,7 +116,7 @@ NCURSES_CMAKE_BOOL=		ENABLE_CURSES
 NCURSES_USES=			ncurses
 
 # This option is becoming uncertain, though it does something, is it useful?
-LUAJIT_DESC=			Enable and require LUAJIT
+LUAJIT_DESC=			Require LUAJIT (always enabled)
 LUAJIT_CMAKE_BOOL_ON=		REQUIRE_LUAJIT
 LUAJIT_CMAKE_BOOL_OFF=		ENABLE_LUAJIT
 
