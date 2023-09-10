@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20230905
+DISTVERSION=	g20230909
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -24,7 +24,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	1a568cc491f460197bdf29eeb19d2b480f42aa71
+GH_TAGNAME=	48ab1835dada1e860ae6c973e458d022d07a57f2
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
@@ -173,7 +173,6 @@ GROUPS=			minetest
 # Exactly why this must be done this way eludes me but this works and satisfies the install needs.
 .if ${PORT_OPTIONS:MSYSTEM_FONTS}
 pre-install:
-	${MKDIR} ${LOCALBASE}/share/minetest/fonts
 	${RM} ${LOCALBASE}/share/minetest/fonts/Arimo-Bold.ttf
 	${RM} ${LOCALBASE}/share/minetest/fonts/Arimo-BoldItalic.ttf
 	${RM} ${LOCALBASE}/share/minetest/fonts/Arimo-Italic.ttf

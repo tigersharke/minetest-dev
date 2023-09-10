@@ -782,6 +782,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%CLIENT%%%%DATADIR%%/textures/base/pack/server_ping_3.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/server_ping_4.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/server_public.png
+%%CLIENT%%%%DATADIR%%/textures/base/pack/settings_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/settings_info.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/settings_reset.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/smoke_puff.png
