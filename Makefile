@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20230917
+DISTVERSION=	g20230922
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -24,7 +24,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	a88e61c2cf318d4901b507c2ffde5b436594d03c
+GH_TAGNAME=	c247761213997e427af4805cfef0c392f98e6aea
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
@@ -87,6 +87,7 @@ GLVND_DESC=                     Use libOpenGL or libGLX
 GLVND_CMAKE_BOOL=               ENABLE_GLVND
 GLVND_CMAKE_ON=                 -DOPENGL_GL_PREFERENCE="GLVND" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
 GLVND_USE=                      GL+=opengl
+GLVND_LIB_DEPENDS=		libOpenGL.so:graphics/libglvnd
 
 LEGACY_DESC=                    Use libGL - where GLVND may be broken on nvidia
 LEGACY_CMAKE_BOOL=              ENABLE_LEGACY
