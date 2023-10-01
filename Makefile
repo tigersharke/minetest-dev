@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20230926
+DISTVERSION=	g20230930
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -13,18 +13,15 @@ LICENSE=	LGPL21+
 
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
 
-USES=		cmake compiler:c++14-lang iconv:wchar_t sqlite luajit
-# Upstream requires Clang 3.5+ which for our criteria matches c++14-lang
-# since https://en.cppreference.com/w/cpp/compiler_support
-# lists "C++14 library support status (complete as of 3.5)"
-# All other dependency version numbers are more direct and obvious, and surpass requirement.
+# Upstream revised the requirement to clang 7.0.1+ (or gcc 7.5+) so this 'USES' is now a more recent feature set.
+USES=		cmake compiler:c++20-lang iconv:wchar_t sqlite luajit
 
 CONFLICTS=	minetest
 
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	8fa2ea71ef1191d8eda2412f733051646c8d3800
+GH_TAGNAME=	c90c545d3395dc22f1ec43ca4f8a95e0f6fa5a14
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
