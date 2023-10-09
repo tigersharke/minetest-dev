@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20231008
+DISTVERSION=	g20231009
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -21,7 +21,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	2c74797d340be791b1891596b26ca311815afa93
+GH_TAGNAME=	352a403bd0346ded1f43b47946c3dc7bfc250803
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
@@ -114,6 +114,11 @@ CURL_LIB_DEPENDS=		libcurl.so:ftp/curl
 
 SOUND_DESC=			Enable sound via openal-soft
 SOUND_CMAKE_BOOL=		ENABLE_SOUND
+
+# WHOOPS!  DOCS option had done exactly nothing, docs likely always built previously.
+DOCS_DESC=			Build and install documentation (via doxygen)
+DOCS_CMAKE_BOOL=		BUILD_DOCUMENTATION
+#DOCS_LIB_DEPENDS=		
 
 FREETYPE_DESC=			Support for TrueType fonts with unicode
 FREETYPE_CMAKE_BOOL=		ENABLE_FREETYPE
