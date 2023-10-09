@@ -126,6 +126,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/mainmenu/dlg_delete_content.lua
 %%DATADIR%%/builtin/mainmenu/dlg_delete_world.lua
 %%DATADIR%%/builtin/mainmenu/dlg_register.lua
+%%DATADIR%%/builtin/mainmenu/dlg_reinstall_mtg.lua
 %%DATADIR%%/builtin/mainmenu/dlg_rename_modpack.lua
 %%DATADIR%%/builtin/mainmenu/dlg_version_info.lua
 %%DATADIR%%/builtin/mainmenu/game_theme.lua
