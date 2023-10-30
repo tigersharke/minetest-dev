@@ -727,7 +727,6 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%CLIENT%%%%DATADIR%%/textures/base/pack/chat_hide_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/chat_show_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/checkbox_16.png
-%%CLIENT%%%%DATADIR%%/textures/base/pack/checkbox_16_white.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/checkbox_32.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/checkbox_64.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/clear.png
