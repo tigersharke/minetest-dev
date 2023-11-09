@@ -10,7 +10,7 @@ share/applications/net.minetest.minetest.desktop
 %%PORTDOCS%%%%DOCSDIR%%/lua_api.md
 %%PORTDOCS%%%%DOCSDIR%%/menu_lua_api.md
 %%PORTDOCS%%%%DOCSDIR%%/texture_packs.md
-%%PORTDOCS%%%%DOCSDIR%%/world_format.txt
+%%PORTDOCS%%%%DOCSDIR%%/world_format.md
 share/icons/hicolor/128x128/apps/minetest.png
 share/icons/hicolor/scalable/apps/minetest.svg
 %%CLIENT%%%%NLS%%share/locale/be/LC_MESSAGES/minetest.mo
