@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20231123
+DISTVERSION=	g20231125
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -22,6 +22,7 @@ USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
 GH_TAGNAME=	6783734612832bd6a25adc3ddcd32f6a12c89249
+https://github.com/minetest/minetest/commit/771da80bbb85c9fa4f0dcf0f3d04f46a0a20239f
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
