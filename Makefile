@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20231215
+DISTVERSION=	g20231216
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -14,14 +14,14 @@ LICENSE=	LGPL21+
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
 
 # Upstream revised the requirement to clang 7.0.1+ (or gcc 7.5+) so this 'USES' is now a more recent feature set.
-USES=		cmake compiler:c++20-lang iconv:wchar_t sqlite luajit
+USES=		cmake compiler:c++20-lang iconv:wchar_t sqlite luajit ninja:make
 
 CONFLICTS=	minetest
 
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	3c60d359edf190116401eab79ba51f796631aaf1
+GH_TAGNAME=	16c22477c29478d2a956b08402fe6e11b5bc24d5
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
@@ -68,7 +68,7 @@ SYSTEM_FONTS_RUN_DEPENDS=	${LOCALBASE}/share/fonts/ChromeOS/Arimo-Bold.ttf:x11-f
 BUILD_DESC=			Admin/Dev needs
 OPTIONS_GROUP_BUILD=		BENCHMARKS DEVTEST EXAMPLES NCURSES PROMETHEUS TOUCH UNITTESTS
 
-BENCHMARKS_DESC=		Build benchmark sources (BUILD_BENCHMARKS)
+BENCHMARKS_DESC=		Build benchmark sources (BUILD_BENCHMARKS) *FAILS*
 BENCHMARKS_CMAKE_BOOL=		BUILD_BENCHMARKS
 EXAMPLES_DESC=			BUILD_EXAMPLES
 EXAMPLES_CMAKE_BOOL=		BUILD_EXAMPLES
