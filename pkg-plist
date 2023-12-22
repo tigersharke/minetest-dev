@@ -197,6 +197,8 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%CLIENT%%%%DATADIR%%/client/shaders/stars_shader/opengl_vertex.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/update_exposure/opengl_fragment.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/update_exposure/opengl_vertex.glsl
+%%CLIENT%%%%DATADIR%%/client/shaders/volumetric_light/opengl_fragment.glsl
+%%CLIENT%%%%DATADIR%%/client/shaders/volumetric_light/opengl_vertex.glsl
 %%CLIENT%%%%DATADIR%%/fonts/Arimo-Bold.ttf
 %%CLIENT%%%%DATADIR%%/fonts/Arimo-BoldItalic.ttf
 %%CLIENT%%%%DATADIR%%/fonts/Arimo-Italic.ttf
