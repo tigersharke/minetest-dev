@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20231223
+DISTVERSION=	g20231225
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -13,19 +13,20 @@ LICENSE=	LGPL21+
 
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
 
-# Upstream revised the requirement to clang 7.0.1+ (or gcc 7.5+) so this 'USES' is now a more recent feature set.
-USES=		cmake compiler:c++20-lang iconv:wchar_t sqlite luajit ninja:make
+USES=		cmake iconv:wchar_t sqlite luajit ninja:make llvm:min=17
+# A patchfile solves the lib atomic requirement which llvm compiler-rt already includes.
 
 CONFLICTS=	minetest
 
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	46c930cf701087d63eb0e23fb403e45f2eb3966a
+GH_TAGNAME=	5405a558fd1bd76c4d04aa409c43ef31e3f39640
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
-		-DCUSTOM_MANDIR="${PREFIX}/man"
+		-DCUSTOM_MANDIR="${PREFIX}/man" \
+		-DCMAKE_CXX_FLAGS="-stdlib=libc++"
 
 WRKSRC=		${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
