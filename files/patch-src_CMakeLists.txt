@@ -1,0 +1,11 @@
+--- src/CMakeLists.txt.orig	2024-01-14 04:22:05 UTC
++++ src/CMakeLists.txt
+@@ -558,7 +558,7 @@ if(BUILD_CLIENT)
+ 		${GMP_LIBRARY}
+ 		${JSON_LIBRARY}
+ 		${LUA_BIT_LIBRARY}
+-		${FREETYPE_LIBRARY}
++		${FREETYPE_LIBRARIES}
+ 		${PLATFORM_LIBS}
+ 	)
+ 	if(NOT USE_LUAJIT)

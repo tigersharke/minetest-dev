@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20240111
+DISTVERSION=	g20240112
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -13,20 +13,21 @@ LICENSE=	LGPL21+
 
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
 
-USES=		cmake iconv:wchar_t sqlite luajit ninja:make llvm:min=17
-# A patchfile solves the lib atomic requirement which llvm compiler-rt already includes.
+USES=		cmake iconv:wchar_t sqlite lua luajit ninja:make llvm:min=16 pkgconfig:build sdl
 
 CONFLICTS=	minetest
 
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	345e93d19cf539d7d9f324370c859e2d5a9089ab
+GH_TAGNAME=	518ecd7f4e6eefb088e85f9a4c561e3756c5d61b
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
 		-DCUSTOM_MANDIR="${PREFIX}/man" \
 		-DCMAKE_CXX_FLAGS="-stdlib=libc++"
+
+USE_SDL=	sdl2 ttf2
 
 WRKSRC=		${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
