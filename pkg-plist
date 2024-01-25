@@ -369,6 +369,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/armor.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/mod.conf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/pointable.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/selectionbox.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/textures/testentities_armorball.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/textures/testentities_cube1.png
@@ -508,6 +509,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_attachedwr_bottom.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_attachedwr_side.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_attachedwr_top.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_blocking_pointable.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_bouncy.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_buildable_to.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_climbable_noclimb_side.png
@@ -604,6 +606,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_normal4.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_normal5.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_normal6.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_not_pointable.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_overlay.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_overlayable.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_palette_4dir.png
@@ -629,6 +632,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_rooted_waving.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_wallmounted.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_plantlike_waving.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_pointable.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_post_effect_color_shaded_false.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_post_effect_color_shaded_true.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_rail2_crossing.png
@@ -673,6 +677,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/particles.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/privatizer.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_blocked_pointing_staff.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_branding_iron.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_children_getter.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_entity_rotator.png
@@ -692,6 +697,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_particle_vertical.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_privatizer.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_remover.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_ultimate_pointing_staff.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/tiled/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/tiled/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/tiled/textures/tiled_tiled.png
