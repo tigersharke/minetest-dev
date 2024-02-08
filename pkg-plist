@@ -675,6 +675,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/light.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/mod.conf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/node_box_visualizer.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/particles.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/privatizer.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_blocked_pointing_staff.png
@@ -686,6 +687,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_falling_node_tool.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_item_meta_editor.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_lighttool.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_node_box_visualizer.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_node_meta_editor.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_node_setter.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_object_attacher.png
@@ -698,6 +700,9 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_privatizer.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_remover.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_ultimate_pointing_staff.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_visual_collision_box.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_visual_node_box.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_visual_selection_box.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/tiled/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/tiled/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/tiled/textures/tiled_tiled.png
