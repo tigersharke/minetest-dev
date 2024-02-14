@@ -94,6 +94,9 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/common/tests/serialize_spec.lua
 %%DATADIR%%/builtin/common/tests/vector_spec.lua
 %%DATADIR%%/builtin/common/vector.lua
+%%DATADIR%%/builtin/emerge/env.lua
+%%DATADIR%%/builtin/emerge/init.lua
+%%DATADIR%%/builtin/emerge/register.lua
 %%DATADIR%%/builtin/fstk/buttonbar.lua
 %%DATADIR%%/builtin/fstk/dialog.lua
 %%DATADIR%%/builtin/fstk/tabview.lua
@@ -715,6 +718,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/get_version.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/inside_async_env.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/inside_mapgen_env.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/itemdescription.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/itemstack_equals.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/metadata.lua
