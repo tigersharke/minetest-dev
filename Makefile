@@ -1,5 +1,5 @@
 PORTNAME=	minetest
-DISTVERSION=	g20240217
+DISTVERSION=	g20240219
 CATEGORIES=	games
 PKGNAMESUFFIX=	-dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -12,6 +12,7 @@ WWW=		https://www.minetest.net/
 LICENSE=	LGPL21+
 
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
+# This upstream commit of minetest will build with Feb 18th upstream commit of irrlichtMt while above depend is unversioned
 
 USES=		cmake iconv:wchar_t sqlite lua luajit ninja:make llvm:min=16 pkgconfig:build sdl
 
@@ -20,7 +21,7 @@ CONFLICTS=	minetest
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=	1e316a9704d07fc92a1f3ae4ffc209f7ffca2359
+GH_TAGNAME=	e3cc26cb7c4fd8265adbce040c0d0577f32667f7
 
 CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
