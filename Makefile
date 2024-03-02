@@ -5,32 +5,31 @@ PKGNAMESUFFIX=	-dev
 DISTNAME=		${PORTNAME}-${GH_TAGNAME}
 DIST_SUBDIR=	${PORTNAME}${PKGNAMESUFFIX}
 
-MAINTAINER=	nope@nothere
-COMMENT=	Near-infinite-world block sandbox game
-WWW=		https://www.minetest.net/
+MAINTAINER=		nope@nothere
+COMMENT=		Near-infinite-world block sandbox game
+WWW=			https://www.minetest.net/
 
-LICENSE=	LGPL21+
+LICENSE=		LGPL21+
 
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
-# This upstream commit of minetest will build with Feb 18th upstream commit of irrlichtMt while above depend is unversioned
 
-USES=		cmake iconv:wchar_t sqlite lua luajit ninja:make llvm:min=16 pkgconfig:build sdl
+USES=			cmake iconv:wchar_t sqlite lua luajit ninja:make llvm:min=16 pkgconfig:build sdl
 
-CONFLICTS=	minetest
+CONFLICTS=		minetest
 
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
 GH_TAGNAME=		bb7f57b095cb6c95c5071d80ebc1c5173049c742
 
-CMAKE_ARGS=	-DCMAKE_BUILD_TYPE="MinSizeRel" \
-		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
-		-DCUSTOM_MANDIR="${PREFIX}/man" \
-		-DCMAKE_CXX_FLAGS="-stdlib=libc++"
+CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
+				-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
+				-DCUSTOM_MANDIR="${PREFIX}/man" \
+				-DCMAKE_CXX_FLAGS="-stdlib=libc++"
 
-USE_SDL=	sdl2 ttf2
+USE_SDL=		sdl2 ttf2
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
+WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
 OPTIONS_DEFAULT=		CURL DOCS FREETYPE LTO LUAJIT SOUND SPATIAL SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP CLIENT GLVND
 
@@ -38,23 +37,23 @@ OPTIONS_GROUP=			NEEDS
 OPTIONS_SINGLE=			GRAPHICS
 OPTIONS_GROUP+=			BUILD
 OPTIONS_MULTI=			SOFTWARE
-OPTIONS_MULTI+=			SYSTEM
+OPTIONS_GROUP+=			SYSTEM
 OPTIONS_GROUP+=			DATABASE
 OPTIONS_GROUP+=			MISC
 
-MISC_DESC=			Other options
+MISC_DESC=				Other options
 OPTIONS_GROUP_MISC=		LTO
 
-NEEDS_DESC=			Client essentials
-OPTIONS_GROUP_NEEDS=		CURL DOCS FREETYPE NLS SOUND SPATIAL
+NEEDS_DESC=				Client essentials
+OPTIONS_GROUP_NEEDS=	CURL DOCS FREETYPE NLS SOUND SPATIAL
 
 SYSTEM_DESC=			System subsitutes
-OPTIONS_MULTI_SYSTEM=		SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP SYSTEM_LUAJIT
+OPTIONS_GROUP_SYSTEM=	SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP SYSTEM_LUAJIT
 
 SOFTWARE_DESC=			Software components
-OPTIONS_MULTI_SOFTWARE=		CLIENT SERVER
+OPTIONS_MULTI_SOFTWARE=	CLIENT SERVER
 
-SYSTEM_GMP_DESC=		Use gmp from ports (ENABLE_SYSTEM_GMP)
+SYSTEM_GMP_DESC=			Use gmp from ports (ENABLE_SYSTEM_GMP)
 SYSTEM_GMP_CMAKE_BOOL=		ENABLE_SYSTEM_GMP
 SYSTEM_GMP_CMAKE_ON=		-DGMP_INCLUDE_DIR="${PREFIX}/include"
 SYSTEM_GMP_LIB_DEPENDS=		libgmp.so:math/gmp
@@ -64,125 +63,125 @@ SYSTEM_JSONCPP_CMAKE_BOOL=	ENABLE_SYSTEM_JSONCPP
 SYSTEM_JSONCPP_CMAKE_ON=	-DJSON_INCLUDE_DIR="${PREFIX}/include/jsoncpp"
 SYSTEM_JSONCPP_LIB_DEPENDS=	libjsoncpp.so:devel/jsoncpp
 
-SYSTEM_LUAJIT_DESC=		Use or install luajit-openresty from ports
-SYSTEM_LUAJIT_USES=		luajit:luajit-openresty
+SYSTEM_LUAJIT_DESC=			Use or install luajit-openresty from ports
+SYSTEM_LUAJIT_USES=			luajit:luajit-openresty
 
-SYSTEM_FONTS_DESC=		Use or install default fonts from ports
+SYSTEM_FONTS_DESC=			Use or install default fonts from ports
 SYSTEM_FONTS_RUN_DEPENDS=	${LOCALBASE}/share/fonts/ChromeOS/Arimo-Bold.ttf:x11-fonts/croscorefonts-fonts-ttf \
-				${LOCALBASE}/share/fonts/Droid/DroidSans.ttf:x11-fonts/droid-fonts-ttf
+							${LOCALBASE}/share/fonts/Droid/DroidSans.ttf:x11-fonts/droid-fonts-ttf
 
-BUILD_DESC=			Admin/Dev needs
+BUILD_DESC=					Admin/Dev needs
 OPTIONS_GROUP_BUILD=		DOCS DEVTEST EXAMPLES NCURSES PROMETHEUS TOUCH UNITTESTS
 #OPTIONS_GROUP_BUILD=		BENCHMARKS DEVTEST EXAMPLES NCURSES PROMETHEUS TOUCH UNITTESTS
 
 # Benchmarks has been broken long enough that it seems devs are not interested in it or fixing it.
-#BENCHMARKS_DESC=		Build benchmark sources (BUILD_BENCHMARKS) *FAILS*
+#BENCHMARKS_DESC=			Build benchmark sources (BUILD_BENCHMARKS) *FAILS*
 #BENCHMARKS_CMAKE_BOOL=		BUILD_BENCHMARKS
-EXAMPLES_DESC=			BUILD_EXAMPLES
+EXAMPLES_DESC=				BUILD_EXAMPLES
 EXAMPLES_CMAKE_BOOL=		BUILD_EXAMPLES
-DEVTEST_DESC=			Install Development Test game also (INSTALL_DEVTEST)
-DEVTEST_CMAKE_BOOL=		INSTALL_DEVTEST
-UNITTESTS_DESC=			Build unit test sources (BUILD_UNITTESTS)
+DEVTEST_DESC=				Install Development Test game also (INSTALL_DEVTEST)
+DEVTEST_CMAKE_BOOL=			INSTALL_DEVTEST
+UNITTESTS_DESC=				Build unit test sources (BUILD_UNITTESTS)
 UNITTESTS_CMAKE_BOOL=		BUILD_UNITTESTS
 
 OPTIONS_SINGLE_GRAPHICS=	GLVND LEGACY
 GRAPHICS_DESC=                  Graphics support
 
-GLVND_DESC=                     Use libOpenGL or libGLX
-GLVND_CMAKE_BOOL=               ENABLE_GLVND
-GLVND_CMAKE_ON=                 -DOPENGL_GL_PREFERENCE="GLVND" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
-GLVND_USE=                      GL+=opengl
-GLVND_LIB_DEPENDS=		libOpenGL.so:graphics/libglvnd
+GLVND_DESC=					Use libOpenGL or libGLX
+GLVND_CMAKE_BOOL=			ENABLE_GLVND
+GLVND_CMAKE_ON=				-DOPENGL_GL_PREFERENCE="GLVND" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
+GLVND_USE=					GL+=opengl
+GLVND_LIB_DEPENDS=			libOpenGL.so:graphics/libglvnd
 
-LEGACY_DESC=                    Use libGL - where GLVND may be broken on nvidia
-LEGACY_CMAKE_BOOL=              ENABLE_LEGACY
-LEGACY_CMAKE_ON=                -DOPENGL_GL_PREFERENCE="LEGACY" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
-LEGACY_USE=                     GL+=opengl
+LEGACY_DESC=				Use libGL - where GLVND may be broken on nvidia
+LEGACY_CMAKE_BOOL=			ENABLE_LEGACY
+LEGACY_CMAKE_ON=			-DOPENGL_GL_PREFERENCE="LEGACY" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
+LEGACY_USE=					GL+=opengl
 
-DATABASE_DESC=			Database support
+DATABASE_DESC=				Database support
 OPTIONS_GROUP_DATABASE=		LEVELDB PGSQL REDIS
 
-OPTIONS_SUB=			yes
+OPTIONS_SUB=				yes
 
-CLIENT_DESC=			Build client and add graphics support, dependency
+CLIENT_DESC=				Build client and add graphics support, dependency
 CLIENT_CMAKE_BOOL_ON=		BUILD_CLIENT REQUIRE_LUAJIT ENABLE_LUAJIT
-CLIENT_LIB_DEPENDS=		libIrrlichtMt.so:x11-toolkits/irrlicht-minetest \
-				libpng.so:graphics/png
-CLIENT_USES=			gl xorg
-CLIENT_USE=			jpeg GL=gl,glu \
-				XORG=ice,sm,x11,xext,xcb,xres,xshmfence,xau,xaw,xcomposite,xcursor,xdamage,xdmcp,\
-				xfixes,xft,xi,xinerama,xkbfile,xmu,xpm,xrandr,xrender,xscreensaver,xt,xtst,xv,xxf86vm
+CLIENT_LIB_DEPENDS=			libIrrlichtMt.so:x11-toolkits/irrlicht-minetest \
+							libpng.so:graphics/png
+CLIENT_USES=				gl xorg
+CLIENT_USE=					jpeg GL=gl,glu \
+							XORG=ice,sm,x11,xext,xcb,xres,xshmfence,xau,xaw,xcomposite,xcursor,xdamage,xdmcp,\
+							xfixes,xft,xi,xinerama,xkbfile,xmu,xpm,xrandr,xrender,xscreensaver,xt,xtst,xv,xxf86vm
 
-SERVER_DESC=			Build server
-SERVER_CMAKE_BOOL=		BUILD_SERVER
+SERVER_DESC=				Build server
+SERVER_CMAKE_BOOL=			BUILD_SERVER
 
-CURL_DESC=			Enable cURL support for fetching media: contentdb
-CURL_CMAKE_BOOL=		ENABLE_CURL
-CURL_LIB_DEPENDS=		libcurl.so:ftp/curl
+CURL_DESC=					Enable cURL support for fetching media: contentdb
+CURL_CMAKE_BOOL=			ENABLE_CURL
+CURL_LIB_DEPENDS=			libcurl.so:ftp/curl
 
-SOUND_DESC=			Enable sound via openal-soft
-SOUND_CMAKE_BOOL=		ENABLE_SOUND
+SOUND_DESC=					Enable sound via openal-soft
+SOUND_CMAKE_BOOL=			ENABLE_SOUND
 
 # WHOOPS!  DOCS option had done exactly nothing, docs likely always built previously.
-DOCS_DESC=			Build and install documentation (via doxygen)
-DOCS_CMAKE_BOOL=		BUILD_DOCUMENTATION
+DOCS_DESC=					Build and install documentation (via doxygen)
+DOCS_CMAKE_BOOL=			BUILD_DOCUMENTATION
 #DOCS_LIB_DEPENDS=
 
-FREETYPE_DESC=			Support for TrueType fonts with unicode
+FREETYPE_DESC=				Support for TrueType fonts with unicode
 FREETYPE_CMAKE_BOOL=		ENABLE_FREETYPE
 FREETYPE_LIB_DEPENDS=		libfreetype.so:print/freetype2
 
-NCURSES_DESC=			Enables server side terminal (cli option: --terminal)
-NCURSES_CMAKE_BOOL=		ENABLE_CURSES
-NCURSES_USES=			ncurses
+NCURSES_DESC=				Enables server side terminal (cli option: --terminal)
+NCURSES_CMAKE_BOOL=			ENABLE_CURSES
+NCURSES_USES=				ncurses
 
-LEVELDB_DESC=			Enable LevelDB backend
-LEVELDB_CMAKE_BOOL=		ENABLE_LEVELDB
+LEVELDB_DESC=				Enable LevelDB backend
+LEVELDB_CMAKE_BOOL=			ENABLE_LEVELDB
 LEVELDB_LIB_DEPENDS=		libleveldb.so:databases/leveldb
 
-PGSQL_DESC=			Enable PostgreSQL map backend
-PGSQL_USES=			pgsql
+PGSQL_DESC=				Enable PostgreSQL map backend
+PGSQL_USES=				pgsql
 PGSQL_CMAKE_BOOL=		ENABLE_POSTGRESQL
 
-REDIS_DESC=			Enable Redis backend
+REDIS_DESC=				Enable Redis backend
 REDIS_CMAKE_BOOL=		ENABLE_REDIS
 REDIS_LIB_DEPENDS=		libhiredis.so:databases/hiredis
 
 SPATIAL_DESC=			Enable SpatialIndex (Speeds up AreaStores)
-SPATIAL_LIB_DEPENDS=		libspatialindex.so:devel/spatialindex
+SPATIAL_LIB_DEPENDS=	libspatialindex.so:devel/spatialindex
 SPATIAL_CMAKE_BOOL=		ENABLE_SPATIAL
 
-NLS_DESC=			Native Language Support (ENABLE_GETTEXT)
+NLS_DESC=				Native Language Support (ENABLE_GETTEXT)
 NLS_CMAKE_BOOL=			ENABLE_GETTEXT
-NLS_USES=			gettext
+NLS_USES=				gettext
 NLS_LDFLAGS=			-L${LOCALBASE}/lib
 
-TOUCH_DESC=			Build with touch interface support (to test on amd64)
+TOUCH_DESC=				Build with touch interface support (to test on amd64)
 TOUCH_CMAKE_BOOL=		ENABLE_TOUCH
 # dependency?
 
 PROMETHEUS_DESC=		Build with Prometheus metrics exporter
-PROMETHEUS_CMAKE_BOOL=		ENABLE_PROMETHEUS
+PROMETHEUS_CMAKE_BOOL=	ENABLE_PROMETHEUS
 # dependency?
 
-LTO_DESC=			Build with IPO/LTO optimizations (smaller and more efficient than regular build)
+LTO_DESC=				Build with IPO/LTO optimizations (smaller and more efficient than regular build)
 LTO_CMAKE_BOOL=			ENABLE_LTO
 
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MSOUND}
 USES+=			openal
-LIB_DEPENDS+=		libogg.so:audio/libogg \
-			libvorbis.so:audio/libvorbis \
-			libvorbisfile.so:audio/libvorbis
+LIB_DEPENDS+=	libogg.so:audio/libogg \
+				libvorbis.so:audio/libvorbis \
+				libvorbisfile.so:audio/libvorbis
 .endif
 
 .if ${PORT_OPTIONS:MSERVER}
 #USE_RC_SUBR=	${PORTNAME}
 #USERS=		${PORTNAME}
 #GROUPS=	${PORTNAME}
-#USE_RC_SUBR=		minetest/ERX
-USE_RC_SUBR=		minetest
+#USE_RC_SUBR=	minetest/ERX
+USE_RC_SUBR=	minetest
 USERS=			minetest
 GROUPS=			minetest
 .endif
