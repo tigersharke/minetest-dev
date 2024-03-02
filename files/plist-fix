@@ -14,8 +14,8 @@ sed \
 -e 's#^bin/minetestserver#\%\%SERVER\%\%bin/minetestserver#1' \
 -e 's#^bin/minetest#\%\%CLIENT\%\%bin/minetest#1' \
 -e 's#^etc/rc.d/minetest#\%\%SERVER\%\%etc/rc.d/minetest#1' \
--e 's#^man/man6/minetest.6.gz#\%\%CLIENT\%\%share/man/man6/minetest.6.gz#1' \
--e 's#^man/man6/minetestserver.6.gz#\%\%SERVER\%\%share/man/man6/minetestserver.6.gz#1' \
+-e 's#^share/man/man6/minetest.6.gz#\%\%CLIENT\%\%share/man/man6/minetest.6.gz#1' \
+-e 's#^share/man/man6/minetestserver.6.gz#\%\%SERVER\%\%share/man/man6/minetestserver.6.gz#1' \
 -e 's#^\%\%DATADIR\%\%/client#\%\%CLIENT\%\%\%\%DATADIR\%\%/client#g' \
 -e 's#^\%\%DATADIR\%\%/fonts#\%\%CLIENT\%\%\%\%DATADIR\%\%/fonts#g' \
 -e 's#^\%\%DATADIR\%\%/textures#\%\%CLIENT\%\%\%\%DATADIR\%\%/textures#g' \

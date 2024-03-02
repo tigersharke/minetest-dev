@@ -2,8 +2,6 @@
 %%SERVER%%bin/minetestserver
 @sample etc/minetest.conf.example etc/minetest.conf
 %%SERVER%%etc/rc.d/minetest
-%%CLIENT%%share/man/man6/minetest.6.gz
-%%SERVER%%share/man/man6/minetestserver.6.gz
 share/applications/net.minetest.minetest.desktop
 %%PORTDOCS%%%%DOCSDIR%%/README.md
 %%PORTDOCS%%%%DOCSDIR%%/client_lua_api.md
@@ -71,6 +69,8 @@ share/icons/hicolor/scalable/apps/minetest.svg
 %%CLIENT%%%%NLS%%share/locale/yue/LC_MESSAGES/minetest.mo
 %%CLIENT%%%%NLS%%share/locale/zh_CN/LC_MESSAGES/minetest.mo
 %%CLIENT%%%%NLS%%share/locale/zh_TW/LC_MESSAGES/minetest.mo
+%%CLIENT%%share/man/man6/minetest.6.gz
+%%SERVER%%share/man/man6/minetestserver.6.gz
 share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/async/game.lua
 %%DATADIR%%/builtin/async/mainmenu.lua
