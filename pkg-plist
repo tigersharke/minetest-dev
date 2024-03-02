@@ -176,6 +176,8 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%CLIENT%%%%DATADIR%%/client/shaders/blur_h/opengl_vertex.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/blur_v/opengl_fragment.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/blur_v/opengl_vertex.glsl
+%%CLIENT%%%%DATADIR%%/client/shaders/cloud_shader/opengl_fragment.glsl
+%%CLIENT%%%%DATADIR%%/client/shaders/cloud_shader/opengl_vertex.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/default_shader/opengl_fragment.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/default_shader/opengl_vertex.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/extract_bloom/opengl_fragment.glsl
