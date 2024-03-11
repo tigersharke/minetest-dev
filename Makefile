@@ -1,167 +1,147 @@
+# Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240303
+DISTVERSION=	g20240310
 CATEGORIES=		games
 PKGNAMESUFFIX=	-dev
 DISTNAME=		${PORTNAME}-${GH_TAGNAME}
 DIST_SUBDIR=	${PORTNAME}${PKGNAMESUFFIX}
 
+# Maintainer block
 MAINTAINER=		nope@nothere
 COMMENT=		Near-infinite-world block sandbox game
 WWW=			https://www.minetest.net/
 
+# License block
 LICENSE=		LGPL21+
 
+# dependencies
 LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
 
+# uses block
 USES=			cmake iconv:wchar_t sqlite lua luajit ninja:make llvm:min=16 pkgconfig:build sdl
-
-CONFLICTS=		minetest
-
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		e734b3f0d8055ff3ae710f3632726a711603bf84
+GH_TAGNAME=		32f68f35cf5eabd4223ef4901486d43bb806867e
+USE_SDL=		sdl2 ttf2
 
+# uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
 				-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
 				-DCMAKE_CXX_FLAGS="-stdlib=libc++"
 
-USE_SDL=		sdl2 ttf2
+# conflicts
+CONFLICTS=		minetest
 
+# wrksrc block
 WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
-OPTIONS_DEFAULT=		CURL DOCS FREETYPE LTO LUAJIT SOUND SPATIAL SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP CLIENT GLVND
+# packaging list block
+#PORTDOCS=		*
+#PORTDATA=		*
+# Ignoring the irreparable idiosyncratic portlint error:
+# FATAL: Makefile: PORTDOCS appears in plist but DOCS is not listed in OPTIONS_DEFINE.
 
-OPTIONS_GROUP=			NEEDS
-OPTIONS_SINGLE=			GRAPHICS
-OPTIONS_GROUP+=			BUILD
-OPTIONS_MULTI=			SOFTWARE
-OPTIONS_GROUP+=			SYSTEM
-OPTIONS_GROUP+=			DATABASE
-OPTIONS_GROUP+=			MISC
-
-MISC_DESC=				Other options
-OPTIONS_GROUP_MISC=		LTO
-
-NEEDS_DESC=				Client essentials
-OPTIONS_GROUP_NEEDS=	CURL DOCS FREETYPE NLS SOUND SPATIAL
-
-SYSTEM_DESC=			System subsitutes
-OPTIONS_GROUP_SYSTEM=	SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP SYSTEM_LUAJIT
-
-SOFTWARE_DESC=			Software components
-OPTIONS_MULTI_SOFTWARE=	CLIENT SERVER
-
-SYSTEM_GMP_DESC=			Use gmp from ports (ENABLE_SYSTEM_GMP)
-SYSTEM_GMP_CMAKE_BOOL=		ENABLE_SYSTEM_GMP
-SYSTEM_GMP_CMAKE_ON=		-DGMP_INCLUDE_DIR="${PREFIX}/include"
-SYSTEM_GMP_LIB_DEPENDS=		libgmp.so:math/gmp
-
-SYSTEM_JSONCPP_DESC=		Use jsoncpp from ports (ENABLE_SYSTEM_JSONCPP)
-SYSTEM_JSONCPP_CMAKE_BOOL=	ENABLE_SYSTEM_JSONCPP
-SYSTEM_JSONCPP_CMAKE_ON=	-DJSON_INCLUDE_DIR="${PREFIX}/include/jsoncpp"
-SYSTEM_JSONCPP_LIB_DEPENDS=	libjsoncpp.so:devel/jsoncpp
-
-SYSTEM_LUAJIT_DESC=			Use or install luajit-openresty from ports
-SYSTEM_LUAJIT_USES=			luajit:luajit-openresty
-
-SYSTEM_FONTS_DESC=			Use or install default fonts from ports
-SYSTEM_FONTS_RUN_DEPENDS=	${LOCALBASE}/share/fonts/ChromeOS/Arimo-Bold.ttf:x11-fonts/croscorefonts-fonts-ttf \
-							${LOCALBASE}/share/fonts/Droid/DroidSans.ttf:x11-fonts/droid-fonts-ttf
-
-BUILD_DESC=					Admin/Dev needs
-OPTIONS_GROUP_BUILD=		DOCS DEVTEST EXAMPLES NCURSES PROMETHEUS TOUCH UNITTESTS
+# options definitions
+OPTIONS_DEFAULT=			CURL DOCS FREETYPE LTO LUAJIT SOUND SPATIAL SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP CLIENT GLVND
+OPTIONS_GROUP=				DATABASE BUILD NEEDS MISC SYSTEM
+OPTIONS_GROUP_BUILD=		DOCS DEVTEST EXAMPLES NCURSES PROFILING PROMETHEUS TOUCH UNITTESTS
 #OPTIONS_GROUP_BUILD=		BENCHMARKS DEVTEST EXAMPLES NCURSES PROMETHEUS TOUCH UNITTESTS
-
-EXAMPLES_DESC=				BUILD_EXAMPLES
-EXAMPLES_CMAKE_BOOL=		BUILD_EXAMPLES
-DEVTEST_DESC=				Install Development Test game also (INSTALL_DEVTEST)
-DEVTEST_CMAKE_BOOL=			INSTALL_DEVTEST
-UNITTESTS_DESC=				Build unit test sources (BUILD_UNITTESTS)
-UNITTESTS_CMAKE_BOOL=		BUILD_UNITTESTS
-
-OPTIONS_SINGLE_GRAPHICS=	GLVND LEGACY
-GRAPHICS_DESC=				Graphics support
-
-GLVND_DESC=					Use libOpenGL or libGLX
-GLVND_CMAKE_BOOL=			ENABLE_GLVND
-GLVND_CMAKE_ON=				-DOPENGL_GL_PREFERENCE="GLVND" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
-GLVND_USE=					GL+=opengl
-GLVND_LIB_DEPENDS=			libOpenGL.so:graphics/libglvnd
-
-LEGACY_DESC=				Use libGL - where GLVND may be broken on nvidia
-LEGACY_CMAKE_BOOL=			ENABLE_LEGACY
-LEGACY_CMAKE_ON=			-DOPENGL_GL_PREFERENCE="LEGACY" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
-LEGACY_USE=					GL+=opengl
-
-DATABASE_DESC=				Database support
 OPTIONS_GROUP_DATABASE=		LEVELDB PGSQL REDIS
-
+OPTIONS_GROUP_MISC=			LTO
+OPTIONS_GROUP_NEEDS=		CURL FREETYPE NLS SOUND SPATIAL
+OPTIONS_GROUP_SYSTEM=		SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP SYSTEM_LUAJIT
+OPTIONS_MULTI=				SOFTWARE
+OPTIONS_MULTI_SOFTWARE=		CLIENT SERVER
+OPTIONS_SINGLE=				GRAPHICS
+OPTIONS_SINGLE_GRAPHICS=	GLVND LEGACY
 OPTIONS_SUB=				yes
 
+# options descriptions
+BUILD_DESC=					Admin/Dev needs
 CLIENT_DESC=				Build client and add graphics support, dependency
-CLIENT_CMAKE_BOOL_ON=		BUILD_CLIENT REQUIRE_LUAJIT ENABLE_LUAJIT
-CLIENT_LIB_DEPENDS=			libIrrlichtMt.so:x11-toolkits/irrlicht-minetest \
-							libpng.so:graphics/png
+CURL_DESC=					Enable cURL support for fetching media: contentdb
+DATABASE_DESC=				Database support
+DEVTEST_DESC=				Install Development Test game also (INSTALL_DEVTEST)
+DOCS_DESC=					Build and install documentation (via doxygen)
+EXAMPLES_DESC=				BUILD_EXAMPLES
+FREETYPE_DESC=				Support for TrueType fonts with unicode
+GLVND_DESC=					Use libOpenGL or libGLX
+GRAPHICS_DESC=				Graphics support
+LEGACY_DESC=				Use libGL - where GLVND may be broken on nvidia
+LEVELDB_DESC=				Enable LevelDB backend
+LTO_DESC=					Build with IPO/LTO optimizations (smaller and more efficient than regular build)
+MISC_DESC=					Other options
+NCURSES_DESC=				Enables server side terminal (cli option: --terminal)
+NEEDS_DESC=					Client essentials
+NLS_DESC=					Native Language Support (ENABLE_GETTEXT)
+PGSQL_DESC=					Enable PostgreSQL map backend
+PROFILING_DESC=				Use gprof for profiling
+PROMETHEUS_DESC=			Build with Prometheus metrics exporter
+REDIS_DESC=					Enable Redis backend
+SERVER_DESC=				Build server
+SOFTWARE_DESC=				Software components
+SOUND_DESC=					Enable sound via openal-soft
+SPATIAL_DESC=				Enable SpatialIndex (Speeds up AreaStores)
+SYSTEM_DESC=				System subsitutes
+SYSTEM_FONTS_DESC=			Use or install default fonts from ports
+SYSTEM_GMP_DESC=			Use gmp from ports (ENABLE_SYSTEM_GMP)
+SYSTEM_JSONCPP_DESC=		Use jsoncpp from ports (ENABLE_SYSTEM_JSONCPP)
+SYSTEM_LUAJIT_DESC=			Use or install luajit-openresty from ports
+TOUCH_DESC=					Build with touch interface support (to test on amd64)
+UNITTESTS_DESC=				Build unit test sources (BUILD_UNITTESTS)
+
+# options helpers
+CLIENT_LIB_DEPENDS=			libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libpng.so:graphics/png
 CLIENT_USES=				gl xorg
 CLIENT_USE=					jpeg GL=gl,glu \
 							XORG=ice,sm,x11,xext,xcb,xres,xshmfence,xau,xaw,xcomposite,xcursor,xdamage,xdmcp,\
 							xfixes,xft,xi,xinerama,xkbfile,xmu,xpm,xrandr,xrender,xscreensaver,xt,xtst,xv,xxf86vm
-
-SERVER_DESC=				Build server
-SERVER_CMAKE_BOOL=			BUILD_SERVER
-
-CURL_DESC=					Enable cURL support for fetching media: contentdb
-CURL_CMAKE_BOOL=			ENABLE_CURL
+CLIENT_CMAKE_ON=			BUILD_CLIENT REQUIRE_LUAJIT ENABLE_LUAJIT
 CURL_LIB_DEPENDS=			libcurl.so:ftp/curl
-
-SOUND_DESC=					Enable sound via openal-soft
-SOUND_CMAKE_BOOL=			ENABLE_SOUND
-
-# WHOOPS!  DOCS option had done exactly nothing, docs likely always built previously.
-DOCS_DESC=					Build and install documentation (via doxygen)
+CURL_CMAKE_BOOL=			ENABLE_CURL
+DEVTEST_CMAKE_BOOL=			INSTALL_DEVTEST
 DOCS_CMAKE_BOOL=			BUILD_DOCUMENTATION
 #DOCS_LIB_DEPENDS=
-
-FREETYPE_DESC=				Support for TrueType fonts with unicode
-FREETYPE_CMAKE_BOOL=		ENABLE_FREETYPE
+EXAMPLES_CMAKE_BOOL=		BUILD_EXAMPLES
 FREETYPE_LIB_DEPENDS=		libfreetype.so:print/freetype2
-
-NCURSES_DESC=				Enables server side terminal (cli option: --terminal)
-NCURSES_CMAKE_BOOL=			ENABLE_CURSES
-NCURSES_USES=				ncurses
-
-LEVELDB_DESC=				Enable LevelDB backend
-LEVELDB_CMAKE_BOOL=			ENABLE_LEVELDB
+FREETYPE_CMAKE_BOOL=		ENABLE_FREETYPE
+GLVND_LIB_DEPENDS=			libOpenGL.so:graphics/libglvnd
+GLVND_USE=					GL+=opengl
+GLVND_CMAKE_BOOL=			ENABLE_GLVND
+GLVND_CMAKE_ON=				-DOPENGL_GL_PREFERENCE="GLVND" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
+LEGACY_USE=					GL+=opengl
+LEGACY_CMAKE_BOOL=			ENABLE_LEGACY
+LEGACY_CMAKE_ON=			-DOPENGL_GL_PREFERENCE="LEGACY" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
 LEVELDB_LIB_DEPENDS=		libleveldb.so:databases/leveldb
-
-PGSQL_DESC=				Enable PostgreSQL map backend
-PGSQL_USES=				pgsql
-PGSQL_CMAKE_BOOL=		ENABLE_POSTGRESQL
-
-REDIS_DESC=				Enable Redis backend
-REDIS_CMAKE_BOOL=		ENABLE_REDIS
-REDIS_LIB_DEPENDS=		libhiredis.so:databases/hiredis
-
-SPATIAL_DESC=			Enable SpatialIndex (Speeds up AreaStores)
-SPATIAL_LIB_DEPENDS=	libspatialindex.so:devel/spatialindex
-SPATIAL_CMAKE_BOOL=		ENABLE_SPATIAL
-
-NLS_DESC=				Native Language Support (ENABLE_GETTEXT)
-NLS_CMAKE_BOOL=			ENABLE_GETTEXT
-NLS_USES=				gettext
-NLS_LDFLAGS=			-L${LOCALBASE}/lib
-
-TOUCH_DESC=				Build with touch interface support (to test on amd64)
-TOUCH_CMAKE_BOOL=		ENABLE_TOUCH
-# dependency?
-
-PROMETHEUS_DESC=		Build with Prometheus metrics exporter
-PROMETHEUS_CMAKE_BOOL=	ENABLE_PROMETHEUS
-# dependency?
-
-LTO_DESC=				Build with IPO/LTO optimizations (smaller and more efficient than regular build)
-LTO_CMAKE_BOOL=			ENABLE_LTO
+LEVELDB_CMAKE_BOOL=			ENABLE_LEVELDB
+LTO_CMAKE_BOOL=				ENABLE_LTO
+NCURSES_USES=				ncurses
+NCURSES_CMAKE_BOOL=			ENABLE_CURSES
+NLS_USES=					gettext
+NLS_CMAKE_BOOL=				ENABLE_GETTEXT
+NLS_LDFLAGS=				-L${LOCALBASE}/lib
+PGSQL_USES=					pgsql
+PGSQL_CMAKE_BOOL=			ENABLE_POSTGRESQL
+PROFILING_CMAKE_ON=			USE_GPROF
+PROMETHEUS_CMAKE_BOOL=		ENABLE_PROMETHEUS
+REDIS_LIB_DEPENDS=			libhiredis.so:databases/hiredis
+REDIS_CMAKE_BOOL=			ENABLE_REDIS
+SERVER_CMAKE_BOOL=			BUILD_SERVER
+SOUND_CMAKE_BOOL=			ENABLE_SOUND
+SPATIAL_LIB_DEPENDS=		libspatialindex.so:devel/spatialindex
+SPATIAL_CMAKE_BOOL=			ENABLE_SPATIAL
+SYSTEM_FONTS_RUN_DEPENDS=	${LOCALBASE}/share/fonts/ChromeOS/Arimo-Bold.ttf:x11-fonts/croscorefonts-fonts-ttf \
+							${LOCALBASE}/share/fonts/Droid/DroidSans.ttf:x11-fonts/droid-fonts-ttf
+SYSTEM_GMP_LIB_DEPENDS=		libgmp.so:math/gmp
+SYSTEM_GMP_CMAKE_BOOL=		ENABLE_SYSTEM_GMP
+SYSTEM_GMP_CMAKE_ON=		-DGMP_INCLUDE_DIR="${PREFIX}/include"
+SYSTEM_JSONCPP_LIB_DEPENDS=	libjsoncpp.so:devel/jsoncpp
+SYSTEM_JSONCPP_CMAKE_BOOL=	ENABLE_SYSTEM_JSONCPP
+SYSTEM_JSONCPP_CMAKE_ON=	-DJSON_INCLUDE_DIR="${PREFIX}/include/jsoncpp"
+SYSTEM_LUAJIT_USES=			luajit:luajit-openresty
+TOUCH_CMAKE_BOOL=			ENABLE_TOUCH
+UNITTESTS_CMAKE_BOOL=		BUILD_UNITTESTS
 
 .include <bsd.port.options.mk>
 

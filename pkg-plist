@@ -84,6 +84,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/common/filterlist.lua
 %%DATADIR%%/builtin/common/information_formspecs.lua
 %%DATADIR%%/builtin/common/item_s.lua
+%%DATADIR%%/builtin/common/metatable.lua
 %%DATADIR%%/builtin/common/misc_helpers.lua
 %%DATADIR%%/builtin/common/mod_storage.lua
 %%DATADIR%%/builtin/common/register.lua
