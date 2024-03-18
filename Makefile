@@ -1,6 +1,6 @@
 # Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240316
+DISTVERSION=	g20240317
 CATEGORIES=		games
 PKGNAMESUFFIX=	-dev
 DISTNAME=		${PORTNAME}-${GH_TAGNAME}
@@ -22,7 +22,7 @@ USES=			cmake iconv:wchar_t sqlite lua luajit ninja:make llvm:min=16 pkgconfig:b
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		61a57336920e0f64361a4c48215b12969c3a1eff
+GH_TAGNAME=		a862e4290c8ddffbcbb1c03291bd571109aef8b4
 USE_SDL=		sdl2 ttf2
 
 # uses=cmake related variables
