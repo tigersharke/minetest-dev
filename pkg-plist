@@ -121,6 +121,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/game/register.lua
 %%DATADIR%%/builtin/game/statbars.lua
 %%DATADIR%%/builtin/game/static_spawn.lua
+%%DATADIR%%/builtin/game/tests/test_moveaction.lua
 %%DATADIR%%/builtin/game/voxelarea.lua
 %%DATADIR%%/builtin/init.lua
 %%DATADIR%%/builtin/locale/__builtin.de.tr
