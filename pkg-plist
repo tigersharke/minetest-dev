@@ -498,6 +498,8 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_alpha128.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_alpha191.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_alpha64.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_alpha_compositing_bottom.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_alpha_compositing_top.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_anim.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_attached4_bottom.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_attached4_side.png
@@ -535,6 +537,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_fall_damage_minus.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_fall_damage_plus.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_fencelike.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_fill_positioning_reference.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_firelike.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_glasslike.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_glasslike_detail.png
