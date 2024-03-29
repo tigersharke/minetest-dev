@@ -1,6 +1,6 @@
 # Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240324
+DISTVERSION=	g20240326
 CATEGORIES=		games
 PKGNAMESUFFIX=	-dev
 DISTNAME=		${PORTNAME}-${GH_TAGNAME}
@@ -15,15 +15,14 @@ WWW=			https://www.minetest.net/
 LICENSE=		LGPL21+
 
 # dependencies
-LIB_DEPENDS=	libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libzstd.so:archivers/zstd
+LIB_DEPENDS=	libzstd.so:archivers/zstd
 
 # uses block
-USES=			cmake iconv:wchar_t sqlite lua luajit ninja:make llvm:min=16 pkgconfig:build sdl
+USES=			cmake iconv:wchar_t sqlite lua luajit ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		a7908da968bba82129f60c9601c9cefabd36a389
-USE_SDL=		sdl2 ttf2
+GH_TAGNAME=		6a7a613741fe32fa14897a4f780d7382105a103c
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -31,7 +30,7 @@ CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
 				-DCMAKE_CXX_FLAGS="-stdlib=libc++"
 
 # conflicts
-CONFLICTS=		minetest
+CONFLICTS=		minetest irrlichtMt irrlicht-minetest
 
 # wrksrc block
 WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
@@ -43,7 +42,7 @@ WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 # FATAL: Makefile: PORTDOCS appears in plist but DOCS is not listed in OPTIONS_DEFINE.
 
 # options definitions
-OPTIONS_DEFAULT=			CURL DOCS FREETYPE LTO LUAJIT SOUND SPATIAL SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP CLIENT GLVND
+OPTIONS_DEFAULT=			CURL DOCS FREETYPE LTO LUAJIT SOUND SPATIAL SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP CLIENT OPENGL
 OPTIONS_GROUP=				DATABASE BUILD NEEDS MISC SYSTEM
 OPTIONS_GROUP_BUILD=		BENCHMARKS DEVTEST DOCS EXAMPLES NCURSES PROFILING PROMETHEUS TOUCH UNITTESTS
 OPTIONS_GROUP_DATABASE=		LEVELDB PGSQL REDIS
@@ -52,13 +51,13 @@ OPTIONS_GROUP_NEEDS=		CURL FREETYPE NLS SOUND SPATIAL
 OPTIONS_GROUP_SYSTEM=		SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP SYSTEM_LUAJIT
 OPTIONS_MULTI=				SOFTWARE
 OPTIONS_MULTI_SOFTWARE=		CLIENT SERVER
-#OPTIONS_SINGLE=			GRAPHICS  # Graphics buried option GLVND/LEGACY stuff obsoleted log ago, likely did nothing.
-#OPTIONS_SINGLE_GRAPHICS=	GLVND LEGACY
+OPTIONS_SINGLE=				GRAPHICS
+OPTIONS_SINGLE_GRAPHICS=	GLES1 GLES2 OPENGL OPENGL3
 OPTIONS_SUB=				yes
 
 # options descriptions
-BUILD_DESC=					Admin/Dev needs
 BENCHMARKS_DESC=			Build benchmarks (Adds some benchmark chat commands)
+BUILD_DESC=					Admin/Dev needs
 CLIENT_DESC=				Build client and add graphics support, dependency
 CURL_DESC=					Enable cURL support for fetching media: contentdb
 DATABASE_DESC=				Database support
@@ -66,19 +65,22 @@ DEVTEST_DESC=				Install Development Test game also (INSTALL_DEVTEST)
 DOCS_DESC=					Build and install documentation (via doxygen)
 EXAMPLES_DESC=				BUILD_EXAMPLES
 FREETYPE_DESC=				Support for TrueType fonts with unicode
-#GLVND_DESC=					Use libOpenGL or libGLX
-#GRAPHICS_DESC=				Graphics support
-#LEGACY_DESC=				Use libGL - where GLVND may be broken on nvidia
+GLES1_DESC=					Enable GLES1 --broken due to SDL--
+GLES2_DESC=					Enable GLES2
+GRAPHICS_DESC=				Graphics support
 LEVELDB_DESC=				Enable LevelDB backend
 LTO_DESC=					Build with IPO/LTO optimizations (smaller and more efficient than regular build)
 MISC_DESC=					Other options
 NCURSES_DESC=				Enables server side terminal (cli option: --terminal)
 NEEDS_DESC=					Client essentials
 NLS_DESC=					Native Language Support (ENABLE_GETTEXT)
+OPENGL3_DESC=				Support OPENGL3 --Builds but seems incomplete--
+OPENGL_DESC=				Support OPENGL (<3.x)
 PGSQL_DESC=					Enable PostgreSQL map backend
 PROFILING_DESC=				Use gprof for profiling
 PROMETHEUS_DESC=			Build with Prometheus metrics exporter
 REDIS_DESC=					Enable Redis backend
+#SDL_DESC=					Use SDL
 SERVER_DESC=				Build server
 SOFTWARE_DESC=				Software components
 SOUND_DESC=					Enable sound via openal-soft
@@ -93,9 +95,9 @@ UNITTESTS_DESC=				Build unit test sources (BUILD_UNITTESTS)
 
 # options helpers
 BENCHMARKS_CMAKE_BOOL=		BUILD_BENCHMARKS
-CLIENT_LIB_DEPENDS=			libIrrlichtMt.so:x11-toolkits/irrlicht-minetest libpng.so:graphics/png
-CLIENT_USES=				gl xorg
-CLIENT_USE=					jpeg GL=gl,glu \
+CLIENT_LIB_DEPENDS=			libpng.so:graphics/png
+CLIENT_USES=				gl xorg jpeg
+CLIENT_USE=					GL=gl,glu \
 							XORG=ice,sm,x11,xext,xcb,xres,xshmfence,xau,xaw,xcomposite,xcursor,xdamage,xdmcp,\
 							xfixes,xft,xi,xinerama,xkbfile,xmu,xpm,xrandr,xrender,xscreensaver,xt,xtst,xv,xxf86vm
 CLIENT_CMAKE_ON=			BUILD_CLIENT REQUIRE_LUAJIT ENABLE_LUAJIT
@@ -107,13 +109,10 @@ DOCS_CMAKE_BOOL=			BUILD_DOCUMENTATION
 EXAMPLES_CMAKE_BOOL=		BUILD_EXAMPLES
 FREETYPE_LIB_DEPENDS=		libfreetype.so:print/freetype2
 FREETYPE_CMAKE_BOOL=		ENABLE_FREETYPE
-#GLVND_LIB_DEPENDS=			libOpenGL.so:graphics/libglvnd
-#GLVND_USE=					GL+=opengl
-#GLVND_CMAKE_BOOL=			ENABLE_GLVND
-#GLVND_CMAKE_ON=				-DOPENGL_GL_PREFERENCE="GLVND" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
-#LEGACY_USE=					GL+=opengl
-#LEGACY_CMAKE_BOOL=			ENABLE_LEGACY
-#LEGACY_CMAKE_ON=			-DOPENGL_GL_PREFERENCE="LEGACY" -DOPENGL_xmesa_INCLUDE_DIR="${PREFIX}/lib"
+GLES1_USE=					GL+=glesv1
+GLES1_CMAKE_BOOL=			ENABLE_GLES1
+GLES2_USE=GL+=				glesv2
+GLES2_CMAKE_BOOL=			ENABLE_GLES2
 LEVELDB_LIB_DEPENDS=		libleveldb.so:databases/leveldb
 LEVELDB_CMAKE_BOOL=			ENABLE_LEVELDB
 LTO_CMAKE_BOOL=				ENABLE_LTO
@@ -122,12 +121,18 @@ NCURSES_CMAKE_BOOL=			ENABLE_CURSES
 NLS_USES=					gettext
 NLS_CMAKE_BOOL=				ENABLE_GETTEXT
 NLS_LDFLAGS=				-L${LOCALBASE}/lib
+OPENGL3_USE=				GL+=gl
+OPENGL3_CMAKE_BOOL=			ENABLE_OPENGL3
+OPENGL3_CMAKE_ON=			USE_SDL
+OPENGL_USE=					GL+=gl
+OPENGL_CMAKE_BOOL=			ENABLE_OPENGL
 PGSQL_USES=					pgsql
 PGSQL_CMAKE_BOOL=			ENABLE_POSTGRESQL
 PROFILING_CMAKE_ON=			USE_GPROF
 PROMETHEUS_CMAKE_BOOL=		ENABLE_PROMETHEUS
 REDIS_LIB_DEPENDS=			libhiredis.so:databases/hiredis
 REDIS_CMAKE_BOOL=			ENABLE_REDIS
+#SDL_CMAKE_ON=				USE_SDL2
 SERVER_CMAKE_BOOL=			BUILD_SERVER
 SOUND_CMAKE_BOOL=			ENABLE_SOUND
 SPATIAL_LIB_DEPENDS=		libspatialindex.so:devel/spatialindex
@@ -144,13 +149,19 @@ SYSTEM_LUAJIT_USES=			luajit:luajit-openresty
 TOUCH_CMAKE_BOOL=			ENABLE_TOUCH
 UNITTESTS_CMAKE_BOOL=		BUILD_UNITTESTS
 
+# SDL cannot be used with GLES1 but having it installed causes a fail without enabled in Makefile?
+
 .include <bsd.port.options.mk>
+
+.if ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MOPENGL}
+USES+=			sdl
+USE_SDL=		sdl2 ttf2
+SDL_CMAKE_ON=	USE_SDL2=ON
+.endif
 
 .if ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MSOUND}
 USES+=			openal
-LIB_DEPENDS+=	libogg.so:audio/libogg \
-				libvorbis.so:audio/libvorbis \
-				libvorbisfile.so:audio/libvorbis
+LIB_DEPENDS+=	libogg.so:audio/libogg libvorbisfile.so:audio/libvorbis
 .endif
 
 .if ${PORT_OPTIONS:MSERVER}
