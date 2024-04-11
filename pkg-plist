@@ -133,9 +133,13 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/locale/template.txt
 %%DATADIR%%/builtin/mainmenu/async_event.lua
 %%DATADIR%%/builtin/mainmenu/common.lua
-%%DATADIR%%/builtin/mainmenu/content/dlg_contentstore.lua
+%%DATADIR%%/builtin/mainmenu/content/contentdb.lua
+%%DATADIR%%/builtin/mainmenu/content/dlg_contentdb.lua
+%%DATADIR%%/builtin/mainmenu/content/dlg_install.lua
+%%DATADIR%%/builtin/mainmenu/content/dlg_overwrite.lua
 %%DATADIR%%/builtin/mainmenu/content/init.lua
 %%DATADIR%%/builtin/mainmenu/content/pkgmgr.lua
+%%DATADIR%%/builtin/mainmenu/content/screenshots.lua
 %%DATADIR%%/builtin/mainmenu/content/tests/pkgmgr_spec.lua
 %%DATADIR%%/builtin/mainmenu/content/update_detector.lua
 %%DATADIR%%/builtin/mainmenu/dlg_config_world.lua
