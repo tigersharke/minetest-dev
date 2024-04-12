@@ -111,6 +111,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/game/falling.lua
 %%DATADIR%%/builtin/game/features.lua
 %%DATADIR%%/builtin/game/forceloading.lua
+%%DATADIR%%/builtin/game/hud.lua
 %%DATADIR%%/builtin/game/init.lua
 %%DATADIR%%/builtin/game/item.lua
 %%DATADIR%%/builtin/game/item_entity.lua
@@ -119,7 +120,6 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DATADIR%%/builtin/game/misc_s.lua
 %%DATADIR%%/builtin/game/privileges.lua
 %%DATADIR%%/builtin/game/register.lua
-%%DATADIR%%/builtin/game/statbars.lua
 %%DATADIR%%/builtin/game/static_spawn.lua
 %%DATADIR%%/builtin/game/tests/test_moveaction.lua
 %%DATADIR%%/builtin/game/voxelarea.lua

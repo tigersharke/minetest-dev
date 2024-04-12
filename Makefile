@@ -1,6 +1,6 @@
 # Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240409
+DISTVERSION=	g20240410
 CATEGORIES=		games
 PKGNAMESUFFIX=	-dev
 DISTNAME=		${PORTNAME}-${GH_TAGNAME}
@@ -22,7 +22,7 @@ USES=			cmake iconv:wchar_t sqlite lua luajit ninja:make llvm:min=16 pkgconfig:b
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		284f6d3682b4d8717045940d8eda2e20ac2d4f52
+GH_TAGNAME=		30e280b694a2706248a8bfe8d2dd683ff7296c93
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -89,7 +89,7 @@ SYSTEM_DESC=				System subsitutes
 SYSTEM_FONTS_DESC=			Use or install default fonts from ports
 SYSTEM_GMP_DESC=			Use gmp from ports (ENABLE_SYSTEM_GMP)
 SYSTEM_JSONCPP_DESC=		Use jsoncpp from ports (ENABLE_SYSTEM_JSONCPP)
-SYSTEM_LUAJIT_DESC=			Use or install luajit-openresty from ports
+SYSTEM_LUAJIT_DESC=			Use or install luajit from ports
 TOUCH_DESC=					Build with touch interface support (to test on amd64)
 UNITTESTS_DESC=				Build unit test sources (BUILD_UNITTESTS)
 
