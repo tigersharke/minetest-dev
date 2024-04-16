@@ -3,12 +3,12 @@
 @sample etc/minetest.conf.example etc/minetest.conf
 %%SERVER%%etc/rc.d/minetest
 share/applications/net.minetest.minetest.desktop
-%%PORTDOCS%%%%DOCSDIR%%/README.md
-%%PORTDOCS%%%%DOCSDIR%%/client_lua_api.md
-%%PORTDOCS%%%%DOCSDIR%%/lua_api.md
-%%PORTDOCS%%%%DOCSDIR%%/menu_lua_api.md
-%%PORTDOCS%%%%DOCSDIR%%/texture_packs.md
-%%PORTDOCS%%%%DOCSDIR%%/world_format.md
+%%DOCS%%%%DOCSDIR%%/README.md
+%%DOCS%%%%DOCSDIR%%/client_lua_api.md
+%%DOCS%%%%DOCSDIR%%/lua_api.md
+%%DOCS%%%%DOCSDIR%%/menu_lua_api.md
+%%DOCS%%%%DOCSDIR%%/texture_packs.md
+%%DOCS%%%%DOCSDIR%%/world_format.md
 share/icons/hicolor/128x128/apps/minetest.png
 share/icons/hicolor/scalable/apps/minetest.svg
 %%CLIENT%%%%NLS%%share/locale/be/LC_MESSAGES/minetest.mo
