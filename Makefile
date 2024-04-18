@@ -1,6 +1,6 @@
 # Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240415
+DISTVERSION=	g20240416
 CATEGORIES=		games
 PKGNAMESUFFIX=	-dev
 DISTNAME=		${PORTNAME}-${GH_TAGNAME}
@@ -23,7 +23,7 @@ USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		38cacfa577a14be0b7b8f42484970ef234d44e38
+GH_TAGNAME=		b2057a5da7c536fcdf8c32ac2497d7b48ce880d9
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -46,7 +46,7 @@ OPTIONS_GROUP=				BUILD DATABASE MISC NEEDS SYSTEM
 OPTIONS_GROUP_BUILD=		BENCHMARKS DEVTEST DOCS NCURSES PROFILING PROMETHEUS TOUCH UNITTESTS
 OPTIONS_GROUP_DATABASE=		LEVELDB PGSQL REDIS
 OPTIONS_GROUP_MISC=			LTO
-OPTIONS_GROUP_NEEDS=		CURL NLS SDL SOUND SPATIAL
+OPTIONS_GROUP_NEEDS=		CURL NLS SOUND SPATIAL
 OPTIONS_GROUP_SYSTEM=		SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP SYSTEM_LUAJIT
 OPTIONS_MULTI=				SOFTWARE
 OPTIONS_MULTI_SOFTWARE=		CLIENT SERVER
@@ -57,12 +57,12 @@ OPTIONS_SUB=				yes
 # options descriptions
 BENCHMARKS_DESC=			Build benchmarks (Adds some benchmark chat commands)
 BUILD_DESC=					Admin/Dev needs
-CLIENT_DESC=				Build client and add graphics support, dependency
+CLIENT_DESC=				Build client, add graphics and sdl2 support, dependencies
 CURL_DESC=					Enable cURL support for fetching media: contentdb
 DATABASE_DESC=				Database support
 DEVTEST_DESC=				Install Development Test game also (INSTALL_DEVTEST)
 DOCS_DESC=					Build and install documentation (via doxygen)
-GLES1_DESC=					Enable OpenGL ES driver, legacy --Broken with SDL: seems like a file conflict--
+GLES1_DESC=					Enable OpenGL ES driver, legacy
 GLES2_DESC=					Enable OpenGL ES 2+ driver
 GRAPHICS_DESC=				Graphics support
 LEVELDB_DESC=				Enable LevelDB backend
@@ -77,7 +77,6 @@ PGSQL_DESC=					Enable PostgreSQL map backend
 PROFILING_DESC=				Use gprof for profiling (USE_GPROF)
 PROMETHEUS_DESC=			Build with Prometheus metrics exporter
 REDIS_DESC=					Enable Redis backend
-SDL_DESC=					Use SDL2 instead of older native device code
 SERVER_DESC=				Build server
 SOFTWARE_DESC=				Software components
 SOUND_DESC=					Enable sound via openal-soft
@@ -92,9 +91,10 @@ UNITTESTS_DESC=				Build unit test sources (BUILD_UNITTESTS)
 
 # options helpers
 BENCHMARKS_CMAKE_BOOL=		BUILD_BENCHMARKS
-CLIENT_LIB_DEPENDS=			libpng.so:graphics/png
-CLIENT_USES=				gl xorg jpeg
-CLIENT_USE=					GL=gl,glu \
+CLIENT_LIB_DEPENDS=			libpng16.so:graphics/png
+CLIENT_USES=				gl xorg jpeg sdl
+CLIENT_USE=					GL+=glu \
+							SDL=sdl2,ttf2 \
 							XORG=ice,sm,x11,xext,xcb,xres,xshmfence,xau,xaw,xcomposite,xcursor,xdamage,xdmcp,\
 							xfixes,xft,xi,xinerama,xkbfile,xmu,xpm,xrandr,xrender,xscreensaver,xt,xtst,xv,xxf86vm
 CLIENT_CMAKE_BOOL=			BUILD_CLIENT
@@ -104,7 +104,7 @@ DEVTEST_CMAKE_BOOL=			INSTALL_DEVTEST
 DOCS_CMAKE_BOOL=			BUILD_DOCUMENTATION
 GLES1_USE=					GL+=glesv1
 GLES1_CMAKE_BOOL=			ENABLE_GLES1
-GLES2_USE=GL+=				glesv2
+GLES2_USE=					GL+=glesv2
 GLES2_CMAKE_BOOL=			ENABLE_GLES2
 LEVELDB_LIB_DEPENDS=		libleveldb.so:databases/leveldb
 LEVELDB_CMAKE_BOOL=			ENABLE_LEVELDB
@@ -116,19 +116,14 @@ NLS_CMAKE_BOOL=				ENABLE_GETTEXT
 NLS_LDFLAGS=				-L${LOCALBASE}/lib
 OPENGL3_USE=				GL+=gl
 OPENGL3_CMAKE_BOOL=			ENABLE_OPENGL3
-OPENGL3_CMAKE_ON=			USE_SDL
 OPENGL_USE=					GL+=gl
 OPENGL_CMAKE_BOOL=			ENABLE_OPENGL
 PGSQL_USES=					pgsql
 PGSQL_CMAKE_BOOL=			ENABLE_POSTGRESQL
-#DOCS_LIB_DEPENDS=
 PROFILING_CMAKE_BOOL=		USE_GPROF
 PROMETHEUS_CMAKE_BOOL=		ENABLE_PROMETHEUS
 REDIS_LIB_DEPENDS=			libhiredis.so:databases/hiredis
 REDIS_CMAKE_BOOL=			ENABLE_REDIS
-SDL_USES=					sdl
-#SDL_USE=					sdl2 ttf
-SDL_CMAKE_BOOL=				USE_SDL2
 SERVER_CMAKE_BOOL=			BUILD_SERVER
 SOUND_CMAKE_BOOL=			ENABLE_SOUND
 SPATIAL_LIB_DEPENDS=		libspatialindex.so:devel/spatialindex
@@ -149,30 +144,18 @@ UNITTESTS_CMAKE_BOOL=		BUILD_UNITTESTS
 
 .include <bsd.port.options.mk>
 
-#pre-check-config:
-#.if ${PORT_OPTIONS:MQRCODES}
-#.if empty(PORT_OPTIONS:MX11)
-#	@${ECHO_CMD} "X11 option is required for QRCODES"
-#	@${FALSE}
-#.endif
-#.endif
-
-pre-check-config:
-.if ${PORT_OPTIONS:MGLES1}
-.if ${PORT_OPTIONS:MSDL}
-	@${ECHO_CMD} "GLES1 build fails with SDL option."
-	@${FALSE}
-.endif
-.endif
-
-# Work around an error in 'make test' or something missing in /usr/ports/Mk/Uses/sdl.mk
-.if ${PORT_OPTIONS:MSDL}
-USE_SDL=		sdl2 ttf2
-.endif
-
 .if ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MSYSTEM_LUAJIT}
 CMAKE_ARGS+=	-DENABLE_LUAJIT="ON" \
 				-DREQUIRE_LUAJIT="ON"
+.endif
+
+# It used to be such that <OPTION>_USE= GL+=gl,opengl would satisfy, but `make test` does not agree.
+.if ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MOPENGL}
+USE_GL+=		glu opengl
+.endif
+
+.if ${PORT_OPTIONS:MCLIENT}
+USE_GL+=		gl
 .endif
 
 .if ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MSOUND}
