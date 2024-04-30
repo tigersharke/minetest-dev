@@ -316,6 +316,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/callbacks/items.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/callbacks/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/callbacks/nodes.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/callbacks/players.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/callbacks/textures/callbacks_callback_entity.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/callbacks/textures/callbacks_callback_entity_step.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/callbacks/textures/callbacks_callback_item_1.png
