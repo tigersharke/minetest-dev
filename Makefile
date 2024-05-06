@@ -1,6 +1,6 @@
 # Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240503
+DISTVERSION=	g20240505
 CATEGORIES=		games
 PKGNAMESUFFIX=	-dev
 DISTNAME=		${PORTNAME}-${GH_TAGNAME}
@@ -23,7 +23,7 @@ USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		70bddcf318b5ffbe45916c09178d59edc4f08f2d
+GH_TAGNAME=		1aba7f1fde101819f15ee2c28d52096605ce5253
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -43,7 +43,7 @@ WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 # options definitions
 OPTIONS_DEFAULT=			CURL DOCS LTO SOUND SPATIAL SYSTEM_LUAJIT SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP CLIENT OPENGL
 OPTIONS_GROUP=				BUILD DATABASE MISC NEEDS SYSTEM
-OPTIONS_GROUP_BUILD=		BENCHMARKS DEVTEST DOCS NCURSES PROFILING PROMETHEUS TOUCH UNITTESTS
+OPTIONS_GROUP_BUILD=		BENCHMARKS DEVTEST DOCS NCURSES PROFILING PROMETHEUS UNITTESTS
 OPTIONS_GROUP_DATABASE=		LEVELDB PGSQL REDIS
 OPTIONS_GROUP_MISC=			LTO
 OPTIONS_GROUP_NEEDS=		CURL NLS SOUND SPATIAL
@@ -65,7 +65,7 @@ DOCS_DESC=					Build and install documentation (via doxygen)
 GLES1_DESC=					Enable OpenGL ES driver, legacy
 GLES2_DESC=					Enable OpenGL ES 2+ driver
 GRAPHICS_DESC=				Graphics support
-LEVELDB_DESC=				Enable LevelDB backend
+LEVELDB_DESC=				Enable LevelDB backend --broken - build fails--
 LTO_DESC=					Build with IPO/LTO optimizations (smaller and more efficient than regular build)
 MISC_DESC=					Other options
 NCURSES_DESC=				Enables server side terminal (cli option: --terminal) (ENABLE_CURSES)
@@ -86,7 +86,6 @@ SYSTEM_FONTS_DESC=			Use or install default fonts from ports
 SYSTEM_GMP_DESC=			Use gmp from ports (ENABLE_SYSTEM_GMP)
 SYSTEM_JSONCPP_DESC=		Use jsoncpp from ports (ENABLE_SYSTEM_JSONCPP)
 SYSTEM_LUAJIT_DESC=			Use or install luajit from ports (instead of bundled lua)
-TOUCH_DESC=					Build with touch interface support (to test on amd64)
 UNITTESTS_DESC=				Build unit test sources (BUILD_UNITTESTS)
 
 # options helpers
@@ -139,7 +138,6 @@ SYSTEM_JSONCPP_CMAKE_ON=	-DJSON_INCLUDE_DIR="${PREFIX}/include/jsoncpp"
 SYSTEM_LUAJIT_USES=			luajit
 SYSTEM_LUAJIT_USE=			luajit
 #SYSTEM_LUAJIT_CMAKE_BOOL=	ENABLE_LUAJIT # Redundant as one of the above includes this
-TOUCH_CMAKE_BOOL=			ENABLE_TOUCH
 UNITTESTS_CMAKE_BOOL=		BUILD_UNITTESTS
 
 .include <bsd.port.options.mk>
