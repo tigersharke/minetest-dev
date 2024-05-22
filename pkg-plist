@@ -735,6 +735,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/inventory.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/itemdescription.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/itemstack_equals.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/load_time.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/metadata.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/misc.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/mod.conf
