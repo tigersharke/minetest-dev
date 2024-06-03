@@ -342,10 +342,14 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/dignodes/textures/dignodes_rating1.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/dignodes/textures/dignodes_rating2.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/dignodes/textures/dignodes_rating3.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/first_mod/init.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/first_mod/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/give_initial_stuff/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/give_initial_stuff/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/initial_message/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/initial_message/mod.conf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/last_mod/init.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/last_mod/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/lighting/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/lighting/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/log/init.lua
