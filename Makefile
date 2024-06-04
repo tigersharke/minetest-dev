@@ -1,6 +1,6 @@
 # Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240601
+DISTVERSION=	g20240602
 CATEGORIES=		games
 PKGNAMESUFFIX=	-dev
 DISTNAME=		${PORTNAME}-${GH_TAGNAME}
@@ -23,7 +23,7 @@ USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		981d67324b5f8a63c4187195494910d4a21f9de4
+GH_TAGNAME=		508b5ccc6386de700d39ff6e885d3dc553fd7d28
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -76,7 +76,7 @@ OPENGL_DESC=				Enable OpenGL driver
 PGSQL_DESC=					Enable PostgreSQL map backend
 PROFILING_DESC=				Use gprof for profiling (USE_GPROF)
 PROMETHEUS_DESC=			Build with Prometheus metrics exporter
-REDIS_DESC=					Enable Redis backend
+REDIS_DESC=					Enable Redis backend (deprecated)
 SERVER_DESC=				Build server
 SOFTWARE_DESC=				Software components
 SOUND_DESC=					Enable sound via openal-soft
