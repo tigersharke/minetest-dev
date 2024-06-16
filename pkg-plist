@@ -743,6 +743,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/metadata.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/misc.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/mod.conf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/on_shutdown.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/player.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/raycast.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/textures/default_dirt.png

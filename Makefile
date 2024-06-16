@@ -1,6 +1,6 @@
 # Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240614
+DISTVERSION=	g20240615
 CATEGORIES=		games
 PKGNAMESUFFIX=	-dev
 DISTNAME=		${PORTNAME}-${GH_TAGNAME}
@@ -23,7 +23,7 @@ USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		bc23a610d350dfe81594959f5b238eed4bde0f95
+GH_TAGNAME=		7a64527db5b23c8b9d988f1d914fbd3555025830
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -55,7 +55,7 @@ OPTIONS_SINGLE_GRAPHICS=	GLES1 GLES2 OPENGL OPENGL3
 OPTIONS_SUB=				yes
 
 # options descriptions
-BENCHMARKS_DESC=			Build benchmarks (Adds some benchmark chat commands) -BUILD FAILS-
+BENCHMARKS_DESC=			Build benchmarks (Adds some benchmark chat commands)
 BUILD_DESC=					Admin/Dev needs
 CLIENT_DESC=				Build client, add graphics and sdl2 support, dependencies
 CURL_DESC=					Enable cURL support for fetching media: contentdb
