@@ -278,6 +278,7 @@ share/metainfo/net.minetest.minetest.appdata.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_healsword.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_icesword.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_mesepick.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_mesepick_no_delay.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_mesesword.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_steelaxe.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/basetools/textures/basetools_steeldagger.png
