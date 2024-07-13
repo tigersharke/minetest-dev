@@ -1,6 +1,6 @@
 # Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240702
+DISTVERSION=	g20240709
 CATEGORIES=		games
 PKGNAMESUFFIX=	-dev
 DISTNAME=		${PORTNAME}-${GH_TAGNAME}
@@ -23,7 +23,7 @@ USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		fcb4f258f57cbc0bf3d0e724c7fb3748d220ec5b
+GH_TAGNAME=		bb3f271a202d7a06bc40188414a19df753e0ddcd
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -215,7 +215,6 @@ post-install:
 # When invoking CMake, use -DBUILD_CLIENT=0 -DIRRLICHT_SOURCE_DIR=/wherever/you/unzipped/the/source.
 
 #----------------------------------------------------------------------
-# Warning: you might not need LIB_DEPENDS on libpng.so
 # Warning: you might not need LIB_DEPENDS on libGL.so
 # Warning: you might not need LIB_DEPENDS on libSDL2.so
 # Warning: you might not need LIB_DEPENDS on libSDL2_ttf.so
