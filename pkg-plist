@@ -73,7 +73,7 @@ share/icons/hicolor/scalable/apps/minetest.svg
 %%CLIENT%%%%NLS%%share/locale/zh_TW/LC_MESSAGES/minetest.mo
 %%CLIENT%%share/man/man6/minetest.6.gz
 %%SERVER%%share/man/man6/minetestserver.6.gz
-share/metainfo/net.minetest.minetest.appdata.xml
+share/metainfo/net.minetest.minetest.metainfo.xml
 %%DATADIR%%/builtin/async/game.lua
 %%DATADIR%%/builtin/async/mainmenu.lua
 %%DATADIR%%/builtin/client/chatcommands.lua
