@@ -128,9 +128,11 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DATADIR%%/builtin/init.lua
 %%DATADIR%%/builtin/locale/__builtin.de.tr
 %%DATADIR%%/builtin/locale/__builtin.eo.tr
+%%DATADIR%%/builtin/locale/__builtin.fr.tr
 %%DATADIR%%/builtin/locale/__builtin.id.tr
 %%DATADIR%%/builtin/locale/__builtin.it.tr
 %%DATADIR%%/builtin/locale/__builtin.ms.tr
+%%DATADIR%%/builtin/locale/__builtin.pt_BR.tr
 %%DATADIR%%/builtin/locale/__builtin.ru.tr
 %%DATADIR%%/builtin/locale/template.txt
 %%DATADIR%%/builtin/mainmenu/async_event.lua
@@ -388,6 +390,9 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/armor.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/mod.conf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/models/LICENSE.txt
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/models/testentities_sam.b3d
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/models/testentities_sam.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/pointable.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/selectionbox.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/textures/testentities_armorball.png
