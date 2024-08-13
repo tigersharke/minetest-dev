@@ -799,7 +799,6 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%CLIENT%%%%DATADIR%%/textures/base/pack/exit_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/fast_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/fly_btn.png
-%%CLIENT%%%%DATADIR%%/textures/base/pack/gear_icon.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/halo.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/heart.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/heart_gone.png
@@ -824,6 +823,7 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%CLIENT%%%%DATADIR%%/textures/base/pack/no_texture_airlike.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/noclip_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/object_marker_red.png
+%%CLIENT%%%%DATADIR%%/textures/base/pack/overflow_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/player.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/player_back.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/player_marker.png
@@ -832,7 +832,6 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%CLIENT%%%%DATADIR%%/textures/base/pack/progress_bar.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/progress_bar_bg.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/rangeview_btn.png
-%%CLIENT%%%%DATADIR%%/textures/base/pack/rare_controls.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/refresh.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/search.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/server_favorite.png
