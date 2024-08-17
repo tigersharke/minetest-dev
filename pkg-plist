@@ -393,6 +393,7 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/models/LICENSE.txt
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/models/testentities_sam.b3d
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/models/testentities_sam.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/observers.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/pointable.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/selectionbox.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/textures/testentities_armorball.png
