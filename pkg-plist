@@ -146,6 +146,7 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DATADIR%%/builtin/mainmenu/content/screenshots.lua
 %%DATADIR%%/builtin/mainmenu/content/tests/pkgmgr_spec.lua
 %%DATADIR%%/builtin/mainmenu/content/update_detector.lua
+%%DATADIR%%/builtin/mainmenu/credits.json
 %%DATADIR%%/builtin/mainmenu/dlg_config_world.lua
 %%DATADIR%%/builtin/mainmenu/dlg_create_world.lua
 %%DATADIR%%/builtin/mainmenu/dlg_delete_content.lua
