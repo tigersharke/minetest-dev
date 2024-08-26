@@ -178,7 +178,15 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DATADIR%%/builtin/settingtypes.txt
 %%CLIENT%%%%DATADIR%%/client/shaders/3d_interlaced_merge/opengl_fragment.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/3d_interlaced_merge/opengl_vertex.glsl
-%%CLIENT%%%%DATADIR%%/client/shaders/Irrlicht
+%%CLIENT%%%%DATADIR%%/client/shaders/Irrlicht/OneTextureBlend.fsh
+%%CLIENT%%%%DATADIR%%/client/shaders/Irrlicht/Renderer2D.fsh
+%%CLIENT%%%%DATADIR%%/client/shaders/Irrlicht/Renderer2D.vsh
+%%CLIENT%%%%DATADIR%%/client/shaders/Irrlicht/Renderer2D_noTex.fsh
+%%CLIENT%%%%DATADIR%%/client/shaders/Irrlicht/Solid.fsh
+%%CLIENT%%%%DATADIR%%/client/shaders/Irrlicht/Solid.vsh
+%%CLIENT%%%%DATADIR%%/client/shaders/Irrlicht/TransparentAlphaChannel.fsh
+%%CLIENT%%%%DATADIR%%/client/shaders/Irrlicht/TransparentAlphaChannelRef.fsh
+%%CLIENT%%%%DATADIR%%/client/shaders/Irrlicht/TransparentVertexAlpha.fsh
 %%CLIENT%%%%DATADIR%%/client/shaders/bloom_downsample/opengl_fragment.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/bloom_downsample/opengl_vertex.glsl
 %%CLIENT%%%%DATADIR%%/client/shaders/bloom_upsample/opengl_fragment.glsl
