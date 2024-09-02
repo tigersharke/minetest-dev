@@ -86,6 +86,7 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DATADIR%%/builtin/common/filterlist.lua
 %%DATADIR%%/builtin/common/information_formspecs.lua
 %%DATADIR%%/builtin/common/item_s.lua
+%%DATADIR%%/builtin/common/math.lua
 %%DATADIR%%/builtin/common/metatable.lua
 %%DATADIR%%/builtin/common/misc_helpers.lua
 %%DATADIR%%/builtin/common/mod_storage.lua
@@ -93,6 +94,7 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DATADIR%%/builtin/common/serialize.lua
 %%DATADIR%%/builtin/common/strict.lua
 %%DATADIR%%/builtin/common/tests/after_spec.lua
+%%DATADIR%%/builtin/common/tests/math_spec.lua
 %%DATADIR%%/builtin/common/tests/misc_helpers_spec.lua
 %%DATADIR%%/builtin/common/tests/serialize_spec.lua
 %%DATADIR%%/builtin/common/tests/vector_spec.lua
