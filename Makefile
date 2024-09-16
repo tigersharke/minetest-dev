@@ -1,6 +1,6 @@
 # Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240914
+DISTVERSION=	g20240915
 CATEGORIES=		games
 PKGNAMESUFFIX=	-dev
 DISTNAME=		${PORTNAME}-${GH_TAGNAME}
@@ -23,7 +23,7 @@ USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		6f23de41fb9566b00757c5f6fee6d3904a40a0d9
+GH_TAGNAME=		4aec4fbe6f62688bc7dee3c227c0241eee977c7e
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
