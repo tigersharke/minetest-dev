@@ -768,6 +768,7 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/tiled/textures/tiled_tiled.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/tiled/textures/tiled_tiled_node.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/async_env.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/color.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/content_ids.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/crafting.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/unittests/crafting_prepare.lua
