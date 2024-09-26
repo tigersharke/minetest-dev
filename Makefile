@@ -1,6 +1,6 @@
 # Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240920
+DISTVERSION=	g20240924
 CATEGORIES=		games
 MASTER_SITES=	GH
 PKGNAMESUFFIX=	-dev
@@ -24,7 +24,7 @@ USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		4ac86db8e3300492aee0d0444e638f188a430603
+GH_TAGNAME=		526a2f7b8c45504088e194a83d54a19045227bbd
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -72,7 +72,7 @@ MISC_DESC=					Other options
 NCURSES_DESC=				Enables server side terminal (cli option: --terminal) (ENABLE_CURSES)
 NEEDS_DESC=					Client essentials
 NLS_DESC=					Native Language Support (ENABLE_GETTEXT)
-OPENGL3_DESC=				Enable OpenGL 3+ driver --Broken shaders: Upstream flaw related to symlink--
+OPENGL3_DESC=				Enable OpenGL 3+ driver (likely needs sdl2 built with OPENGLES)
 OPENGL_DESC=				Enable OpenGL driver
 PGSQL_DESC=					Enable PostgreSQL map backend
 PROFILING_DESC=				Use gprof for profiling (USE_GPROF)
@@ -93,10 +93,12 @@ UNITTESTS_DESC=				Build unit test sources (BUILD_UNITTESTS)
 BENCHMARKS_CMAKE_BOOL=		BUILD_BENCHMARKS
 CLIENT_LIB_DEPENDS=			libpng16.so:graphics/png
 CLIENT_USES=				gl xorg jpeg sdl
-CLIENT_USE=					GL+=glu \
+CLIENT_USE=	\
+							GL+=glu \
 							SDL=sdl2,ttf2 \
 							XORG=ice,sm,x11,xext,xcb,xres,xshmfence,xau,xaw,xcomposite,xcursor,xdamage,xdmcp,\
 							xfixes,xft,xi,xinerama,xkbfile,xmu,xpm,xrandr,xrender,xscreensaver,xt,xtst,xv,xxf86vm
+
 CLIENT_CMAKE_BOOL=			BUILD_CLIENT
 CURL_LIB_DEPENDS=			libcurl.so:ftp/curl
 CURL_CMAKE_BOOL=			ENABLE_CURL
@@ -201,19 +203,9 @@ post-install:
 	@${ECHO_MSG} "-->  Local network issues could cause singleplayer to fail. "
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} "-->  Alternate graphics driver may be set in client config, must be set to get used."
+	@${ECHO_MSG} "     -- One in minetest config, opengles likely needs sdl option built with it also."
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} " "
-
-# hacky way to not bring irrlicht and X11 depends for server only
-#.if ! ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MSERVER}
-#BROKEN= server only hack fails for irrlicht fork
-#.endif
-# From wiki:
-#  Building without Irrlicht / X dependency
-# You can build the Minetest server without library dependencies to Irrlicht or any graphical stuff.
-# You still need the Irrlicht headers for this, so first, download the irrlicht source to somewhere.
-#
-# When invoking CMake, use -DBUILD_CLIENT=0 -DIRRLICHT_SOURCE_DIR=/wherever/you/unzipped/the/source.
 
 #----------------------------------------------------------------------
 # Warning: you might not need LIB_DEPENDS on libGL.so
