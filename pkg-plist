@@ -464,6 +464,16 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/soundstuff/textures/soundstuff_racecar.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/stairs/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/stairs/mod.conf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testabms/README.md
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testabms/after_node.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testabms/chances.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testabms/init.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testabms/intervals.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testabms/min_max.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testabms/mod.conf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testabms/neighbors.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testabms/textures/testabms_after_node.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testabms/textures/testabms_wait_node.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/armor.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testentities/mod.conf
