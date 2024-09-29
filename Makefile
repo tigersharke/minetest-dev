@@ -1,6 +1,6 @@
 # Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240927
+DISTVERSION=	g20240928
 CATEGORIES=		games
 MASTER_SITES=	GH
 PKGNAMESUFFIX=	-dev
@@ -24,7 +24,7 @@ USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		700fbc803d7fb393863074beb9e6c86e6883f003
+GH_TAGNAME=		bca44574d511ed49d50c4eaf8f5927063f7d40ed
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -44,7 +44,7 @@ WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 # options definitions
 OPTIONS_DEFAULT=			CURL DOCS LTO SOUND SPATIAL SYSTEM_LUAJIT SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP CLIENT OPENGL
 OPTIONS_GROUP=				BUILD DATABASE MISC NEEDS SYSTEM
-OPTIONS_GROUP_BUILD=		BENCHMARKS DEVTEST DOCS NCURSES PROFILING PROMETHEUS UNITTESTS
+OPTIONS_GROUP_BUILD=		BENCHMARKS DEVTEST DOCS GITTRACY NCURSES PROFILING PROMETHEUS TRACY UNITTESTS
 OPTIONS_GROUP_DATABASE=		LEVELDB PGSQL REDIS
 OPTIONS_GROUP_MISC=			LTO
 OPTIONS_GROUP_NEEDS=		CURL NLS SOUND SPATIAL
@@ -63,6 +63,7 @@ CURL_DESC=					Enable cURL support for fetching media: contentdb
 DATABASE_DESC=				Database support
 DEVTEST_DESC=				Install Development Test game also (INSTALL_DEVTEST)
 DOCS_DESC=					Build and install documentation (via doxygen)
+GITTRACY_DESC=				Fetch Tracy git tag --purpose uncertain--
 GLES1_DESC=					Enable OpenGL ES driver, legacy
 GLES2_DESC=					Enable OpenGL ES 2+ driver
 GRAPHICS_DESC=				Graphics support
@@ -87,10 +88,13 @@ SYSTEM_FONTS_DESC=			Use or install default fonts from ports
 SYSTEM_GMP_DESC=			Use gmp from ports (ENABLE_SYSTEM_GMP)
 SYSTEM_JSONCPP_DESC=		Use jsoncpp from ports (ENABLE_SYSTEM_JSONCPP)
 SYSTEM_LUAJIT_DESC=			Use or install luajit from ports (instead of bundled lua)
+TRACY_DESC=					Build with Tracy frame and sampling profiler --fails build--
 UNITTESTS_DESC=				Build unit test sources (BUILD_UNITTESTS)
 
 # options helpers
 BENCHMARKS_CMAKE_BOOL=		BUILD_BENCHMARKS
+TRACY_BUILD_DEPENDS=		tracy>0:devel/tracy
+TRACY_CMAKE_BOOL=			BUILD_WITH_TRACY
 CLIENT_LIB_DEPENDS=			libpng16.so:graphics/png
 CLIENT_USES=				gl xorg jpeg sdl
 CLIENT_USE=	\
