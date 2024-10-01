@@ -1,6 +1,6 @@
 # Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240928
+DISTVERSION=	g20240930
 CATEGORIES=		games
 MASTER_SITES=	GH
 PKGNAMESUFFIX=	-dev
@@ -24,7 +24,7 @@ USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		bca44574d511ed49d50c4eaf8f5927063f7d40ed
+GH_TAGNAME=		6569fdd4d1c5058972f78be46a8e2f002348274f
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -88,7 +88,7 @@ SYSTEM_FONTS_DESC=			Use or install default fonts from ports
 SYSTEM_GMP_DESC=			Use gmp from ports (ENABLE_SYSTEM_GMP)
 SYSTEM_JSONCPP_DESC=		Use jsoncpp from ports (ENABLE_SYSTEM_JSONCPP)
 SYSTEM_LUAJIT_DESC=			Use or install luajit from ports (instead of bundled lua)
-TRACY_DESC=					Build with Tracy frame and sampling profiler --fails build--
+TRACY_DESC=					Build with Tracy frame and sampling profiler --build fails--
 UNITTESTS_DESC=				Build unit test sources (BUILD_UNITTESTS)
 
 # options helpers
