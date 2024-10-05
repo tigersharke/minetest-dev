@@ -1,6 +1,6 @@
 # Portname block
 PORTNAME=		minetest
-DISTVERSION=	g20240930
+DISTVERSION=	g20241001
 CATEGORIES=		games
 MASTER_SITES=	GH
 PKGNAMESUFFIX=	-dev
@@ -24,7 +24,7 @@ USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 GH_PROJECT=     minetest
-GH_TAGNAME=		6569fdd4d1c5058972f78be46a8e2f002348274f
+GH_TAGNAME=		22ef4c8be17528d7fa23c7a0557d49aeda6f2e3a
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -32,7 +32,7 @@ CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
 				-DCMAKE_CXX_FLAGS="-stdlib=libc++"
 
 # conflicts
-#CONFLICTS=		minetest irrlichtMt irrlicht-minetest
+CONFLICTS=		minetest irrlichtMt irrlicht-minetest
 
 # wrksrc block
 WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
@@ -63,7 +63,7 @@ CURL_DESC=					Enable cURL support for fetching media: contentdb
 DATABASE_DESC=				Database support
 DEVTEST_DESC=				Install Development Test game also (INSTALL_DEVTEST)
 DOCS_DESC=					Build and install documentation (via doxygen)
-GITTRACY_DESC=				Fetch Tracy git tag --purpose uncertain--
+GITTRACY_DESC=				Fetch Tracy git tag --build fails-- --purpose uncertain--
 GLES1_DESC=					Enable OpenGL ES driver, legacy
 GLES2_DESC=					Enable OpenGL ES 2+ driver
 GRAPHICS_DESC=				Graphics support
