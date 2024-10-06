@@ -561,6 +561,7 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/properties.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_1.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_128x128_rgb.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_1f.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_1fg.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_1g.png
@@ -693,6 +694,7 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_marble_glass.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_marble_metal.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_marble_metal_overlay.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_mask_WRGBKW.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_mesh_stripes.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_mesh_stripes10.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testnodes/textures/testnodes_mesh_stripes2.png
