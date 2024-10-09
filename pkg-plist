@@ -189,6 +189,7 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DATADIR%%/builtin/mainmenu/content/dlg_contentdb.lua
 %%DATADIR%%/builtin/mainmenu/content/dlg_install.lua
 %%DATADIR%%/builtin/mainmenu/content/dlg_overwrite.lua
+%%DATADIR%%/builtin/mainmenu/content/dlg_package.lua
 %%DATADIR%%/builtin/mainmenu/content/init.lua
 %%DATADIR%%/builtin/mainmenu/content/pkgmgr.lua
 %%DATADIR%%/builtin/mainmenu/content/screenshots.lua
@@ -864,14 +865,13 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%CLIENT%%%%DATADIR%%/textures/base/pack/blank.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/bubble.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/bubble_gone.png
+%%CLIENT%%%%DATADIR%%/textures/base/pack/button_hover_semitrans.png
+%%CLIENT%%%%DATADIR%%/textures/base/pack/button_press_semitrans.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/camera_btn.png
-%%CLIENT%%%%DATADIR%%/textures/base/pack/cdb_add.png
-%%CLIENT%%%%DATADIR%%/textures/base/pack/cdb_clear.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/cdb_downloading.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/cdb_queued.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/cdb_update.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/cdb_update_cropped.png
-%%CLIENT%%%%DATADIR%%/textures/base/pack/cdb_viewonline.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/chat_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/chat_hide_btn.png
 %%CLIENT%%%%DATADIR%%/textures/base/pack/chat_show_btn.png
