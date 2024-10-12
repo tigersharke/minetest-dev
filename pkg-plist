@@ -415,14 +415,17 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/invalid/invalid_bufferview_bounds.gltf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/invalid/json_missing_brace.gltf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/mod.conf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/models/gltf_blender_cube.glb
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/models/gltf_blender_cube.gltf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/models/gltf_blender_cube_matrix_transform.gltf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/models/gltf_blender_cube_scaled.gltf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/models/gltf_frog.gltf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/models/gltf_minimal_triangle.gltf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/models/gltf_simple_skin.gltf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/models/gltf_simple_sparse_accessor.gltf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/models/gltf_snow_man.gltf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/models/gltf_spider.gltf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/models/gltf_spider_animated.gltf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/models/gltf_triangle_with_vertex_stride.gltf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/models/gltf_triangle_without_indices.gltf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/gltf/textures/gltf_cube.png
