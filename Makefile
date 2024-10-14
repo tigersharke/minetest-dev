@@ -1,6 +1,7 @@
 # PORTNAMe block
 PORTNAME=		minetest
-DISTVERSION=	g20241011
+#PORTNAME=		luanti
+DISTVERSION=	g20241012
 CATEGORIES=		games
 MASTER_SITES=	GH
 PKGNAMESUFFIX=	-dev
@@ -23,8 +24,10 @@ LIB_DEPENDS=	libzstd.so:archivers/zstd \
 USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
+#GH_ACCOUNT=    luanti-org
 GH_PROJECT=     minetest
-GH_TAGNAME=		1b2d24791a4b6c625e694db83aa85afb8ed1818f
+#GH_PROJECT=   	luanti
+GH_TAGNAME=		d95e916a4246fa38f0fcd79a07d1542e28336eb5
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
