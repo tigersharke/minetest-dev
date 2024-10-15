@@ -825,6 +825,17 @@ share/metainfo/net.minetest.minetest.metainfo.xml
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_visual_collision_box.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_visual_node_box.png
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtools/textures/testtools_visual_selection_box.png
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtranslations/init.lua
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtranslations/locale/testtranslations.fr.po
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtranslations/locale/translation_mo.fr.mo
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtranslations/locale/translation_po.fr.po
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtranslations/locale/translation_tr.fr.tr
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtranslations/mod.conf
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtranslations/test_locale/readme.txt
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtranslations/test_locale/translation_mo.de.mo
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtranslations/test_locale/translation_po.de.po
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtranslations/translation_mo.de.po
+%%DEVTEST%%%%DATADIR%%/games/devtest/mods/testtranslations/translation_mo.fr.po
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/tiled/init.lua
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/tiled/mod.conf
 %%DEVTEST%%%%DATADIR%%/games/devtest/mods/tiled/textures/tiled_tiled.png
