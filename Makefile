@@ -1,7 +1,7 @@
 # PORTNAMe block
 PORTNAME=		minetest
 #PORTNAME=		luanti
-DISTVERSION=	g20241014
+DISTVERSION=	g20241015
 CATEGORIES=		games
 MASTER_SITES=	GH
 PKGNAMESUFFIX=	-dev
@@ -27,12 +27,13 @@ GH_ACCOUNT=     minetest
 #GH_ACCOUNT=    luanti-org
 GH_PROJECT=     minetest
 #GH_PROJECT=   	luanti
-GH_TAGNAME=		6d7a5197407460515b68e1ca18052c124b2fe15b
+GH_TAGNAME=		e2ea359925c36e499b1c35161ff4ce7ceecbd32d
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
 				-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
 				-DCMAKE_CXX_FLAGS="-stdlib=libc++"
+#				-DCMAKE_FETCHCONTENT_FULLY_DISCONNECTED="FALSE"
 
 # conflicts
 CONFLICTS=		minetest irrlichtMt irrlicht-minetest
@@ -47,7 +48,7 @@ WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 # options definitions
 OPTIONS_DEFAULT=			CURL DOCS LTO SOUND SPATIAL SYSTEM_LUAJIT SYSTEM_FONTS SYSTEM_GMP SYSTEM_JSONCPP CLIENT OPENGL
 OPTIONS_GROUP=				BUILD DATABASE MISC NEEDS SYSTEM
-OPTIONS_GROUP_BUILD=		BENCHMARKS DEVTEST DOCS GITTRACY NCURSES PROFILING PROMETHEUS TRACY UNITTESTS
+OPTIONS_GROUP_BUILD=		BENCHMARKS DEVTEST DOCS NCURSES PROFILING PROMETHEUS UNITTESTS #TRACY GITTRACY
 OPTIONS_GROUP_DATABASE=		LEVELDB PGSQL REDIS
 OPTIONS_GROUP_MISC=			LTO
 OPTIONS_GROUP_NEEDS=		CURL NLS SOUND SPATIAL
@@ -66,7 +67,7 @@ CURL_DESC=					Enable cURL support for fetching media: contentdb
 DATABASE_DESC=				Database support
 DEVTEST_DESC=				Install Development Test game also (INSTALL_DEVTEST)
 DOCS_DESC=					Build and install documentation (via doxygen)
-GITTRACY_DESC=				Fetch Tracy git tag --build fails-- --purpose uncertain--
+#GITTRACY_DESC=				Fetch Tracy git tag --build fails-- --purpose uncertain--
 GLES1_DESC=					Enable OpenGL ES driver, legacy
 GLES2_DESC=					Enable OpenGL ES 2+ driver
 GRAPHICS_DESC=				Graphics support
@@ -91,13 +92,13 @@ SYSTEM_FONTS_DESC=			Use or install default fonts from ports
 SYSTEM_GMP_DESC=			Use gmp from ports (ENABLE_SYSTEM_GMP)
 SYSTEM_JSONCPP_DESC=		Use jsoncpp from ports (ENABLE_SYSTEM_JSONCPP)
 SYSTEM_LUAJIT_DESC=			Use or install luajit from ports (instead of bundled lua)
-TRACY_DESC=					Build with Tracy frame and sampling profiler --build fails--
+#TRACY_DESC=					Build with Tracy frame and sampling profiler --build fails--
 UNITTESTS_DESC=				Build unit test sources (BUILD_UNITTESTS)
 
 # options helpers
 BENCHMARKS_CMAKE_BOOL=		BUILD_BENCHMARKS
-TRACY_BUILD_DEPENDS=		tracy>0:devel/tracy
-TRACY_CMAKE_BOOL=			BUILD_WITH_TRACY
+#TRACY_BUILD_DEPENDS=		tracy>0:devel/tracy
+#TRACY_CMAKE_BOOL=			BUILD_WITH_TRACY
 CLIENT_LIB_DEPENDS=			libpng16.so:graphics/png
 CLIENT_USES=				gl xorg jpeg sdl
 CLIENT_USE=	\
