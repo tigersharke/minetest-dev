@@ -1,7 +1,7 @@
 # PORTNAMe block
 PORTNAME=		minetest
 #PORTNAME=		luanti
-DISTVERSION=	g20241017
+DISTVERSION=	g20241018
 CATEGORIES=		games
 MASTER_SITES=	GH
 PKGNAMESUFFIX=	-dev
@@ -21,13 +21,14 @@ LIB_DEPENDS=	libzstd.so:archivers/zstd \
 				libfreetype.so:print/freetype2
 
 # uses block
-USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
+USES=			cmake iconv:wchar_t sqlite ninja:make pkgconfig:build
+#USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
 #GH_ACCOUNT=    luanti-org
 GH_PROJECT=     minetest
 #GH_PROJECT=   	luanti
-GH_TAGNAME=		f2ab887644f627ced3d91f589f7617cc0d647c27
+GH_TAGNAME=		d4daa9fd40f7a91ad6536ebef10553763cefac13
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
@@ -102,10 +103,10 @@ BENCHMARKS_CMAKE_BOOL=		BUILD_BENCHMARKS
 CLIENT_LIB_DEPENDS=			libpng16.so:graphics/png
 CLIENT_USES=				gl xorg jpeg sdl
 CLIENT_USE=	\
-							GL+=glu \
+							GL=glu \
 							SDL=sdl2,ttf2 \
 							XORG=ice,sm,x11,xext,xcb,xres,xshmfence,xau,xaw,xcomposite,xcursor,xdamage,xdmcp,\
-							xfixes,xft,xi,xinerama,xkbfile,xmu,xpm,xrandr,xrender,xscreensaver,xt,xtst,xv,xxf86vm
+							xfixes,xft,xinerama,xkbfile,xmu,xpm,xrandr,xrender,xscreensaver,xt,xtst,xv,xxf86vm
 
 CLIENT_CMAKE_BOOL=			BUILD_CLIENT
 CURL_LIB_DEPENDS=			libcurl.so:ftp/curl
@@ -161,6 +162,7 @@ CMAKE_ARGS+=	-DENABLE_LUAJIT="ON" \
 # It used to be such that <OPTION>_USE= GL+=gl,opengl would satisfy, but `make test` does not agree.
 .if ${PORT_OPTIONS:MCLIENT} && ${PORT_OPTIONS:MOPENGL}
 USE_GL+=		glu opengl
+USE_XORG+=		xi
 .endif
 
 .if ${PORT_OPTIONS:MCLIENT}
