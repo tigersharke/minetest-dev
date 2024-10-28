@@ -1,7 +1,7 @@
 # PORTNAMe block
 PORTNAME=		minetest
 #PORTNAME=		luanti
-DISTVERSION=	g20241022
+DISTVERSION=	g20241023
 CATEGORIES=		games
 MASTER_SITES=	GH
 PKGNAMESUFFIX=	-dev
@@ -28,7 +28,7 @@ GH_ACCOUNT=     minetest
 #GH_ACCOUNT=    luanti-org
 GH_PROJECT=     minetest
 #GH_PROJECT=   	luanti
-GH_TAGNAME=		d52e4cdbdb2e40a3774756ea5e168cc70b50c4fb
+GH_TAGNAME=		e441b5d2406978252dd0d8408864067a690e5038
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
