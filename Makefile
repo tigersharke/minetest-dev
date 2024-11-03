@@ -1,6 +1,5 @@
-# PORTNAMe block
+# PORTNAME block
 PORTNAME=		minetest
-#PORTNAME=		luanti
 DISTVERSION=	g20241026
 CATEGORIES=		games
 MASTER_SITES=	GH
@@ -22,12 +21,9 @@ LIB_DEPENDS=	libzstd.so:archivers/zstd \
 
 # uses block
 USES=			cmake iconv:wchar_t sqlite ninja:make pkgconfig:build
-#USES=			cmake iconv:wchar_t sqlite ninja:make llvm:min=16 pkgconfig:build
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     minetest
-#GH_ACCOUNT=    luanti-org
 GH_PROJECT=     minetest
-#GH_PROJECT=   	luanti
 GH_TAGNAME=		b7073df68cc9ca89e62a2b97c5fbb23cd1454bdf
 
 # uses=cmake related variables
@@ -175,10 +171,6 @@ LIB_DEPENDS+=	libogg.so:audio/libogg libvorbisfile.so:audio/libvorbis
 .endif
 
 .if ${PORT_OPTIONS:MSERVER}
-#USE_RC_SUBR=	${PORTNAME}
-#USERS=		${PORTNAME}
-#GROUPS=	${PORTNAME}
-#USE_RC_SUBR=	minetest/ERX
 USE_RC_SUBR=	minetest
 USERS=			minetest
 GROUPS=			minetest
